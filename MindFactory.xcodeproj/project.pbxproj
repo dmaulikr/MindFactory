@@ -1,0 +1,705 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B1E985DC27294C33B1C4281C /* libPods-MindFactory.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AA581E7322CCD497D74D1A /* libPods-MindFactory.a */; };
+		D9655EEE1BCEA200006CB414 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655EED1BCEA200006CB414 /* main.m */; };
+		D9655EFF1BCEA200006CB414 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9655EFD1BCEA200006CB414 /* LaunchScreen.storyboard */; };
+		D9655F0A1BCEA200006CB414 /* MindFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F091BCEA200006CB414 /* MindFactoryTests.m */; };
+		D9655F151BCEA200006CB414 /* MindFactoryUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F141BCEA200006CB414 /* MindFactoryUITests.m */; };
+		D9655F241BCEA254006CB414 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F231BCEA254006CB414 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
+		D9655F2A1BCEA32F006CB414 /* MindFactory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9655F281BCEA32F006CB414 /* MindFactory.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		D9655F2C1BCEA35E006CB414 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9655F2B1BCEA35E006CB414 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		D9655F2E1BCEA369006CB414 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = D9655F2D1BCEA369006CB414 /* tessdata */; settings = {ASSET_TAGS = (); }; };
+		D9655F331BCEA3CD006CB414 /* AddMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F301BCEA3CD006CB414 /* AddMoneyViewController.m */; settings = {ASSET_TAGS = (); }; };
+		D9655F341BCEA3CD006CB414 /* MoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F321BCEA3CD006CB414 /* MoneyViewController.m */; settings = {ASSET_TAGS = (); }; };
+		D9655F381BCEA490006CB414 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F371BCEA490006CB414 /* ViewController.m */; settings = {ASSET_TAGS = (); }; };
+		D9655F3D1BCEA7EB006CB414 /* Item+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F3A1BCEA7EB006CB414 /* Item+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		D9655F3E1BCEA7EB006CB414 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F3C1BCEA7EB006CB414 /* Item.m */; settings = {ASSET_TAGS = (); }; };
+		D9655F421BCEA890006CB414 /* TodoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F411BCEA890006CB414 /* TodoCell.m */; settings = {ASSET_TAGS = (); }; };
+		D9655F451BCEA906006CB414 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9655F441BCEA906006CB414 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
+		D9678FEC1BCFAAD500F4E713 /* NotesTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9678FEB1BCFAAD500F4E713 /* NotesTableController.m */; settings = {ASSET_TAGS = (); }; };
+		D9678FEF1BCFAAEC00F4E713 /* NoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9678FEE1BCFAAEC00F4E713 /* NoteCell.m */; settings = {ASSET_TAGS = (); }; };
+		D9678FF21BCFAB0D00F4E713 /* NoteDesciriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9678FF11BCFAB0D00F4E713 /* NoteDesciriptionController.m */; settings = {ASSET_TAGS = (); }; };
+		D9678FF51BCFAB2600F4E713 /* NSString+Heigh.m in Sources */ = {isa = PBXBuildFile; fileRef = D9678FF41BCFAB2600F4E713 /* NSString+Heigh.m */; settings = {ASSET_TAGS = (); }; };
+		D9678FF81BCFAB7500F4E713 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = D9678FF71BCFAB7500F4E713 /* Note.m */; settings = {ASSET_TAGS = (); }; };
+		D9BCCC401BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BCCC3F1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D9655F061BCEA200006CB414 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9655EE11BCEA200006CB414 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9655EE81BCEA200006CB414;
+			remoteInfo = MindFactory;
+		};
+		D9655F111BCEA200006CB414 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9655EE11BCEA200006CB414 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9655EE81BCEA200006CB414;
+			remoteInfo = MindFactory;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		44AA581E7322CCD497D74D1A /* libPods-MindFactory.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MindFactory.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9655EE91BCEA200006CB414 /* MindFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MindFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9655EED1BCEA200006CB414 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D9655EFE1BCEA200006CB414 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D9655F001BCEA200006CB414 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9655F051BCEA200006CB414 /* MindFactoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MindFactoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9655F091BCEA200006CB414 /* MindFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MindFactoryTests.m; sourceTree = "<group>"; };
+		D9655F0B1BCEA200006CB414 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9655F101BCEA200006CB414 /* MindFactoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MindFactoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9655F141BCEA200006CB414 /* MindFactoryUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MindFactoryUITests.m; sourceTree = "<group>"; };
+		D9655F161BCEA200006CB414 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9655F221BCEA254006CB414 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D9655F231BCEA254006CB414 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D9655F291BCEA32F006CB414 /* Money.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Money.xcdatamodel; sourceTree = "<group>"; };
+		D9655F2B1BCEA35E006CB414 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D9655F2D1BCEA369006CB414 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ../tessdata; sourceTree = "<group>"; };
+		D9655F2F1BCEA3CD006CB414 /* AddMoneyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMoneyViewController.h; sourceTree = "<group>"; };
+		D9655F301BCEA3CD006CB414 /* AddMoneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMoneyViewController.m; sourceTree = "<group>"; };
+		D9655F311BCEA3CD006CB414 /* MoneyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyViewController.h; sourceTree = "<group>"; };
+		D9655F321BCEA3CD006CB414 /* MoneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyViewController.m; sourceTree = "<group>"; };
+		D9655F361BCEA490006CB414 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D9655F371BCEA490006CB414 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D9655F391BCEA7EB006CB414 /* Item+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Item+CoreDataProperties.h"; sourceTree = "<group>"; };
+		D9655F3A1BCEA7EB006CB414 /* Item+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Item+CoreDataProperties.m"; sourceTree = "<group>"; };
+		D9655F3B1BCEA7EB006CB414 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		D9655F3C1BCEA7EB006CB414 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		D9655F401BCEA890006CB414 /* TodoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoCell.h; sourceTree = "<group>"; };
+		D9655F411BCEA890006CB414 /* TodoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoCell.m; sourceTree = "<group>"; };
+		D9655F441BCEA906006CB414 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9678FEA1BCFAAD500F4E713 /* NotesTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesTableController.h; sourceTree = "<group>"; };
+		D9678FEB1BCFAAD500F4E713 /* NotesTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesTableController.m; sourceTree = "<group>"; };
+		D9678FED1BCFAAEC00F4E713 /* NoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCell.h; sourceTree = "<group>"; };
+		D9678FEE1BCFAAEC00F4E713 /* NoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteCell.m; sourceTree = "<group>"; };
+		D9678FF01BCFAB0D00F4E713 /* NoteDesciriptionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDesciriptionController.h; sourceTree = "<group>"; };
+		D9678FF11BCFAB0D00F4E713 /* NoteDesciriptionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDesciriptionController.m; sourceTree = "<group>"; };
+		D9678FF31BCFAB2600F4E713 /* NSString+Heigh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Heigh.h"; sourceTree = "<group>"; };
+		D9678FF41BCFAB2600F4E713 /* NSString+Heigh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Heigh.m"; sourceTree = "<group>"; };
+		D9678FF61BCFAB7500F4E713 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		D9678FF71BCFAB7500F4E713 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		D9BCCC3E1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIImage_Additional.h"; sourceTree = "<group>"; };
+		D9BCCC3F1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIImage_Additional.m"; sourceTree = "<group>"; };
+		DECB007A20CC65005D76A1C3 /* Pods-MindFactory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindFactory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MindFactory/Pods-MindFactory.debug.xcconfig"; sourceTree = "<group>"; };
+		F6BD16EB432D55ED64A85D89 /* Pods-MindFactory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindFactory.release.xcconfig"; path = "Pods/Target Support Files/Pods-MindFactory/Pods-MindFactory.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9655EE61BCEA200006CB414 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1E985DC27294C33B1C4281C /* libPods-MindFactory.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9655F021BCEA200006CB414 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9655F0D1BCEA200006CB414 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5969354F976A61ADA994C0BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44AA581E7322CCD497D74D1A /* libPods-MindFactory.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9655EE01BCEA200006CB414 = {
+			isa = PBXGroup;
+			children = (
+				D9655EEB1BCEA200006CB414 /* MindFactory */,
+				D9655F081BCEA200006CB414 /* MindFactoryTests */,
+				D9655F131BCEA200006CB414 /* MindFactoryUITests */,
+				D9655EEA1BCEA200006CB414 /* Products */,
+				DDC5048840FA693D9192E383 /* Pods */,
+				5969354F976A61ADA994C0BD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D9655EEA1BCEA200006CB414 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9655EE91BCEA200006CB414 /* MindFactory.app */,
+				D9655F051BCEA200006CB414 /* MindFactoryTests.xctest */,
+				D9655F101BCEA200006CB414 /* MindFactoryUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9655EEB1BCEA200006CB414 /* MindFactory */ = {
+			isa = PBXGroup;
+			children = (
+				D9655F2D1BCEA369006CB414 /* tessdata */,
+				D9655F3F1BCEA7F5006CB414 /* ManagedObjects */,
+				D9655F351BCEA3D2006CB414 /* Controllers */,
+				D9655F431BCEA894006CB414 /* Cell */,
+				D9BCCC411BCEAAA7004DF9A9 /* CategoryUIImage */,
+				D9678FE91BCFAA5F00F4E713 /* Note */,
+				D9655F221BCEA254006CB414 /* AppDelegate.h */,
+				D9655F231BCEA254006CB414 /* AppDelegate.m */,
+				D9655F441BCEA906006CB414 /* Assets.xcassets */,
+				D9655EFD1BCEA200006CB414 /* LaunchScreen.storyboard */,
+				D9655F281BCEA32F006CB414 /* MindFactory.xcdatamodeld */,
+				D9655F2B1BCEA35E006CB414 /* Main.storyboard */,
+				D9655F001BCEA200006CB414 /* Info.plist */,
+				D9655EEC1BCEA200006CB414 /* Supporting Files */,
+			);
+			path = MindFactory;
+			sourceTree = "<group>";
+		};
+		D9655EEC1BCEA200006CB414 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9655EED1BCEA200006CB414 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9655F081BCEA200006CB414 /* MindFactoryTests */ = {
+			isa = PBXGroup;
+			children = (
+				D9655F091BCEA200006CB414 /* MindFactoryTests.m */,
+				D9655F0B1BCEA200006CB414 /* Info.plist */,
+			);
+			path = MindFactoryTests;
+			sourceTree = "<group>";
+		};
+		D9655F131BCEA200006CB414 /* MindFactoryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D9655F141BCEA200006CB414 /* MindFactoryUITests.m */,
+				D9655F161BCEA200006CB414 /* Info.plist */,
+			);
+			path = MindFactoryUITests;
+			sourceTree = "<group>";
+		};
+		D9655F351BCEA3D2006CB414 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D9655F2F1BCEA3CD006CB414 /* AddMoneyViewController.h */,
+				D9655F301BCEA3CD006CB414 /* AddMoneyViewController.m */,
+				D9655F311BCEA3CD006CB414 /* MoneyViewController.h */,
+				D9655F321BCEA3CD006CB414 /* MoneyViewController.m */,
+				D9655F361BCEA490006CB414 /* ViewController.h */,
+				D9655F371BCEA490006CB414 /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D9655F3F1BCEA7F5006CB414 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				D9655F391BCEA7EB006CB414 /* Item+CoreDataProperties.h */,
+				D9655F3A1BCEA7EB006CB414 /* Item+CoreDataProperties.m */,
+				D9655F3B1BCEA7EB006CB414 /* Item.h */,
+				D9655F3C1BCEA7EB006CB414 /* Item.m */,
+			);
+			name = ManagedObjects;
+			sourceTree = "<group>";
+		};
+		D9655F431BCEA894006CB414 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D9655F401BCEA890006CB414 /* TodoCell.h */,
+				D9655F411BCEA890006CB414 /* TodoCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		D9678FE91BCFAA5F00F4E713 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				D9678FF61BCFAB7500F4E713 /* Note.h */,
+				D9678FF71BCFAB7500F4E713 /* Note.m */,
+				D9678FEA1BCFAAD500F4E713 /* NotesTableController.h */,
+				D9678FEB1BCFAAD500F4E713 /* NotesTableController.m */,
+				D9678FED1BCFAAEC00F4E713 /* NoteCell.h */,
+				D9678FEE1BCFAAEC00F4E713 /* NoteCell.m */,
+				D9678FF01BCFAB0D00F4E713 /* NoteDesciriptionController.h */,
+				D9678FF11BCFAB0D00F4E713 /* NoteDesciriptionController.m */,
+				D9678FF31BCFAB2600F4E713 /* NSString+Heigh.h */,
+				D9678FF41BCFAB2600F4E713 /* NSString+Heigh.m */,
+			);
+			name = Note;
+			sourceTree = "<group>";
+		};
+		D9BCCC411BCEAAA7004DF9A9 /* CategoryUIImage */ = {
+			isa = PBXGroup;
+			children = (
+				D9BCCC3E1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.h */,
+				D9BCCC3F1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m */,
+			);
+			name = CategoryUIImage;
+			sourceTree = "<group>";
+		};
+		DDC5048840FA693D9192E383 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DECB007A20CC65005D76A1C3 /* Pods-MindFactory.debug.xcconfig */,
+				F6BD16EB432D55ED64A85D89 /* Pods-MindFactory.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D9655EE81BCEA200006CB414 /* MindFactory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9655F191BCEA201006CB414 /* Build configuration list for PBXNativeTarget "MindFactory" */;
+			buildPhases = (
+				82EE865C2B79CD5A6C9E10DC /* Check Pods Manifest.lock */,
+				D9655EE51BCEA200006CB414 /* Sources */,
+				D9655EE61BCEA200006CB414 /* Frameworks */,
+				D9655EE71BCEA200006CB414 /* Resources */,
+				81E760FE52B1F01654E3CC98 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MindFactory;
+			productName = MindFactory;
+			productReference = D9655EE91BCEA200006CB414 /* MindFactory.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D9655F041BCEA200006CB414 /* MindFactoryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9655F1C1BCEA201006CB414 /* Build configuration list for PBXNativeTarget "MindFactoryTests" */;
+			buildPhases = (
+				D9655F011BCEA200006CB414 /* Sources */,
+				D9655F021BCEA200006CB414 /* Frameworks */,
+				D9655F031BCEA200006CB414 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9655F071BCEA200006CB414 /* PBXTargetDependency */,
+			);
+			name = MindFactoryTests;
+			productName = MindFactoryTests;
+			productReference = D9655F051BCEA200006CB414 /* MindFactoryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D9655F0F1BCEA200006CB414 /* MindFactoryUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9655F1F1BCEA201006CB414 /* Build configuration list for PBXNativeTarget "MindFactoryUITests" */;
+			buildPhases = (
+				D9655F0C1BCEA200006CB414 /* Sources */,
+				D9655F0D1BCEA200006CB414 /* Frameworks */,
+				D9655F0E1BCEA200006CB414 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9655F121BCEA200006CB414 /* PBXTargetDependency */,
+			);
+			name = MindFactoryUITests;
+			productName = MindFactoryUITests;
+			productReference = D9655F101BCEA200006CB414 /* MindFactoryUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9655EE11BCEA200006CB414 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = CEIT;
+				TargetAttributes = {
+					D9655EE81BCEA200006CB414 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 52KAJ55X3A;
+					};
+					D9655F041BCEA200006CB414 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 52KAJ55X3A;
+						TestTargetID = D9655EE81BCEA200006CB414;
+					};
+					D9655F0F1BCEA200006CB414 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 52KAJ55X3A;
+						TestTargetID = D9655EE81BCEA200006CB414;
+					};
+				};
+			};
+			buildConfigurationList = D9655EE41BCEA200006CB414 /* Build configuration list for PBXProject "MindFactory" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D9655EE01BCEA200006CB414;
+			productRefGroup = D9655EEA1BCEA200006CB414 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9655EE81BCEA200006CB414 /* MindFactory */,
+				D9655F041BCEA200006CB414 /* MindFactoryTests */,
+				D9655F0F1BCEA200006CB414 /* MindFactoryUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D9655EE71BCEA200006CB414 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9655F2C1BCEA35E006CB414 /* Main.storyboard in Resources */,
+				D9655F2E1BCEA369006CB414 /* tessdata in Resources */,
+				D9655F451BCEA906006CB414 /* Assets.xcassets in Resources */,
+				D9655EFF1BCEA200006CB414 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9655F031BCEA200006CB414 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9655F0E1BCEA200006CB414 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		81E760FE52B1F01654E3CC98 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MindFactory/Pods-MindFactory-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82EE865C2B79CD5A6C9E10DC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9655EE51BCEA200006CB414 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9678FF81BCFAB7500F4E713 /* Note.m in Sources */,
+				D9655F3E1BCEA7EB006CB414 /* Item.m in Sources */,
+				D9655F381BCEA490006CB414 /* ViewController.m in Sources */,
+				D9655F3D1BCEA7EB006CB414 /* Item+CoreDataProperties.m in Sources */,
+				D9655F421BCEA890006CB414 /* TodoCell.m in Sources */,
+				D9655F2A1BCEA32F006CB414 /* MindFactory.xcdatamodeld in Sources */,
+				D9655F341BCEA3CD006CB414 /* MoneyViewController.m in Sources */,
+				D9678FEC1BCFAAD500F4E713 /* NotesTableController.m in Sources */,
+				D9678FF51BCFAB2600F4E713 /* NSString+Heigh.m in Sources */,
+				D9678FF21BCFAB0D00F4E713 /* NoteDesciriptionController.m in Sources */,
+				D9678FEF1BCFAAEC00F4E713 /* NoteCell.m in Sources */,
+				D9BCCC401BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m in Sources */,
+				D9655EEE1BCEA200006CB414 /* main.m in Sources */,
+				D9655F241BCEA254006CB414 /* AppDelegate.m in Sources */,
+				D9655F331BCEA3CD006CB414 /* AddMoneyViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9655F011BCEA200006CB414 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9655F0A1BCEA200006CB414 /* MindFactoryTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9655F0C1BCEA200006CB414 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9655F151BCEA200006CB414 /* MindFactoryUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D9655F071BCEA200006CB414 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9655EE81BCEA200006CB414 /* MindFactory */;
+			targetProxy = D9655F061BCEA200006CB414 /* PBXContainerItemProxy */;
+		};
+		D9655F121BCEA200006CB414 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9655EE81BCEA200006CB414 /* MindFactory */;
+			targetProxy = D9655F111BCEA200006CB414 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D9655EFD1BCEA200006CB414 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9655EFE1BCEA200006CB414 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D9655F171BCEA200006CB414 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D9655F181BCEA200006CB414 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D9655F1A1BCEA201006CB414 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DECB007A20CC65005D76A1C3 /* Pods-MindFactory.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MindFactory/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CEIT.MindFactory;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D9655F1B1BCEA201006CB414 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6BD16EB432D55ED64A85D89 /* Pods-MindFactory.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MindFactory/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CEIT.MindFactory;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D9655F1D1BCEA201006CB414 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MindFactoryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CEIT.MindFactoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MindFactory.app/MindFactory";
+			};
+			name = Debug;
+		};
+		D9655F1E1BCEA201006CB414 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MindFactoryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CEIT.MindFactoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MindFactory.app/MindFactory";
+			};
+			name = Release;
+		};
+		D9655F201BCEA201006CB414 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MindFactoryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CEIT.MindFactoryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MindFactory;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		D9655F211BCEA201006CB414 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MindFactoryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = CEIT.MindFactoryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MindFactory;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9655EE41BCEA200006CB414 /* Build configuration list for PBXProject "MindFactory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9655F171BCEA200006CB414 /* Debug */,
+				D9655F181BCEA200006CB414 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9655F191BCEA201006CB414 /* Build configuration list for PBXNativeTarget "MindFactory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9655F1A1BCEA201006CB414 /* Debug */,
+				D9655F1B1BCEA201006CB414 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9655F1C1BCEA201006CB414 /* Build configuration list for PBXNativeTarget "MindFactoryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9655F1D1BCEA201006CB414 /* Debug */,
+				D9655F1E1BCEA201006CB414 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9655F1F1BCEA201006CB414 /* Build configuration list for PBXNativeTarget "MindFactoryUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9655F201BCEA201006CB414 /* Debug */,
+				D9655F211BCEA201006CB414 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D9655F281BCEA32F006CB414 /* MindFactory.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D9655F291BCEA32F006CB414 /* Money.xcdatamodel */,
+			);
+			currentVersion = D9655F291BCEA32F006CB414 /* Money.xcdatamodel */;
+			path = MindFactory.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D9655EE11BCEA200006CB414 /* Project object */;
+}
