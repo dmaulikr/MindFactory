@@ -23,8 +23,12 @@
 
 - (void)configureNoteCellWithNote:(Note*)note
 {
-    self.titleLabel.text = note.title;
-    self.descriptionLabel.text = note.noteDescription;
+   // self.titleLabel.text = note.title;
+    NSAttributedString *myAttrString =
+    [NSKeyedUnarchiver unarchiveObjectWithData: note.noteDescription];
+    
+  //  NSString* description = ;
+    self.descriptionLabel.text = myAttrString.string;
 }
 
 @end

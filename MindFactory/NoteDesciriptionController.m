@@ -10,7 +10,6 @@
 #import "NoteCell.h"
 
 #define segueString @"modalConfirm"
-#define APP (AppDelegate*)[[UIApplication sharedApplication]delegate]
 
 @interface NoteDesciriptionController ()
 <UITextViewDelegate, UITextFieldDelegate>
@@ -18,79 +17,126 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewBottomSpace;
+
+@property (strong, nonatomic) NSMutableAttributedString *attrString;
+
+//selected string
+@property NSInteger startStr;
+@property NSInteger endStr;
 
 @end
 
 @implementation NoteDesciriptionController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+   [self.descriptionTextField setScrollEnabled:YES];
+    
     if (self.isNew) {
         self.addButton.title = @"Add";
-        self.addButton.enabled = NO;
     }else{
         self.addButton.title = @"Save";
     }
     if (self.note) {
-        self.titleTextField.text = self.note.title;
-        self.descriptionTextField.text = self.note.noteDescription;
+        
+        NSAttributedString *myAttrString =
+        [NSKeyedUnarchiver unarchiveObjectWithData: self.note.noteDescription];
+    
+        self.descriptionTextField.attributedText = myAttrString;
     }
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidHide:)
+                                                 name:UIKeyboardDidHideNotification
+                                               object:nil];
+
+}
+
+
+- (void)keyboardDidShow: (NSNotification *) notif{
+    // Do something here
+    self.scrollViewBottomSpace.constant = 253;
+    [self.view layoutIfNeeded];
+}
+
+- (void)keyboardDidHide: (NSNotification *) notif{
+    // Do something here
+}
+
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.3];
+        
+        self.scrollView.frame = CGRectMake(self.scrollView.frame.origin.x, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+        [UIView commitAnimations];
+        return NO;
+    }
+    return YES;
 }
 
 - (IBAction)backgrountTapAction:(id)sender
 {
-    if ([self.titleTextField isFirstResponder]) {
-        [self.titleTextField resignFirstResponder];
-    }
     if ([self.descriptionTextField isFirstResponder]) {
         [self.descriptionTextField resignFirstResponder];
+        
     }
+    self.scrollViewBottomSpace.constant = 0;
+    [self.view layoutSubviews];
 }
 
 - (IBAction)addButtonAction:(id)sender
 {
-    NSString* title = self.titleTextField.text;
-    NSString* description = self.descriptionTextField.text;
     if (self.isNew) {
-        [APP_DELEGATE addNewNoteWithTitle:title text:description];
+         NSData *data = [NSKeyedArchiver archivedDataWithRootObject: self.descriptionTextField.attributedText];
+        [APP_DELEGATE addNewNoteWithText:data];
     }else{
-        self.note.title = title;
-        self.note.noteDescription = description;
+        
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject: self.descriptionTextField.attributedText];
+        self.note.noteDescription = data;
         self.note.timeStamp = [NSDate date];
         [APP_DELEGATE saveContext];
     }
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+#pragma mark - Editing
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+   
+}
+
 
 #pragma mark - Text Delegates
-- (IBAction)textFieldEditingChanged:(id)sender
-{
-    [self configureAddButton];
+
+- (void)textViewDidChangeSelection:(UITextView *)textView {
+    NSRange r = self.descriptionTextField.selectedRange;
+    NSLog(@"Start from : %lu",(unsigned long)r.location); //starting selection in text selection
+    NSLog(@"To : %lu",(unsigned long)r.length); // end position in text selection
+    NSLog([self.descriptionTextField.text substringWithRange:NSMakeRange(r.location, r.length)]); //tv is my text view
+   
+    self.startStr = r.location;
+    self.endStr = r.length;
+   
+    // self.attrString = self.descriptionTextField.attributedText;
+
 }
 
-- (void)textViewDidChangeSelection:(UITextView *)textView;
-{
-    [self configureAddButton];
-}
-
-/*
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)text;
-{
-    [self configureAddButton];
-    return YES;
-}
-*/
-
-- (void)configureAddButton
-{
-    if (([self.titleTextField.text isEqualToString:@""])||([self.descriptionTextField.text isEqualToString:@""])) {
-        self.addButton.enabled = NO;
-    }else{
-        self.addButton.enabled = YES;
-    }
-    
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -98,53 +144,45 @@
 
 #pragma mark - AttributedString
 
-- (IBAction)redColorText:(id)sender {
+- (IBAction)italicText:(id)sender {
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:self.descriptionTextField.attributedText];
     
-    NSString *string = self.descriptionTextField.text;
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:string];
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+    NSString *fontName = self.descriptionTextField.font.fontName;
+    CGFloat fontSize = self.descriptionTextField.font.pointSize;
     
-    NSDictionary *attrDict = @{
-                               NSFontAttributeName : [UIFont fontWithName:@"Arial" size:16.0],
-                               NSForegroundColorAttributeName : [UIColor redColor]
-                               };
-    
-    [paragraphStyle setLineSpacing:20];  // Or whatever (positive) value you like...
-    [attrString beginEditing];
-    
-    [attrString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:15.0] range:NSMakeRange(0, string.length)];
-    
-    [attrString addAttributes:attrDict range:NSMakeRange(0, string.length)];
-    
-    [attrString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, string.length)];
-    
-    [attrString endEditing];
-    
-    self.descriptionTextField.attributedText = attrString;
+    if (self.endStr != 0) {
+        [string addAttribute:NSFontAttributeName
+                       value:[UIFont italicSystemFontOfSize:18]
+                       range:NSMakeRange(self.startStr, self.endStr)];
+        
+        
+        
+        self.descriptionTextField.attributedText = string;
+        
+    }
 }
-- (IBAction)boldText:(id)sender {
-    NSString *string = self.descriptionTextField.text;
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:string];
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
-    
-    NSDictionary *attrDict = @{
-                               NSFontAttributeName : [UIFont fontWithName:@"Arial" size:16.0],
-                               NSForegroundColorAttributeName : [UIColor greenColor]
-                               };
-    
-    [paragraphStyle setLineSpacing:20];  // Or whatever (positive) value you like...
-    [attrString beginEditing];
-    
-    [attrString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16] range:NSMakeRange(0, string.length)];
 
-    [attrString addAttributes:attrDict range:NSMakeRange(0, string.length)];
- 
-    [attrString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, string.length)];
+
+- (IBAction)boldText:(id)sender {
+   
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:self.descriptionTextField.attributedText];
     
-    [attrString endEditing];
+    NSString *fontName = self.descriptionTextField.font.fontName;
+    CGFloat fontSize = self.descriptionTextField.font.pointSize;
     
-    self.descriptionTextField.attributedText = attrString;
+    if (self.endStr != 0) {
+        [string addAttribute:NSFontAttributeName
+                             value:[UIFont boldSystemFontOfSize:18]
+                             range:NSMakeRange(self.startStr, self.endStr)];
+        
+     
+    
+        self.descriptionTextField.attributedText = string;
+        
+    }
 }
+
+
 
 
 /*

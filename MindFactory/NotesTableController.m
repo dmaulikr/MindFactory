@@ -14,7 +14,7 @@
 
 #define cellSegue @"cellSegue"
 #define addSegue @"addSegue"
-//#define APP (AppDelegate*)[[UIApplication sharedApplication]delegate]
+
 
 @interface NotesTableController ()
 <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
@@ -64,7 +64,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Note* aNote = [[[APP_DELEGATE notesFetchController]fetchedObjects]objectAtIndex:indexPath.row];
-    NSString* description = aNote.noteDescription;
+   
+    NSAttributedString *myAttrString =
+    [NSKeyedUnarchiver unarchiveObjectWithData: aNote.noteDescription];
+    
+    NSString* description = myAttrString.string;
     return 46 + [description heightForString];
 }
 

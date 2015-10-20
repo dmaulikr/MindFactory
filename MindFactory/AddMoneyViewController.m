@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *keyboardButtonSaveAndAdd;
 @property (weak, nonatomic) IBOutlet UITextView *noteTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIButton *btnNoteWithPhoto;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UIButton *notePhotoButton;
 
@@ -33,14 +32,14 @@
 
 
 //picker for photo
-@property (strong, nonatomic) UIImagePickerController *picker1;
+@property (strong, nonatomic) UIImagePickerController *pickerForImage;
 //picker for
-@property (strong, nonatomic) UIImagePickerController *picker2;
+@property (strong, nonatomic) UIImagePickerController *pickerForRecognizeImage;
 
 
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
 
-@property (strong, nonatomic) M13ProgressHUD *HUD;
+@property (strong, nonatomic) M13ProgressHUD *progresViewHUD;
 
 @end
 
@@ -85,11 +84,11 @@
         
     } else if (self.isNew == NO) {
         
-        NSString *buf = [[NSString alloc]initWithFormat:@"%@", self.item.value];
+        NSString *buf = [[NSString alloc]initWithFormat:@"%@", self.currentItem.value];
         self.textField.text = buf;
-        self.noteTextView.text = self.item.notes;
+        self.noteTextView.text = self.currentItem.notes;
        
-        self.imageView.image = [self imageFromData:self.item.photo];
+        self.imageView.image = [self imageFromData:self.currentItem.photo];
         
         
         [self.AddOrSaveButton setTitle:@"Save" forState:UIControlStateNormal];
@@ -108,8 +107,8 @@
             self.textField.text = [[NSString alloc]initWithFormat:@"%@0",self.textField.text];
         }
         
-        NSLog(@"Item positive:   %@", self.item.positive);
-        if ([self.item.positive intValue] == 1) {
+        NSLog(@"Item positive:   %@", self.currentItem.positive);
+        if ([self.currentItem.positive intValue] == 1) {
             self.sign = @"+";
         } else {
             self.sign = @"-";
@@ -160,22 +159,20 @@
         NSString *tmpStr =  [[NSString alloc]initWithFormat:@"%@.%@", self.beforeDot, self.afterDot];
         NSNumber  *value = [NSNumber numberWithFloat: [tmpStr floatValue]];
         
-        self.item.value = value;
-        self.item.timeStamp = [NSDate date];
-        self.item.notes = self.noteTextView.text;
-        self.item.photo = [self dataFromImage:self.imageView.image];
+        self.currentItem.value = value;
+        self.currentItem.timeStamp = [NSDate date];
+        self.currentItem.notes = self.noteTextView.text;
+        self.currentItem.photo = [self dataFromImage:self.imageView.image];
         
         [APP_DELEGATE saveContext];
     }
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
 - (IBAction)cabcelButtonPresed:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
 
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -368,22 +365,22 @@
 
 - (void)imagePickerFromCamera
 {
-    self.picker1 = [[UIImagePickerController alloc] init];
-    self.picker1.delegate = self;
-    self.picker1.allowsEditing = YES;
-    self.picker1.sourceType = UIImagePickerControllerSourceTypeCamera;
+    self.pickerForImage = [[UIImagePickerController alloc] init];
+    self.pickerForImage.delegate = self;
+    self.pickerForImage.allowsEditing = YES;
+    self.pickerForImage.sourceType = UIImagePickerControllerSourceTypeCamera;
     
-    [self presentViewController:self.picker1 animated:YES completion:NULL];
+    [self presentViewController:self.pickerForImage animated:YES completion:NULL];
 }
 
 - (void)imagePickerFromGallary
 {
-    self.picker1 = [[UIImagePickerController alloc] init];
-    self.picker1.delegate = self;
-    self.picker1.allowsEditing = YES;
-    self.picker1.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    self.pickerForImage = [[UIImagePickerController alloc] init];
+    self.pickerForImage.delegate = self;
+    self.pickerForImage.allowsEditing = YES;
+    self.pickerForImage.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
-    [self presentViewController:self.picker1 animated:YES completion:NULL];
+    [self presentViewController:self.pickerForImage animated:YES completion:NULL];
 }
 
 
@@ -392,13 +389,13 @@
     UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
     
     
-    if ([picker isEqual:self.picker1]) {
+    if ([picker isEqual:self.pickerForImage]) {
         
         self.imageToRecognize = chosenImage;
         chosenImage = [UIImage compressForUpload:chosenImage scale:0.2];
         self.imageView.image = chosenImage;
     
-    } else if ([picker isEqual:self.picker2]) {
+    } else if ([picker isEqual:self.pickerForRecognizeImage]) {
     
         self.imageToRecognize = chosenImage;
         [self recognizeImageWithTesseract:self.imageToRecognize];
@@ -477,9 +474,9 @@
     double proc = (double)tesseract.progress / 100;
     NSLog(@"%f", proc);
     
-    [self.HUD setProgress:proc animated:YES];
+    [self.progresViewHUD setProgress:proc animated:YES];
    
-    self.HUD.status = @"Processing";
+    self.progresViewHUD.status = @"Processing";
 
 }
 
@@ -571,22 +568,22 @@
 
 - (void)noteFromCamera
 {
-    self.picker2 = [[UIImagePickerController alloc] init];
-    self.picker2.delegate = self;
-    self.picker2.allowsEditing = YES;
-    self.picker2.sourceType = UIImagePickerControllerSourceTypeCamera;
+    self.pickerForRecognizeImage = [[UIImagePickerController alloc] init];
+    self.pickerForRecognizeImage.delegate = self;
+    self.pickerForRecognizeImage.allowsEditing = YES;
+    self.pickerForRecognizeImage.sourceType = UIImagePickerControllerSourceTypeCamera;
     
-    [self presentViewController:self.picker2 animated:YES completion:NULL];
+    [self presentViewController:self.pickerForRecognizeImage animated:YES completion:NULL];
 }
 
 - (void)noteFromGallary
 {
-    self.picker2 = [[UIImagePickerController alloc] init];
-    self.picker2.delegate = self;
-    self.picker2.allowsEditing = YES;
-    self.picker2.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    self.pickerForRecognizeImage = [[UIImagePickerController alloc] init];
+    self.pickerForRecognizeImage.delegate = self;
+    self.pickerForRecognizeImage.allowsEditing = YES;
+    self.pickerForRecognizeImage.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
-    [self presentViewController:self.picker2 animated:YES completion:NULL];
+    [self presentViewController:self.pickerForRecognizeImage animated:YES completion:NULL];
 }
 /*
 - (void)noteWithAlreadyMadePhoto
@@ -603,39 +600,39 @@
 
 - (void)loadM13ProgressSuite
 {
-    self.HUD = [[M13ProgressHUD alloc] initWithProgressView:[[M13ProgressViewRing alloc] init]];
-    self.HUD.progressViewSize = CGSizeMake(60.0, 60.0);
-    self.HUD.animationPoint = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, [UIScreen mainScreen].bounds.size.height / 2);
+    self.progresViewHUD = [[M13ProgressHUD alloc] initWithProgressView:[[M13ProgressViewRing alloc] init]];
+    self.progresViewHUD.progressViewSize = CGSizeMake(60.0, 60.0);
+    self.progresViewHUD.animationPoint = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, [UIScreen mainScreen].bounds.size.height / 2);
     UIWindow *window = ((AppDelegate *)[UIApplication sharedApplication].delegate).window;
-    [window addSubview:self.HUD];
+    [window addSubview:self.progresViewHUD];
 }
 
 
 - (void)animateProgress
 {
-    self.HUD.status = @"Proccesing";
+    self.progresViewHUD.status = @"Proccesing";
     
-    [self.HUD show:YES];
+    [self.progresViewHUD show:YES];
 }
 
 - (void)setOne
 {
-    [self.HUD setProgress:1.0 animated:YES];
-    [self performSelector:@selector(setComplete) withObject:nil afterDelay:self.HUD.animationDuration + .1];
+    [self.progresViewHUD setProgress:1.0 animated:YES];
+    [self performSelector:@selector(setComplete) withObject:nil afterDelay:self.progresViewHUD.animationDuration + .1];
 }
 
 - (void)setComplete
 {
-    self.HUD.status = @"Complete";
-    [self.HUD performAction:M13ProgressViewActionSuccess animated:YES];
+    self.progresViewHUD.status = @"Complete";
+    [self.progresViewHUD performAction:M13ProgressViewActionSuccess animated:YES];
     [self performSelector:@selector(reset) withObject:nil afterDelay:1.5];
 }
 
 - (void)reset
 {
-    [self.HUD setProgress:0.0 animated:NO];
-    [self.HUD hide:YES];
-    [self.HUD performAction:M13ProgressViewActionNone animated:NO];
+    [self.progresViewHUD setProgress:0.0 animated:NO];
+    [self.progresViewHUD hide:YES];
+    [self.progresViewHUD performAction:M13ProgressViewActionNone animated:NO];
 }
 
 /*

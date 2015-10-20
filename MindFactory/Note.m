@@ -13,6 +13,5 @@
 
 @dynamic noteDescription;
 @dynamic timeStamp;
-@dynamic title;
 
 @end

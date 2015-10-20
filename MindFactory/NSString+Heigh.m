@@ -14,7 +14,7 @@
 
 @implementation NSString (Heigh)
 
-static const float maxHeight = 150;
+static const float maxHeight = 30;
 static const float offset = 16;
 static const float fontSize = 14;
 

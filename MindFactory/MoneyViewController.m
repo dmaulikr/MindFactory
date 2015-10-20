@@ -119,7 +119,7 @@
                 NSIndexPath * indexPath = [self.tableView indexPathForCell:sender];
                // NSLog(@"Selected row: %ld", (long)indexPath.row);
                 Item *info = [[APP_DELEGATE fetchedResultsController] objectAtIndexPath:indexPath];
-                destination.item = info;
+                destination.currentItem = info;
             }
             //
         

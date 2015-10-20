@@ -199,12 +199,10 @@
     return _notesFetchController;
 }
 
-- (void)addNewNoteWithTitle:(NSString*)title
-                       text:(NSString*)text
+- (void)addNewNoteWithText:(NSData *)text;
 {
     Note* theNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:[self managedObjectContext]];
     
-    theNote.title = title;
     theNote.noteDescription = text;
     theNote.timeStamp = [NSDate date];
     

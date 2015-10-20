@@ -12,8 +12,8 @@
 
 @interface Note : NSManagedObject
 
-@property (nonatomic, retain) NSString * noteDescription;
+@property (nonatomic, retain) NSData * noteDescription;
 @property (nonatomic, retain) NSDate * timeStamp;
-@property (nonatomic, retain) NSString * title;
+
 
 @end

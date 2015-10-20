@@ -29,14 +29,13 @@
 
 //money
 - (void)deleteItem:(Item *)deletingItem;
-- (void)createNewItem:(NSNumber *)value andDate:(NSDate*)date andNotesDescription:(NSString *)note andPhoto:(NSData *) photo numberSign: (NSNumber *)sign;
+- (void)createNewItem:(NSNumber *)value andDate:(NSDate*)date andNotesDescription:(NSString *)note andPhoto:(NSData *)photo numberSign:(NSNumber *)sign;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
 
 //notes
-- (void)addNewNoteWithTitle:(NSString*)title
-                       text:(NSString*)text;
+- (void)addNewNoteWithText:(NSData *)text;
 
 - (void)removeNote:(NSManagedObject*)note;
 
