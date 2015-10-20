@@ -595,7 +595,7 @@
                                             <constraint firstAttribute="width" constant="22" id="UBd-wx-ec9"/>
                                         </constraints>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbY-cF-Flg">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbY-cF-Flg">
                                         <rect key="frame" x="444" y="2" width="64" height="64"/>
                                         <state key="normal" image="noteCamera"/>
                                         <connections>
@@ -795,20 +795,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFo-p4-x1h">
-                                                    <rect key="frame" x="8" y="53" width="551" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFo-p4-x1h">
+                                                    <rect key="frame" x="8" y="36" width="551" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHN-Gp-tWq">
+                                                    <rect key="frame" x="8" y="59" width="551" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="aFo-p4-x1h" secondAttribute="bottom" constant="8" id="fv9-SV-wds"/>
+                                                <constraint firstItem="YHN-Gp-tWq" firstAttribute="bottom" secondItem="Grj-PC-dpB" secondAttribute="bottomMargin" id="6DN-hq-kHA"/>
+                                                <constraint firstAttribute="bottom" secondItem="aFo-p4-x1h" secondAttribute="bottom" constant="25" id="fv9-SV-wds"/>
+                                                <constraint firstItem="YHN-Gp-tWq" firstAttribute="leading" secondItem="aFo-p4-x1h" secondAttribute="leading" id="gq9-0q-H4f"/>
                                                 <constraint firstItem="aFo-p4-x1h" firstAttribute="leading" secondItem="Grj-PC-dpB" secondAttribute="leading" constant="8" id="j29-1B-jTp"/>
                                                 <constraint firstAttribute="trailing" secondItem="aFo-p4-x1h" secondAttribute="trailing" constant="8" id="kR7-bT-j3w"/>
+                                                <constraint firstItem="YHN-Gp-tWq" firstAttribute="trailing" secondItem="aFo-p4-x1h" secondAttribute="trailing" id="vM8-Go-EpS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dateLabel" destination="YHN-Gp-tWq" id="t6I-86-sC1"/>
                                             <outlet property="descriptionLabel" destination="aFo-p4-x1h" id="qPh-a9-aGh"/>
                                             <segue destination="YgA-nV-LcS" kind="show" identifier="cellSegue" id="8Oo-UQ-FoU"/>
                                         </connections>

@@ -67,6 +67,26 @@
     // Do something here
     self.scrollViewBottomSpace.constant = 253;
     [self.view layoutIfNeeded];
+    
+    
+    //set UITextView scrolling
+    UITextRange *range = self.descriptionTextField.selectedTextRange;
+    UITextPosition *position = range.start;
+    CGRect cursorRect = [self.descriptionTextField caretRectForPosition:position];
+    CGPoint cursorPoint = CGPointMake(0, cursorRect.origin.y);
+    
+    CGFloat contentFix = cursorPoint.y - self.descriptionTextField.frame.size.height + 25;
+    
+    if (contentFix < 0) {
+        contentFix = 0;
+    }
+    
+    
+    [self.descriptionTextField setContentOffset:CGPointMake((cursorPoint.x ) * 1, contentFix * 1) animated:YES];
+
+    //when keyboard hide uitextView
+    //end
+    //constant
 }
 
 - (void)keyboardDidHide: (NSNotification *) notif{
@@ -118,7 +138,7 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-   
+
 }
 
 

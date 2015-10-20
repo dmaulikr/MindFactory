@@ -11,8 +11,9 @@
 
 @interface NoteCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 - (void)configureNoteCellWithNote:(Note*)note;
 
