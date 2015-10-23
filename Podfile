@@ -5,6 +5,7 @@ target 'MindFactory' do
 
 pod 'TesseractOCRiOS', '4.0.0'
 pod 'M13ProgressSuite', '1.2.7'
+pod 'LTHPasscodeViewController'
 
 end
 

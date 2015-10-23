@@ -9,6 +9,7 @@
 #import "NotesTableController.h"
 #import "NoteDesciriptionController.h"
 #import "NoteCell.h"
+#import "Note.h"
 #import "NSString+Heigh.h"
 #import "AppDelegate.h"
 
@@ -24,13 +25,17 @@
 @end
 
 @implementation NotesTableController
+{
+
+    NSArray *searchResults;
+}
 
 @synthesize tableView = _tableView;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[APP_DELEGATE notesFetchController] setDelegate: self];
-    // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -44,16 +49,33 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma - UITableViewDataSource
+#pragma mark - UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[APP_DELEGATE notesFetchController]fetchedObjects]count];
+   if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [searchResults count];
+        
+    } else {
+        
+        return [[[APP_DELEGATE notesFetchController]fetchedObjects]count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Note* aNote = [[[APP_DELEGATE notesFetchController]fetchedObjects]objectAtIndex:indexPath.row];
     NoteCell* noteCell = [self.tableView dequeueReusableCellWithIdentifier:@"NoteCell" forIndexPath:indexPath];
+    
+    
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        aNote = [searchResults objectAtIndex:indexPath.row];
+    } else {
+        aNote = [[[APP_DELEGATE notesFetchController]fetchedObjects]objectAtIndex:indexPath.row];
+    }
+    
+    
     [noteCell configureNoteCellWithNote:aNote];
     return noteCell;
 }
@@ -118,6 +140,42 @@
     [self.tableView reloadData];
 }
 
+#pragma mark - SearchImppementation
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        NSLog(@"%@",[evaluatedObject class]);
+        
+        
+        Note* note = evaluatedObject;
+            
+        NSAttributedString *myAttrString =
+            [NSKeyedUnarchiver unarchiveObjectWithData: note.noteDescription];
+
+        if ([myAttrString.string rangeOfString:searchText].location != NSNotFound)
+        {
+            return YES;
+        }
+        return NO;
+
+       
+    }];
+    
+    
+    searchResults = [[[APP_DELEGATE notesFetchController]fetchedObjects]filteredArrayUsingPredicate:resultPredicate];
+
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
+}
 
 #pragma mark - Navigation
 

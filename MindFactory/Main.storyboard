@@ -595,7 +595,7 @@
                                             <constraint firstAttribute="width" constant="22" id="UBd-wx-ec9"/>
                                         </constraints>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbY-cF-Flg">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbY-cF-Flg">
                                         <rect key="frame" x="444" y="2" width="64" height="64"/>
                                         <state key="normal" image="noteCamera"/>
                                         <connections>
@@ -787,23 +787,31 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WTs-u5-fMo">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" text="" id="0tD-Fl-CdG">
+                                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="z73-Pk-Amf" id="cxl-z0-SnS"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NoteCell" rowHeight="80" id="SBd-Go-dkN" customClass="NoteCell">
-                                        <rect key="frame" x="0.0" y="86" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="130" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SBd-Go-dkN" id="Grj-PC-dpB">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFo-p4-x1h">
-                                                    <rect key="frame" x="8" y="36" width="551" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHN-Gp-tWq">
+                                                    <rect key="frame" x="8" y="59" width="551" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHN-Gp-tWq">
-                                                    <rect key="frame" x="8" y="59" width="551" height="12"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFo-p4-x1h">
+                                                    <rect key="frame" x="8" y="33" width="551" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -839,6 +847,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gyD-aM-K15">
+                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="oiC-fo-xtD"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="HLd-WB-ckw">
                             <connections>
                                 <segue destination="YgA-nV-LcS" kind="show" identifier="addSegue" id="OIu-GS-C66"/>
@@ -846,10 +855,20 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchDisplayController" destination="OXb-O8-hTE" id="5DK-YO-T92"/>
                         <outlet property="tableView" destination="WTs-u5-fMo" id="bA5-FO-0de"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwy-if-q2H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="OXb-O8-hTE">
+                    <connections>
+                        <outlet property="delegate" destination="z73-Pk-Amf" id="nO4-Wf-1wR"/>
+                        <outlet property="searchBar" destination="0tD-Fl-CdG" id="oxN-fq-cTA"/>
+                        <outlet property="searchContentsController" destination="z73-Pk-Amf" id="cKQ-OU-f1k"/>
+                        <outlet property="searchResultsDataSource" destination="z73-Pk-Amf" id="xf5-lE-MRK"/>
+                        <outlet property="searchResultsDelegate" destination="z73-Pk-Amf" id="zo1-DQ-eFt"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1559" y="-746"/>
         </scene>
@@ -951,7 +970,7 @@
         <image name="notesTabItemIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8Oo-UQ-FoU"/>
         <segue reference="CBI-Aw-9uH"/>
+        <segue reference="OIu-GS-C66"/>
     </inferredMetricsTieBreakers>
 </document>
