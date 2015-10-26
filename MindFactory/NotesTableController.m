@@ -12,13 +12,20 @@
 #import "Note.h"
 #import "NSString+Heigh.h"
 #import "AppDelegate.h"
+#import "LTHPasscodeViewController.h"
+#import "DiaryTableViewController.h"
 
 #define cellSegue @"cellSegue"
 #define addSegue @"addSegue"
+#define diarySegue @"diarySegue"
 
 
 @interface NotesTableController ()
-<UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
+<UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, LTHPasscodeViewControllerDelegate>
+{
+    //PasscodeViewController
+    LTHPasscodeViewController *_passcodeController;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -124,12 +131,16 @@
                                                                                            
                                                                                              NSLog(@"Deleting");
                                                                                              
+                                                                                             NoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoteCell" forIndexPath:indexPath];
+                                                                                             [cell setEditing:NO animated:YES];
+                                                                                             
                                                                                              
                                                                                             Note* aNote = [[[APP_DELEGATE notesFetchController]fetchedObjects]objectAtIndex:indexPath.row];
                                                                                              
                                                                                              [APP_DELEGATE removeNote:aNote];
                                                                                              
-                                                                                             [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                                                                                  /*           NoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoteCell" forIndexPath:indexPath];
+                                                                                             [cell setEditing:NO animated:NO];*/
                                                                                              
                                                                                           
                                                                                          }];
@@ -170,7 +181,7 @@
             break;
             
         case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
             break;
             
         case NSFetchedResultsChangeUpdate:
@@ -228,6 +239,52 @@
     return YES;
 }
 
+#pragma mark - LTHPasscodeViewDelegate
+
+- (IBAction)diaryPassCodeButtonPressed:(id)sender {
+    [[LTHPasscodeViewController sharedUser]setDelegate:self];
+    [LTHPasscodeViewController sharedUser].maxNumberOfAllowedFailedAttempts = 3;
+    
+    [LTHPasscodeViewController useKeychain:YES];
+    if ([LTHPasscodeViewController doesPasscodeExist]) {
+        if ([LTHPasscodeViewController didPasscodeTimerEnd])
+            
+            
+            [[LTHPasscodeViewController sharedUser]showLockScreenWithAnimation:YES
+                                                                    withLogout:YES
+                                                                andLogoutTitle:@"Cancel"];
+    }else{
+        [[LTHPasscodeViewController sharedUser]showForEnablingPasscodeInViewController:self asModal:YES];
+    }
+    
+    
+}
+
+
+- (void)passcodeWasEnteredSuccessfully
+{
+    
+    [self performSegueWithIdentifier:diarySegue sender:self];
+    
+}
+- (void)logoutButtonWasPressed
+{
+    [LTHPasscodeViewController close];
+}
+
+- (void)savePasscode:(NSString *)passcode
+{
+    
+}
+
+
+- (void)maxNumberOfFailedAttemptsReached {
+    [LTHPasscodeViewController close];
+    NSLog(@"Max Number of Failed Attemps Reached");
+}
+
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -248,6 +305,12 @@
         if ([[segue destinationViewController]isKindOfClass:[NoteDesciriptionController class]]) {
             NoteDesciriptionController *destination = (NoteDesciriptionController*)[segue destinationViewController];
             destination.isNew = YES;
+        }
+    }
+    
+    if ([[segue identifier]isEqualToString:diarySegue]){
+        if([[segue destinationViewController]isKindOfClass:[DiaryTableViewController class]]) {
+            DiaryTableViewController *destination = (DiaryTableViewController*)[segue destinationViewController];
         }
     }
 }

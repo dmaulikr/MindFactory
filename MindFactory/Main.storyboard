@@ -849,7 +849,7 @@
                     <navigationItem key="navigationItem" id="gyD-aM-K15">
                         <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="oiC-fo-xtD">
                             <connections>
-                                <segue destination="HjK-nN-Qze" kind="show" id="2I2-s6-KWp"/>
+                                <action selector="diaryPassCodeButtonPressed:" destination="z73-Pk-Amf" id="fgY-eC-ZfD"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="HLd-WB-ckw">
@@ -861,6 +861,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="OXb-O8-hTE" id="5DK-YO-T92"/>
                         <outlet property="tableView" destination="WTs-u5-fMo" id="bA5-FO-0de"/>
+                        <segue destination="LlU-JP-d2c" kind="show" identifier="diarySegue" id="Wyf-aq-hcp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwy-if-q2H" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -875,6 +876,34 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1559" y="-746"/>
+        </scene>
+        <!--Diary Table View Controller-->
+        <scene sceneID="NKp-OK-Npr">
+            <objects>
+                <tableViewController id="LlU-JP-d2c" customClass="DiaryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bNm-Bn-I9m">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="d92-BG-tRA">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d92-BG-tRA" id="KsW-b8-OFW">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LlU-JP-d2c" id="ORW-UI-8oO"/>
+                            <outlet property="delegate" destination="LlU-JP-d2c" id="3KP-7T-fin"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SuP-ao-MIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2441" y="-1096"/>
         </scene>
         <!--Note Desciription Controller-->
         <scene sceneID="IHx-kb-ePF">
@@ -966,24 +995,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5C-Zb-mUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2441" y="-394"/>
-        </scene>
-        <!--Diary View Controller-->
-        <scene sceneID="QJK-iX-DZV">
-            <objects>
-                <viewController id="HjK-nN-Qze" customClass="DiaryViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WLR-RE-IVV"/>
-                        <viewControllerLayoutGuide type="bottom" id="zJV-a3-DZd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="myx-OH-Ofd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lip-QF-0a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2441" y="-1062"/>
         </scene>
     </scenes>
     <resources>
