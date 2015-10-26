@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14E46" minimumToolsVersion="Automatic">
+    <entity name="Diary" syncable="YES">
+        <attribute name="noteDescription" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
     <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -14,5 +18,6 @@
     <elements>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="Note" positionX="-63" positionY="18" width="128" height="75"/>
+        <element name="Diary" positionX="-63" positionY="18" width="128" height="75"/>
     </elements>
 </model>

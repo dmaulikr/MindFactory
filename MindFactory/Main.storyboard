@@ -809,8 +809,8 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFo-p4-x1h">
-                                                    <rect key="frame" x="8" y="33" width="551" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFo-p4-x1h">
+                                                    <rect key="frame" x="8" y="36" width="551" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -847,7 +847,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gyD-aM-K15">
-                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="oiC-fo-xtD"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="oiC-fo-xtD">
+                            <connections>
+                                <segue destination="HjK-nN-Qze" kind="show" id="2I2-s6-KWp"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="HLd-WB-ckw">
                             <connections>
                                 <segue destination="YgA-nV-LcS" kind="show" identifier="addSegue" id="OIu-GS-C66"/>
@@ -961,7 +965,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5C-Zb-mUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2451" y="-1218"/>
+            <point key="canvasLocation" x="2441" y="-394"/>
+        </scene>
+        <!--Diary View Controller-->
+        <scene sceneID="QJK-iX-DZV">
+            <objects>
+                <viewController id="HjK-nN-Qze" customClass="DiaryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WLR-RE-IVV"/>
+                        <viewControllerLayoutGuide type="bottom" id="zJV-a3-DZd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="myx-OH-Ofd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lip-QF-0a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2441" y="-1062"/>
         </scene>
     </scenes>
     <resources>

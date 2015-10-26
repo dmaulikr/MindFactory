@@ -17,6 +17,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+
 @property (strong, nonatomic) UIWindow *window;
 
 
@@ -38,6 +39,9 @@
 - (void)addNewNoteWithText:(NSData *)text;
 
 - (void)removeNote:(NSManagedObject*)note;
+
+
+
 
 
 @end

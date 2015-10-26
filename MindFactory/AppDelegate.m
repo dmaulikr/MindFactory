@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "MoneyViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () 
 
 
 @end
@@ -23,6 +23,18 @@
    // UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
    // MoneyViewController *controller = (MoneyViewController *)navigationController.topViewController;
   //  controller.managedObjectContext = self.managedObjectContext;
+   
+    //PassCodeViewController
+  /*  [LTHPasscodeViewController useKeychain:NO];
+    if ([LTHPasscodeViewController doesPasscodeExist]) {
+        if ([LTHPasscodeViewController didPasscodeTimerEnd])
+            [[LTHPasscodeViewController sharedUser] showLockScreenWithAnimation:YES
+                                                                     withLogout:NO
+                                                                 andLogoutTitle:nil];
+    }*/
+
+    //end
+    
     return YES;
 }
 
@@ -136,6 +148,7 @@
     NSFetchedResultsController *theFetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:_managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     _fetchedResultsController = theFetchedResultsController;
     
+    int a;
     
     NSError *error = nil;
     

@@ -28,6 +28,7 @@
 		D9678FF21BCFAB0D00F4E713 /* NoteDesciriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9678FF11BCFAB0D00F4E713 /* NoteDesciriptionController.m */; settings = {ASSET_TAGS = (); }; };
 		D9678FF51BCFAB2600F4E713 /* NSString+Heigh.m in Sources */ = {isa = PBXBuildFile; fileRef = D9678FF41BCFAB2600F4E713 /* NSString+Heigh.m */; settings = {ASSET_TAGS = (); }; };
 		D9678FF81BCFAB7500F4E713 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = D9678FF71BCFAB7500F4E713 /* Note.m */; settings = {ASSET_TAGS = (); }; };
+		D97FA6CE1BDA77D900DC86EF /* DiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D97FA6CD1BDA77D900DC86EF /* DiaryViewController.m */; settings = {ASSET_TAGS = (); }; };
 		D9BCCC401BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BCCC3F1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,8 @@
 		D9678FF41BCFAB2600F4E713 /* NSString+Heigh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Heigh.m"; sourceTree = "<group>"; };
 		D9678FF61BCFAB7500F4E713 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		D9678FF71BCFAB7500F4E713 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		D97FA6CC1BDA77D900DC86EF /* DiaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryViewController.h; sourceTree = "<group>"; };
+		D97FA6CD1BDA77D900DC86EF /* DiaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryViewController.m; sourceTree = "<group>"; };
 		D9BCCC3E1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIImage_Additional.h"; sourceTree = "<group>"; };
 		D9BCCC3F1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIImage_Additional.m"; sourceTree = "<group>"; };
 		DECB007A20CC65005D76A1C3 /* Pods-MindFactory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindFactory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MindFactory/Pods-MindFactory.debug.xcconfig"; sourceTree = "<group>"; };
@@ -243,6 +246,8 @@
 				D9678FF11BCFAB0D00F4E713 /* NoteDesciriptionController.m */,
 				D9678FF31BCFAB2600F4E713 /* NSString+Heigh.h */,
 				D9678FF41BCFAB2600F4E713 /* NSString+Heigh.m */,
+				D97FA6CC1BDA77D900DC86EF /* DiaryViewController.h */,
+				D97FA6CD1BDA77D900DC86EF /* DiaryViewController.m */,
 			);
 			name = Note;
 			sourceTree = "<group>";
@@ -442,6 +447,7 @@
 				D9655F2A1BCEA32F006CB414 /* MindFactory.xcdatamodeld in Sources */,
 				D9655F341BCEA3CD006CB414 /* MoneyViewController.m in Sources */,
 				D9678FEC1BCFAAD500F4E713 /* NotesTableController.m in Sources */,
+				D97FA6CE1BDA77D900DC86EF /* DiaryViewController.m in Sources */,
 				D9678FF51BCFAB2600F4E713 /* NSString+Heigh.m in Sources */,
 				D9678FF21BCFAB0D00F4E713 /* NoteDesciriptionController.m in Sources */,
 				D9678FEF1BCFAAEC00F4E713 /* NoteCell.m in Sources */,

@@ -93,14 +93,65 @@
     NSString* description = myAttrString.string;
     return 46 + [description heightForString];
 }
-
+/*
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObject *note = [[APP_DELEGATE notesFetchController] objectAtIndexPath:indexPath];
         [APP_DELEGATE removeNote:note];
-//        [tableView reloadData];
     }
+}
+*/
+
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewRowAction *moveToDiaryButton = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Diary" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath)
+                                        {
+                                            NSLog(@"move to Diary");
+                                        }];
+    
+    moveToDiaryButton.backgroundColor =[UIColor grayColor];
+    UITableViewRowAction *deleteButton = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath)
+                                          {
+                                              
+                                              UIAlertController *alert= [UIAlertController
+                                                                         alertControllerWithTitle:@"Delete note"
+                                                                         message:@"Do you relly to delete note?"
+                                                                         preferredStyle:UIAlertControllerStyleAlert];
+                                              
+                                              UIAlertAction* delete = [UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDefault
+                                                                                         handler:^(UIAlertAction * action){
+                                                                                           
+                                                                                             NSLog(@"Deleting");
+                                                                                             
+                                                                                             
+                                                                                            Note* aNote = [[[APP_DELEGATE notesFetchController]fetchedObjects]objectAtIndex:indexPath.row];
+                                                                                             
+                                                                                             [APP_DELEGATE removeNote:aNote];
+                                                                                             
+                                                                                             [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                                                                                             
+                                                                                          
+                                                                                         }];
+                                              UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                                                                             handler:^(UIAlertAction * action) {
+                                                                                                 
+                                                                                                 NSLog(@"cancel btn");
+                                                                                                 
+                                                                                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                                                                                 
+                                                                                             }];
+                                              
+                                              [alert addAction:delete];
+                                              [alert addAction:cancel];
+                                              
+                                              
+                                              [self presentViewController:alert animated:YES completion:nil];
+
+                                          }];
+    
+     NSArray* buttons = @[deleteButton, moveToDiaryButton];
+     return buttons;
 }
 
 #pragma mark - NSFetchResultControllerDelegate
