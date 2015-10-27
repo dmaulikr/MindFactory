@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/AppDelegate.m"
-            timestampString = "467302740.471688"
+            timestampString = "467647474.508941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "-addNewNoteWithText:"
             landmarkType = "5">
          </BreakpointContent>

@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "Item.h"
 #import "Note.h"
+#import "Diary.h"
 
 
 #define APP_DELEGATE (AppDelegate*)[[UIApplication sharedApplication]delegate]
@@ -25,8 +26,10 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController* fetchedResultsController;
 @property (strong, nonatomic) NSFetchedResultsController* notesFetchController;
+@property (strong, nonatomic) NSFetchedResultsController* diaryFetchController;
+
 
 //money
 - (void)deleteItem:(Item *)deletingItem;
@@ -37,8 +40,10 @@
 
 //notes
 - (void)addNewNoteWithText:(NSData *)text;
-
 - (void)removeNote:(NSManagedObject*)note;
+
+//diary
+
 
 
 

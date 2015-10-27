@@ -70,6 +70,7 @@
 
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize notesFetchController = _notesFetchController;
+@synthesize diaryFetchController = _diaryFetchController;
 
 - (NSURL *)applicationDocumentsDirectory {
     // The directory the application uses to store the Core Data store file. This code uses a directory named "JSV.Money" in the application's documents directory.
@@ -147,8 +148,6 @@
     
     NSFetchedResultsController *theFetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:_managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     _fetchedResultsController = theFetchedResultsController;
-    
-    int a;
     
     NSError *error = nil;
     
@@ -228,6 +227,31 @@
     [self saveContext];
 }
 
+#pragma mark - DiaryFetchedResultsController
+- (NSFetchedResultsController *)diaryFetchController
+{
+    if (_diaryFetchController) {
+        return _diaryFetchController;
+    }
+    
+    NSEntityDescription* diaryEntity = [NSEntityDescription entityForName:@"Diary" inManagedObjectContext:[self managedObjectContext]];
+    
+    NSFetchRequest* diaryRequest = [[NSFetchRequest alloc]init];
+    [diaryRequest setEntity:diaryEntity];
+    
+    NSSortDescriptor* dateSortDescriptor = [[NSSortDescriptor alloc]initWithKey:@"timeStamp" ascending:NO];
+    [diaryRequest setSortDescriptors:@[dateSortDescriptor]];
+    
+    _diaryFetchController = [[NSFetchedResultsController alloc]initWithFetchRequest:diaryRequest managedObjectContext:[self managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
+    
+    NSError* error = nil;
+    if(![_diaryFetchController performFetch:&error]){
+        NSLog(@"%@",[error localizedDescription]);
+    }
+    
+    return _diaryFetchController;
+    
+}
 
 #pragma mark - Core Data Saving support
 
