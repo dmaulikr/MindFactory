@@ -43,7 +43,8 @@
 - (void)removeNote:(NSManagedObject*)note;
 
 //diary
-
+- (void)addNewDiaryWithText:(NSData *)text;
+- (void)removeDiary:(NSManagedObject*)diary;
 
 
 

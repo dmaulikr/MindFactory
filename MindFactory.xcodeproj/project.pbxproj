@@ -19,7 +19,6 @@
 		D9655F2E1BCEA369006CB414 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = D9655F2D1BCEA369006CB414 /* tessdata */; settings = {ASSET_TAGS = (); }; };
 		D9655F331BCEA3CD006CB414 /* AddMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F301BCEA3CD006CB414 /* AddMoneyViewController.m */; settings = {ASSET_TAGS = (); }; };
 		D9655F341BCEA3CD006CB414 /* MoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F321BCEA3CD006CB414 /* MoneyViewController.m */; settings = {ASSET_TAGS = (); }; };
-		D9655F381BCEA490006CB414 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F371BCEA490006CB414 /* ViewController.m */; settings = {ASSET_TAGS = (); }; };
 		D9655F3D1BCEA7EB006CB414 /* Item+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F3A1BCEA7EB006CB414 /* Item+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		D9655F3E1BCEA7EB006CB414 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F3C1BCEA7EB006CB414 /* Item.m */; settings = {ASSET_TAGS = (); }; };
 		D9655F421BCEA890006CB414 /* TodoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F411BCEA890006CB414 /* TodoCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -32,6 +31,7 @@
 		D9681B5F1BDFBDD200B95559 /* DiaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9681B5E1BDFBDD200B95559 /* DiaryCell.m */; settings = {ASSET_TAGS = (); }; };
 		D9681B641BDFC0F700B95559 /* Diary+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D9681B611BDFC0F700B95559 /* Diary+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		D9681B651BDFC0F700B95559 /* Diary.m in Sources */ = {isa = PBXBuildFile; fileRef = D9681B631BDFC0F700B95559 /* Diary.m */; settings = {ASSET_TAGS = (); }; };
+		D9681B681BDFD92B00B95559 /* DiaryDescriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9681B671BDFD92B00B95559 /* DiaryDescriptionController.m */; settings = {ASSET_TAGS = (); }; };
 		D9BCCC401BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BCCC3F1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -75,8 +75,6 @@
 		D9655F301BCEA3CD006CB414 /* AddMoneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMoneyViewController.m; sourceTree = "<group>"; };
 		D9655F311BCEA3CD006CB414 /* MoneyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyViewController.h; sourceTree = "<group>"; };
 		D9655F321BCEA3CD006CB414 /* MoneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyViewController.m; sourceTree = "<group>"; };
-		D9655F361BCEA490006CB414 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D9655F371BCEA490006CB414 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D9655F391BCEA7EB006CB414 /* Item+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Item+CoreDataProperties.h"; sourceTree = "<group>"; };
 		D9655F3A1BCEA7EB006CB414 /* Item+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Item+CoreDataProperties.m"; sourceTree = "<group>"; };
 		D9655F3B1BCEA7EB006CB414 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -100,6 +98,8 @@
 		D9681B611BDFC0F700B95559 /* Diary+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Diary+CoreDataProperties.m"; sourceTree = "<group>"; };
 		D9681B621BDFC0F700B95559 /* Diary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Diary.h; sourceTree = "<group>"; };
 		D9681B631BDFC0F700B95559 /* Diary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Diary.m; sourceTree = "<group>"; };
+		D9681B661BDFD92B00B95559 /* DiaryDescriptionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryDescriptionController.h; sourceTree = "<group>"; };
+		D9681B671BDFD92B00B95559 /* DiaryDescriptionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryDescriptionController.m; sourceTree = "<group>"; };
 		D9BCCC3E1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIImage_Additional.h"; sourceTree = "<group>"; };
 		D9BCCC3F1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIImage_Additional.m"; sourceTree = "<group>"; };
 		DECB007A20CC65005D76A1C3 /* Pods-MindFactory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindFactory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MindFactory/Pods-MindFactory.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +145,8 @@
 			children = (
 				D90BF3431BDE77720091D3D0 /* DiaryTableViewController.h */,
 				D90BF3441BDE77720091D3D0 /* DiaryTableViewController.m */,
+				D9681B661BDFD92B00B95559 /* DiaryDescriptionController.h */,
+				D9681B671BDFD92B00B95559 /* DiaryDescriptionController.m */,
 			);
 			name = Diary;
 			sourceTree = "<group>";
@@ -177,7 +179,7 @@
 				D9655F2D1BCEA369006CB414 /* tessdata */,
 				D9655F3F1BCEA7F5006CB414 /* ManagedObjects */,
 				D9655F431BCEA894006CB414 /* Cell */,
-				D9BCCC411BCEAAA7004DF9A9 /* CategoryUIImage */,
+				D9BCCC411BCEAAA7004DF9A9 /* Category */,
 				D9655F351BCEA3D2006CB414 /* Money */,
 				D9678FE91BCFAA5F00F4E713 /* Note */,
 				D90BF3421BDE77340091D3D0 /* Diary */,
@@ -226,8 +228,6 @@
 				D9655F301BCEA3CD006CB414 /* AddMoneyViewController.m */,
 				D9655F311BCEA3CD006CB414 /* MoneyViewController.h */,
 				D9655F321BCEA3CD006CB414 /* MoneyViewController.m */,
-				D9655F361BCEA490006CB414 /* ViewController.h */,
-				D9655F371BCEA490006CB414 /* ViewController.m */,
 			);
 			name = Money;
 			sourceTree = "<group>";
@@ -269,19 +269,19 @@
 				D9678FEB1BCFAAD500F4E713 /* NotesTableController.m */,
 				D9678FF01BCFAB0D00F4E713 /* NoteDesciriptionController.h */,
 				D9678FF11BCFAB0D00F4E713 /* NoteDesciriptionController.m */,
-				D9678FF31BCFAB2600F4E713 /* NSString+Heigh.h */,
-				D9678FF41BCFAB2600F4E713 /* NSString+Heigh.m */,
 			);
 			name = Note;
 			sourceTree = "<group>";
 		};
-		D9BCCC411BCEAAA7004DF9A9 /* CategoryUIImage */ = {
+		D9BCCC411BCEAAA7004DF9A9 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				D9678FF31BCFAB2600F4E713 /* NSString+Heigh.h */,
+				D9678FF41BCFAB2600F4E713 /* NSString+Heigh.m */,
 				D9BCCC3E1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.h */,
 				D9BCCC3F1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m */,
 			);
-			name = CategoryUIImage;
+			name = Category;
 			sourceTree = "<group>";
 		};
 		DDC5048840FA693D9192E383 /* Pods */ = {
@@ -464,12 +464,12 @@
 			files = (
 				D9678FF81BCFAB7500F4E713 /* Note.m in Sources */,
 				D9655F3E1BCEA7EB006CB414 /* Item.m in Sources */,
-				D9655F381BCEA490006CB414 /* ViewController.m in Sources */,
 				D9655F3D1BCEA7EB006CB414 /* Item+CoreDataProperties.m in Sources */,
 				D9655F421BCEA890006CB414 /* TodoCell.m in Sources */,
 				D9681B641BDFC0F700B95559 /* Diary+CoreDataProperties.m in Sources */,
 				D90BF3451BDE77720091D3D0 /* DiaryTableViewController.m in Sources */,
 				D9655F2A1BCEA32F006CB414 /* MindFactory.xcdatamodeld in Sources */,
+				D9681B681BDFD92B00B95559 /* DiaryDescriptionController.m in Sources */,
 				D9655F341BCEA3CD006CB414 /* MoneyViewController.m in Sources */,
 				D9678FEC1BCFAAD500F4E713 /* NotesTableController.m in Sources */,
 				D9681B651BDFC0F700B95559 /* Diary.m in Sources */,

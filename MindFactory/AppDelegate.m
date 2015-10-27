@@ -253,6 +253,23 @@
     
 }
 
+#pragma mark - DiaryMethods
+- (void)addNewDiaryWithText:(NSData *)text
+{
+    Diary* theDiary = [NSEntityDescription insertNewObjectForEntityForName:@"Diary" inManagedObjectContext:[self managedObjectContext]];
+    
+    theDiary.noteDescription = text;
+    theDiary.timeStamp = [NSDate date];
+    
+    [self saveContext];
+    
+}
+- (void)removeDiary:(NSManagedObject*)diary
+{
+    [[self managedObjectContext] deleteObject:diary];
+    [self saveContext];
+}
+
 #pragma mark - Core Data Saving support
 
 - (void)saveContext {

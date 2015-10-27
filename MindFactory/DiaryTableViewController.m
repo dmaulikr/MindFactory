@@ -7,12 +7,24 @@
 //
 
 #import "DiaryTableViewController.h"
+#import "AppDelegate.h"
+#import "DiaryCell.h"
 
-@interface DiaryTableViewController ()
+@interface DiaryTableViewController ()<UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
+
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end
 
 @implementation DiaryTableViewController
+{
+    
+    NSArray *searchResults;
+}
+
+@synthesize tableView = _tableView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +34,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+      [[APP_DELEGATE diaryFetchController] setDelegate: self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,59 +45,118 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Diary* aDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:indexPath.row];
+    DiaryCell* diaryCell = [self.tableView dequeueReusableCellWithIdentifier:@"diaryCell" forIndexPath:indexPath];
     
-    // Configure the cell...
     
-    return cell;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        aDiary = [searchResults objectAtIndex:indexPath.row];
+    } else {
+        aDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:indexPath.row];
+    }
+    
+    
+    [diaryCell configureDiaryCellWithDiary:aDiary];
+    return diaryCell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [searchResults count];
+        
+    } else {
+        
+        return [[[APP_DELEGATE diaryFetchController]fetchedObjects]count];
+    }
+}
+
+#pragma mark - AddNewDiary
+
+- (IBAction)addButtonPressed:(id)sender {
+    
+}
+
+
+#pragma mark - NSFetchResultControllerDelegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
+{
+    UITableView *tableView = self.tableView;
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [APP_DELEGATE saveContext];
+    [self.tableView endUpdates];
+    [self.tableView reloadData];
+}
+
+#pragma mark - SearchImppementation
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        NSLog(@"%@",[evaluatedObject class]);
+        
+        
+        Diary* diary = evaluatedObject;
+        
+        NSAttributedString *myAttrString =
+        [NSKeyedUnarchiver unarchiveObjectWithData: diary.noteDescription];
+        
+        if ([myAttrString.string rangeOfString:searchText].location != NSNotFound)
+        {
+            return YES;
+        }
+        return NO;
+        
+        
+    }];
+    
+    
+    searchResults = [[[APP_DELEGATE diaryFetchController]fetchedObjects]filteredArrayUsingPredicate:resultPredicate];
+    
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
     return YES;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation

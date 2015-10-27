@@ -16,6 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 
-- (void)configureNoteCellWithDiary:(Diary *)diary;
+- (void)configureDiaryCellWithDiary:(Diary *)diary;
 
 @end
