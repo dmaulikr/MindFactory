@@ -30,19 +30,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-      [[APP_DELEGATE diaryFetchController] setDelegate: self];
+
+    [[APP_DELEGATE diaryFetchController] setDelegate: self];
 }
 
-- (void)viewWillAppear
+- (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     
+    //research
+    self.searchDisplayController.searchBar.text =  self.searchDisplayController.searchBar.text;
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"rootViewController: viewDidAppear");
+    [super viewDidAppear:animated];
+    
+    // reload table
+    [self.searchDisplayController.searchResultsTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {

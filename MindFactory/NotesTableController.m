@@ -85,8 +85,6 @@
     Note* aNote = [[[APP_DELEGATE notesFetchController]fetchedObjects]objectAtIndex:indexPath.row];
     NoteCell* noteCell = [self.tableView dequeueReusableCellWithIdentifier:@"NoteCell" forIndexPath:indexPath];
     
-    
-    
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         aNote = [searchResults objectAtIndex:indexPath.row];
     } else {
