@@ -10,6 +10,11 @@
 
 @interface DiaryDescriptionController ()
 
+
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addDiaryButton;
+
+
 @end
 
 @implementation DiaryDescriptionController
@@ -22,6 +27,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - AddNewDiary
+
+- (IBAction)addOrSaveButtonPressed:(id)sender {
+    
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject: self.descriptionTextField.attributedText];
+    [APP_DELEGATE addNewDiaryWithText:data];
 }
 
 /*

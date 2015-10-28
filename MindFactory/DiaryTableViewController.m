@@ -9,6 +9,7 @@
 #import "DiaryTableViewController.h"
 #import "AppDelegate.h"
 #import "DiaryCell.h"
+#import "NSString+Heigh.h"
 
 @interface DiaryTableViewController ()<UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
@@ -43,6 +44,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Diary* aDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:indexPath.row];
+    
+    NSAttributedString *myAttrString =
+    [NSKeyedUnarchiver unarchiveObjectWithData: aDiary.noteDescription];
+    
+    NSString* description = myAttrString.string;
+    return 46 + [description heightForString];
+}
+
+
 #pragma mark - Table view data source
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -75,12 +90,20 @@
     }
 }
 
-#pragma mark - AddNewDiary
+#pragma mrak - SwipeToDelete
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        DiaryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"diaryCell" forIndexPath:indexPath];
+        [cell setEditing:NO animated:YES];
+        
+        NSManagedObject *diary = [[APP_DELEGATE diaryFetchController] objectAtIndexPath:indexPath];
+        
+         [APP_DELEGATE removeDiary:diary];
+    }
 
-- (IBAction)addButtonPressed:(id)sender {
-    
 }
-
 
 #pragma mark - NSFetchResultControllerDelegate
 

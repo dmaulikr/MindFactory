@@ -88,7 +88,6 @@
 }
 
 #pragma mark - UITableViewDelegate
-// Swipe to delete.
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -139,8 +138,7 @@
                                                                                              
                                                                                              [APP_DELEGATE removeNote:aNote];
                                                                                              
-                                                                                  /*           NoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoteCell" forIndexPath:indexPath];
-                                                                                             [cell setEditing:NO animated:NO];*/
+                                                                
                                                                                              
                                                                                           
                                                                                          }];
@@ -166,7 +164,8 @@
 }
 
 #pragma mark - NSFetchResultControllerDelegate
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controlle
+{
     [self.tableView beginUpdates];
 }
 
