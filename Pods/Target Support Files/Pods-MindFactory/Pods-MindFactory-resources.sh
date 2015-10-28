@@ -72,6 +72,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "LTHPasscodeViewController/Localizations/ru.lproj"
   install_resource "LTHPasscodeViewController/Localizations/zh-Hans-CN.lproj"
   install_resource "LTHPasscodeViewController/Localizations/zh-Hant.lproj"
+  install_resource "iOS-Color-Picker/Resources/colormap.png"
+  install_resource "iOS-Color-Picker/FCColorPickerViewController.xib"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "LTHPasscodeViewController/Localizations/cs.lproj"
@@ -88,6 +90,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "LTHPasscodeViewController/Localizations/ru.lproj"
   install_resource "LTHPasscodeViewController/Localizations/zh-Hans-CN.lproj"
   install_resource "LTHPasscodeViewController/Localizations/zh-Hant.lproj"
+  install_resource "iOS-Color-Picker/Resources/colormap.png"
+  install_resource "iOS-Color-Picker/FCColorPickerViewController.xib"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

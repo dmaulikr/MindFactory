@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9CD72ED56AC56EC8981ECC36"
-               BuildableName = "libLTHPasscodeViewController.a"
-               BlueprintName = "LTHPasscodeViewController"
+               BlueprintIdentifier = "3B338AC391659DC81324D79E"
+               BuildableName = "libiOS-Color-Picker.a"
+               BlueprintName = "iOS-Color-Picker"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
