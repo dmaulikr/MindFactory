@@ -7,14 +7,20 @@
 //
 
 #import "DiaryDescriptionController.h"
+#import <iOS-Color-Picker/FCColorPickerViewController.h>
 
-@interface DiaryDescriptionController ()
+@interface DiaryDescriptionController ()<FCColorPickerViewControllerDelegate>
+
+
+@property (nonatomic, copy) UIColor *color;
 
 
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addDiaryButton;
 
 @property (strong, nonatomic) NSMutableAttributedString *attrString;
+
+
 
 //selected string
 @property NSInteger startStr;
@@ -76,6 +82,41 @@
     self.startStr = r.location;
     self.endStr = r.length;
 }
+
+#pragma mark - Color Picker
+- (IBAction)pickColorButtonPressed:(id)sender {
+    FCColorPickerViewController *colorPicker = [FCColorPickerViewController colorPickerWithColor:self.color
+                                                                                        delegate:self];
+    colorPicker.tintColor = [UIColor blackColor];
+    colorPicker.backgroundColor = [UIColor whiteColor];
+    colorPicker.color = [UIColor redColor];
+    [colorPicker setModalPresentationStyle:UIModalPresentationFormSheet];
+    [self presentViewController:colorPicker
+                       animated:YES
+                     completion:nil];
+
+}
+
+#pragma mark - FCColorPickerViewControllerDelegate Methods
+
+- (void)colorPickerViewController:(FCColorPickerViewController *)colorPicker
+                   didSelectColor:(UIColor *)color
+{
+    self.color = color;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)colorPickerViewControllerDidCancel:(FCColorPickerViewController *)colorPicker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)setColor:(UIColor *)color
+{
+    _color = [color copy];
+    [self.view setBackgroundColor:_color];
+}
+
 
 /*
 #pragma mark - Navigation

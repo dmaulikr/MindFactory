@@ -250,7 +250,6 @@
     }
     
     return _diaryFetchController;
-    
 }
 
 #pragma mark - DiaryMethods

@@ -974,18 +974,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nae-Ma-LJ7">
-                                <rect key="frame" x="0.0" y="64" width="600" height="122"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <rect key="frame" x="0.0" y="115" width="600" height="122"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUV-yd-XeM">
+                                <rect key="frame" x="510" y="77" width="70" height="30"/>
+                                <state key="normal" title="Pick Color"/>
+                                <connections>
+                                    <action selector="pickColorButtonPressed:" destination="eMN-c0-fFH" eventType="touchUpInside" id="UPP-fV-2FC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nae-Ma-LJ7" firstAttribute="top" secondItem="R0T-iw-O78" secondAttribute="bottom" id="Vfd-rr-gy3"/>
-                            <constraint firstItem="nae-Ma-LJ7" firstAttribute="leading" secondItem="NpJ-Tu-BWp" secondAttribute="leading" id="cCx-Jo-D0j"/>
-                            <constraint firstAttribute="trailing" secondItem="nae-Ma-LJ7" secondAttribute="trailing" id="jA3-qa-UkK"/>
-                            <constraint firstItem="AL8-2f-QkK" firstAttribute="top" secondItem="nae-Ma-LJ7" secondAttribute="bottom" constant="414" id="n8u-hm-BWr"/>
+                            <constraint firstItem="SUV-yd-XeM" firstAttribute="trailing" secondItem="NpJ-Tu-BWp" secondAttribute="trailingMargin" id="0pU-HV-ehb"/>
+                            <constraint firstItem="nae-Ma-LJ7" firstAttribute="top" secondItem="SUV-yd-XeM" secondAttribute="bottom" constant="8" symbolic="YES" id="7hd-su-FKa"/>
+                            <constraint firstItem="AL8-2f-QkK" firstAttribute="top" secondItem="nae-Ma-LJ7" secondAttribute="bottom" constant="363" id="IaE-N6-5Od"/>
+                            <constraint firstItem="nae-Ma-LJ7" firstAttribute="leading" secondItem="NpJ-Tu-BWp" secondAttribute="leading" id="Ju9-Db-6M2"/>
+                            <constraint firstItem="SUV-yd-XeM" firstAttribute="top" secondItem="R0T-iw-O78" secondAttribute="bottom" constant="13" id="RJQ-Kg-Viv"/>
+                            <constraint firstAttribute="trailing" secondItem="nae-Ma-LJ7" secondAttribute="trailing" id="Tda-Nt-XSo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="klu-oI-vag">
