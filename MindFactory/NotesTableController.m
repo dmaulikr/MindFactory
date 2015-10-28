@@ -48,7 +48,18 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    
+    //research
+    self.searchDisplayController.searchBar.text =  self.searchDisplayController.searchBar.text;
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"rootViewController: viewDidAppear");
+    [super viewDidAppear:animated];
+  
+    // reload table
+    [self.searchDisplayController.searchResultsTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -173,7 +184,11 @@
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
 {
-    UITableView *tableView = self.tableView;
+  //  UITableView *tableView = self.tableView;
+    
+    UITableView *tableView = controller == [APP_DELEGATE notesFetchController] ? self.tableView : self.searchDisplayController.searchResultsTableView;
+    
+    
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -214,7 +229,7 @@
         NSAttributedString *myAttrString =
             [NSKeyedUnarchiver unarchiveObjectWithData: note.noteDescription];
 
-        if ([myAttrString.string rangeOfString:searchText].location != NSNotFound)
+        if ([myAttrString.string.lowercaseString rangeOfString:searchText.lowercaseString].location != NSNotFound)
         {
             return YES;
         }
@@ -223,9 +238,7 @@
        
     }];
     
-    
     searchResults = [[[APP_DELEGATE notesFetchController]fetchedObjects]filteredArrayUsingPredicate:resultPredicate];
-
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
@@ -290,15 +303,19 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:cellSegue]) {
         if ([[segue destinationViewController]isKindOfClass:[NoteDesciriptionController class]]) {
+            
             NoteDesciriptionController *destination = (NoteDesciriptionController*)[segue destinationViewController];
             destination.isNew = NO;
             NSIndexPath* index = nil;
-            if ([sender isKindOfClass:[UITableViewCell class]]) {
-                index = [self.tableView indexPathForCell:sender];
+                        
+            if (self.searchDisplayController.active) {
+                index = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+                destination.note = [searchResults objectAtIndex:index.row];
+            } else {
+                index = [self.tableView indexPathForSelectedRow];
+                 destination.note = [[[APP_DELEGATE notesFetchController]fetchedObjects]objectAtIndex:index.row];
             }
-            if (index) {
-                destination.note = [[[APP_DELEGATE notesFetchController]fetchedObjects]objectAtIndex:index.row];
-            }
+            
         }
     }else if ([[segue identifier]isEqualToString:addSegue]){
         if ([[segue destinationViewController]isKindOfClass:[NoteDesciriptionController class]]) {

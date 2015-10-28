@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "DiaryCell.h"
 #import "NSString+Heigh.h"
+#import "DiaryDescriptionController.h"
 
 @interface DiaryTableViewController ()<UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
@@ -37,6 +38,11 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
       [[APP_DELEGATE diaryFetchController] setDelegate: self];
+}
+
+- (void)viewWillAppear
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -156,7 +162,7 @@
         NSAttributedString *myAttrString =
         [NSKeyedUnarchiver unarchiveObjectWithData: diary.noteDescription];
         
-        if ([myAttrString.string rangeOfString:searchText].location != NSNotFound)
+        if ([myAttrString.string.lowercaseString rangeOfString:searchText.lowercaseString].location != NSNotFound)
         {
             return YES;
         }
@@ -181,14 +187,38 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"editSegue"]) {
+        if ([[segue destinationViewController]isKindOfClass:[DiaryDescriptionController class]])
+        {
+            DiaryDescriptionController *destination = (DiaryDescriptionController *)[segue destinationViewController];
+            
+            destination.isNew = NO;
+            NSIndexPath* index = nil;
+            
+            if (self.searchDisplayController.active) {
+                index = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+                destination.diary = [searchResults objectAtIndex:index.row];
+            } else {
+                index = [self.tableView indexPathForSelectedRow];
+                destination.diary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:index.row];
+            }
+            
+        }
+    }else if ([[segue identifier]isEqualToString:@"addSegue"]){
+        if ([[segue destinationViewController]isKindOfClass:[DiaryDescriptionController class]]) {
+            DiaryDescriptionController *destination = (DiaryDescriptionController *)[segue destinationViewController];
+            destination.isNew = YES;
+        }
+    }
+
+    
+    
 }
-*/
+
 
 @end

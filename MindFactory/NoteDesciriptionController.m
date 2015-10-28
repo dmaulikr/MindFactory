@@ -130,7 +130,7 @@
         self.note.timeStamp = [NSDate date];
         [APP_DELEGATE saveContext];
     }
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 #pragma mark - Editing
