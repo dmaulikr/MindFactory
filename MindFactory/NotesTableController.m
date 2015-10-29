@@ -42,13 +42,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[APP_DELEGATE notesFetchController] setDelegate: self];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [[APP_DELEGATE notesFetchController] setDelegate: self];
     //research
     self.searchDisplayController.searchBar.text =  self.searchDisplayController.searchBar.text;
     
@@ -122,6 +122,18 @@
 {
     UITableViewRowAction *moveToDiaryButton = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Diary" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath)
                                         {
+                                            
+                                            NoteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoteCell" forIndexPath:indexPath];
+                                            [cell setEditing:NO animated:YES];
+                                            
+                                            Note* aNote = [[[APP_DELEGATE notesFetchController]fetchedObjects]objectAtIndex:indexPath.row];
+                                            
+                                      /*      [APP_DELEGATE addNewDiaryWithText: aNote.noteDescription];
+ 
+                                            
+                                            [APP_DELEGATE removeNote:aNote];*/
+                                            
+                                            [APP_DELEGATE moveNoteToDiary:aNote];
                                             NSLog(@"move to Diary");
                                         }];
     

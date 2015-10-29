@@ -85,6 +85,12 @@
 
 #pragma mark - Color Picker
 - (IBAction)pickColorButtonPressed:(id)sender {
+    
+    
+    
+    
+    
+    
     FCColorPickerViewController *colorPicker = [FCColorPickerViewController colorPickerWithColor:self.color
                                                                                         delegate:self];
     colorPicker.tintColor = [UIColor blackColor];
@@ -115,7 +121,9 @@
 {
     _color = [color copy];
     [self.view setBackgroundColor:_color];
+    
 }
+
 
 
 /*

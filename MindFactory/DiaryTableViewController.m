@@ -31,15 +31,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [[APP_DELEGATE diaryFetchController] setDelegate: self];
+   
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+     [[APP_DELEGATE diaryFetchController] setDelegate: self];
     
     //research
     self.searchDisplayController.searchBar.text =  self.searchDisplayController.searchBar.text;
+    
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+     [[APP_DELEGATE diaryFetchController] setDelegate: nil];
     
 }
 
@@ -176,7 +184,6 @@
         
         
     }];
-    
     
     searchResults = [[[APP_DELEGATE diaryFetchController]fetchedObjects]filteredArrayUsingPredicate:resultPredicate];
     

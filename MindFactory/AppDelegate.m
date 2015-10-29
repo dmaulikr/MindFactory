@@ -128,6 +128,9 @@
     }
     _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
     [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    
+    [_managedObjectContext setRetainsRegisteredObjects:YES];
+    
     return _managedObjectContext;
 }
 
@@ -190,6 +193,7 @@
 - (NSFetchedResultsController*)notesFetchController
 {
     if (_notesFetchController) {
+        
         return _notesFetchController;
     }
     
@@ -231,6 +235,7 @@
 - (NSFetchedResultsController *)diaryFetchController
 {
     if (_diaryFetchController) {
+        [_diaryFetchController performFetch:nil];
         return _diaryFetchController;
     }
     
@@ -269,18 +274,47 @@
     [self saveContext];
 }
 
+- (void)moveNoteToDiary:(Note *)note
+{
+    //Diary* theDiary = [NSEntityDescription insertNewObjectForEntityForName:@"Diary" inManagedObjectContext:[self managedObjectContext]];
+    
+    
+    NSData *noteDescription = note.noteDescription;
+    NSDate *timeStamp = [NSDate date];
+    //theDiary.noteDescription = note.noteDescription;
+ //   theDiary.timeStamp = [NSDate date];
+    
+    [[self managedObjectContext] deleteObject:note];
+    
+    Diary* theDiary = [NSEntityDescription insertNewObjectForEntityForName:@"Diary" inManagedObjectContext:[self managedObjectContext]];
+    theDiary.noteDescription = noteDescription;
+    theDiary.timeStamp = timeStamp;
+    
+   
+    
+    [self saveContext];
+}
+
 #pragma mark - Core Data Saving support
 
 - (void)saveContext {
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil) {
-        NSError *error = nil;
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
+    
+    @try {
+        NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+        if (managedObjectContext != nil) {
+            [managedObjectContext performBlockAndWait:^{
+                NSError *error = nil;
+                if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                    abort();
+                }
+        
+            }];
         }
+    } @catch (NSException * e) {
+        NSLog(@"Exception: %@", e);
     }
 }
 
