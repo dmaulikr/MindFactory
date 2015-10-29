@@ -37,18 +37,21 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-     [[APP_DELEGATE diaryFetchController] setDelegate: self];
+    
+// [[APP_DELEGATE diaryFetchController] performFetch:nil];
+    
+    [[APP_DELEGATE diaryFetchController] setDelegate: self];
     
     //research
     self.searchDisplayController.searchBar.text =  self.searchDisplayController.searchBar.text;
-    
 }
 
--(void)viewWillDisappear:(BOOL)animated
-{
+
+-(void) viewWillDisappear:(BOOL)animated {
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        [[APP_DELEGATE diaryFetchController] setDelegate: nil];
+    }
     [super viewWillDisappear:animated];
-     [[APP_DELEGATE diaryFetchController] setDelegate: nil];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
