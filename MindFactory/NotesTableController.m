@@ -235,11 +235,7 @@
                                             [cell setEditing:NO animated:YES];
                                             
                                             Note* aNote = [[[APP_DELEGATE notesFetchController]fetchedObjects]objectAtIndex:indexPath.row];
-                                            
-                                      /*      [APP_DELEGATE addNewDiaryWithText: aNote.noteDescription];
- 
-                                            
-                                            [APP_DELEGATE removeNote:aNote];*/
+                                        
                                             
                                             [APP_DELEGATE moveNoteToDiary:aNote];
                                             NSLog(@"move to Diary");

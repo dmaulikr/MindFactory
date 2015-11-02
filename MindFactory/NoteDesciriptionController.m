@@ -33,7 +33,7 @@
     [super viewDidLoad];
     
    [self.descriptionTextField setScrollEnabled:YES];
-    
+    self.navigationItem.title = @"💇🏼🙆🏼👾👾👾👾❤️❤️❤️❤️❤️❤️";
     if (self.isNew) {
         self.addButton.title = @"Add";
     }else{
@@ -45,6 +45,7 @@
         [NSKeyedUnarchiver unarchiveObjectWithData: self.note.noteDescription];
     
         self.descriptionTextField.attributedText = myAttrString;
+        NSLog(@"%@", myAttrString);
     }
 
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -77,7 +78,6 @@
     if (contentFix < 0) {
         contentFix = 0;
     }
-    
     
     [self.descriptionTextField setContentOffset:CGPointMake((cursorPoint.x ) * 1, contentFix * 1) animated:YES];
 
@@ -149,8 +149,6 @@
    
     self.startStr = r.location;
     self.endStr = r.length;
-   
-    // self.attrString = self.descriptionTextField.attributedText;
 
 }
 
@@ -171,7 +169,6 @@
         [string addAttribute:NSFontAttributeName
                        value:[UIFont italicSystemFontOfSize:18]
                        range:NSMakeRange(self.startStr, self.endStr)];
-        
         
         
         self.descriptionTextField.attributedText = string;

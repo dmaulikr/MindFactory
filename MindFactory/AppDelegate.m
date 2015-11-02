@@ -288,21 +288,15 @@
 
 - (void)moveNoteToDiary:(Note *)note
 {
-    //Diary* theDiary = [NSEntityDescription insertNewObjectForEntityForName:@"Diary" inManagedObjectContext:[self managedObjectContext]];
-    
-    
     NSData *noteDescription = note.noteDescription;
-    NSDate *timeStamp = [NSDate date];
-    //theDiary.noteDescription = note.noteDescription;
- //   theDiary.timeStamp = [NSDate date];
     
     [[self managedObjectContext] deleteObject:note];
     
-    Diary* theDiary = [NSEntityDescription insertNewObjectForEntityForName:@"Diary" inManagedObjectContext:[self managedObjectContext]];
-    theDiary.noteDescription = noteDescription;
-    theDiary.timeStamp = timeStamp;
     
-   
+    Diary *theDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:0];
+
+    
+    theDiary.noteDescription = noteDescription;
     
     [self saveContext];
 }
