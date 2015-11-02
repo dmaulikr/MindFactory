@@ -266,8 +266,20 @@
     theDiary.timeStamp = [NSDate date];
     
     [self saveContext];
-    
 }
+
+- (void)addNewDiaryWithText:(NSData *)text andDate:(NSDate *)date
+{
+    Diary* theDiary = [NSEntityDescription insertNewObjectForEntityForName:@"Diary" inManagedObjectContext:[self managedObjectContext]];
+    
+    theDiary.noteDescription = text;
+    theDiary.timeStamp = date;
+    
+    [self saveContext];
+}
+
+
+
 - (void)removeDiary:(NSManagedObject*)diary
 {
     [[self managedObjectContext] deleteObject:diary];

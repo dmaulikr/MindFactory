@@ -44,6 +44,7 @@
 
 //diary
 - (void)addNewDiaryWithText:(NSData *)text;
+- (void)addNewDiaryWithText:(NSData *)text andDate:(NSDate *)date;
 - (void)removeDiary:(NSManagedObject*)diary;
 - (void)moveNoteToDiary:(Note *)note;
 

@@ -28,10 +28,12 @@
 
 @synthesize tableView = _tableView;
 
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-   
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -85,10 +87,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"IndexPath: %ld", (long)indexPath.row);
+    
     Diary* aDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:indexPath.row];
-    DiaryCell* diaryCell = [self.tableView dequeueReusableCellWithIdentifier:@"diaryCell" forIndexPath:indexPath];
-    
-    
+    DiaryCell* diaryCell = [self.tableView dequeueReusableCellWithIdentifier:@"diaryCell" forIndexPath:indexPath]; 
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         aDiary = [searchResults objectAtIndex:indexPath.row];

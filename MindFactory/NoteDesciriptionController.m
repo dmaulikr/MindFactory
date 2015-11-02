@@ -29,8 +29,6 @@
 
 @implementation NoteDesciriptionController
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     

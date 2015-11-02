@@ -11,7 +11,7 @@
 #import "FCBrightDarkGradView.h"
 #import "FCColorSwatchView.h"
 
-@interface FCColorPickerViewController () {
+@interface FCColorPickerViewController ()<UITextViewDelegate, UITextFieldDelegate> {
 	CGFloat currentBrightness;
 	CGFloat currentHue;
 	CGFloat currentSaturation;
@@ -112,6 +112,9 @@
         }
     }
 }
+
+
+
 
 #pragma mark - Color Manipulation
 

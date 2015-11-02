@@ -12,8 +12,8 @@
 @interface DiaryCell : UITableViewCell
 
 
+@property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 
 - (void)configureDiaryCellWithDiary:(Diary *)diary;

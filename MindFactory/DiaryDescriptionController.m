@@ -9,7 +9,7 @@
 #import "DiaryDescriptionController.h"
 #import <iOS-Color-Picker/FCColorPickerViewController.h>
 
-@interface DiaryDescriptionController ()<FCColorPickerViewControllerDelegate>
+@interface DiaryDescriptionController () <FCColorPickerViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate>
 
 
 @property (nonatomic, copy) UIColor *color;
@@ -47,7 +47,7 @@
         
         self.descriptionTextField.attributedText = myAttrString;
     }
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,23 +74,26 @@
 #pragma mark - Text Delegates
 
 - (void)textViewDidChangeSelection:(UITextView *)textView {
+    
+    
     NSRange r = self.descriptionTextField.selectedRange;
     NSLog(@"Start from : %lu",(unsigned long)r.location); //starting selection in text selection
     NSLog(@"To : %lu",(unsigned long)r.length); // end position in text selection
     NSLog([self.descriptionTextField.text substringWithRange:NSMakeRange(r.location, r.length)]); //tv is my text view
     
-    self.startStr = r.location;
-    self.endStr = r.length;
+    
+    if ( (r.length != 0)) {
+        self.startStr = r.location;
+        self.endStr = r.length;
+    }
+    
+    
+    
+     NSLog(@"%ld:%ld", (long)self.startStr, (long)self.endStr);
 }
 
 #pragma mark - Color Picker
 - (IBAction)pickColorButtonPressed:(id)sender {
-    
-    
-    
-    
-    
-    
     FCColorPickerViewController *colorPicker = [FCColorPickerViewController colorPickerWithColor:self.color
                                                                                         delegate:self];
     colorPicker.tintColor = [UIColor blackColor];
@@ -120,7 +123,34 @@
 - (void)setColor:(UIColor *)color
 {
     _color = [color copy];
-    [self.view setBackgroundColor:_color];
+    
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:self.descriptionTextField.attributedText];
+    
+ /*   NSString *fontName = self.descriptionTextField.font.fontName;
+    CGFloat fontSize = self.descriptionTextField.font.pointSize;*/
+    
+   // if (self.endStr != 0) {
+    /*    [string addAttribute:NSForegroundColorAttributeName
+                       value:_color
+                       range:NSMakeRange(self.startStr, self.endStr)];*/
+        
+    
+ //   [string addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(self.startStr, self.endStr)];
+    
+    
+    
+    NSLog(@"%ld:%ld", (long)self.startStr, (long)self.endStr);
+    
+    [string addAttribute:NSForegroundColorAttributeName value:_color range:NSMakeRange(self.startStr, self.endStr)];
+
+    
+    
+   // }
+        self.descriptionTextField.attributedText = string;
+
+    
+    self.startStr = 0;
+    self.endStr = 0;
     
 }
 

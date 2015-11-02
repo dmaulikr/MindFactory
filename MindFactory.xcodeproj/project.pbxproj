@@ -362,7 +362,7 @@
 				TargetAttributes = {
 					D9655EE81BCEA200006CB414 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 52KAJ55X3A;
+						DevelopmentTeam = T5HMNBHK78;
 					};
 					D9655F041BCEA200006CB414 = {
 						CreatedOnToolsVersion = 7.0;
@@ -612,6 +612,7 @@
 			baseConfigurationReference = DECB007A20CC65005D76A1C3 /* Pods-MindFactory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MindFactory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CEIT.MindFactory;
@@ -624,6 +625,7 @@
 			baseConfigurationReference = F6BD16EB432D55ED64A85D89 /* Pods-MindFactory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MindFactory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CEIT.MindFactory;

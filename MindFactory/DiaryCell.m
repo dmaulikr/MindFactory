@@ -20,27 +20,37 @@
     // Configure the view for the selected state
 }
 
+- (NSString *)getDateStringWithDate:(NSDate *)date
+{
+    return [NSDateFormatter localizedStringFromDate:date
+                                          dateStyle:kCFDateFormatterShortStyle
+                                          timeStyle:NSDateFormatterNoStyle];
+}
+
+- (NSString *)getDayStringWithDate:(NSDate *)now
+{
+  //  NSDate *now = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEEE"];
+    
+    return [dateFormatter stringFromDate:now];
+}
+
+
+
 - (void)configureDiaryCellWithDiary:(Diary *)diary
 {
     // self.titleLabel.text = note.title;
     NSAttributedString *myAttrString =
     [NSKeyedUnarchiver unarchiveObjectWithData: diary.noteDescription];
+     
+    //
     
-    //  NSString* description = ;
-    self.descriptionLabel.text = myAttrString.string;
+    NSString *dateString = [self getDateStringWithDate:diary.timeStamp];
+    NSString *dayString = [self getDayStringWithDate:diary.timeStamp];
     
-    
-    NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
-    
-    // [dateformate setDateFormat:@"MMM dd, yyyy HH:mm"];
-    
-    [dateformate setDateFormat:@"EEE MMM d HH:mm"];
-    
-    
-    
-    NSString *date = [dateformate stringFromDate:diary.timeStamp]; // Convert date to string
-    NSLog(@"diary date :%@",date);
-    self.dateLabel.text = date;
+    self.dayLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@", dateString, dayString];
+    self.descriptionLabel.text = @"Mega day";
 }
 
 @end

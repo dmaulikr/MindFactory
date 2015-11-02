@@ -924,8 +924,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="dateLabel" destination="Sr4-AT-Qfk" id="RYc-eh-ID5"/>
-                                    <outlet property="descriptionLabel" destination="rDK-ep-bgT" id="I5Y-bN-gMK"/>
+                                    <outlet property="dayLabel" destination="rDK-ep-bgT" id="OlB-LZ-PdL"/>
+                                    <outlet property="descriptionLabel" destination="Sr4-AT-Qfk" id="taH-ae-VYd"/>
                                     <segue destination="eMN-c0-fFH" kind="show" identifier="editSegue" id="UlL-od-2cl"/>
                                 </connections>
                             </tableViewCell>
@@ -981,20 +981,23 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nae-Ma-LJ7">
-                                <rect key="frame" x="0.0" y="102" width="600" height="122"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="122" width="592" height="122"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eMN-c0-fFH" id="LP4-NG-hBs"/>
+                                </connections>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SUV-yd-XeM" firstAttribute="trailing" secondItem="NpJ-Tu-BWp" secondAttribute="trailingMargin" id="0pU-HV-ehb"/>
-                            <constraint firstItem="nae-Ma-LJ7" firstAttribute="top" secondItem="SUV-yd-XeM" secondAttribute="bottom" id="7hd-su-FKa"/>
-                            <constraint firstItem="AL8-2f-QkK" firstAttribute="top" secondItem="nae-Ma-LJ7" secondAttribute="bottom" constant="376" id="IaE-N6-5Od"/>
+                            <constraint firstItem="nae-Ma-LJ7" firstAttribute="top" secondItem="SUV-yd-XeM" secondAttribute="bottom" constant="20" id="7hd-su-FKa"/>
+                            <constraint firstItem="AL8-2f-QkK" firstAttribute="top" secondItem="nae-Ma-LJ7" secondAttribute="bottom" constant="356" id="IaE-N6-5Od"/>
                             <constraint firstItem="nae-Ma-LJ7" firstAttribute="leading" secondItem="NpJ-Tu-BWp" secondAttribute="leading" id="Ju9-Db-6M2"/>
                             <constraint firstItem="SUV-yd-XeM" firstAttribute="top" secondItem="R0T-iw-O78" secondAttribute="bottom" constant="8" id="RJQ-Kg-Viv"/>
-                            <constraint firstAttribute="trailing" secondItem="nae-Ma-LJ7" secondAttribute="trailing" id="Tda-Nt-XSo"/>
+                            <constraint firstAttribute="trailing" secondItem="nae-Ma-LJ7" secondAttribute="trailing" constant="8" id="Tda-Nt-XSo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="klu-oI-vag">
