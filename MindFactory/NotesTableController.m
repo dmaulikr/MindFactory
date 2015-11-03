@@ -216,15 +216,6 @@
     NSString* description = myAttrString.string;
     return 46 + [description heightForString];
 }
-/*
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObject *note = [[APP_DELEGATE notesFetchController] objectAtIndexPath:indexPath];
-        [APP_DELEGATE removeNote:note];
-    }
-}
-*/
 
 - (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -7,6 +7,7 @@
 //
 
 #import "DiaryCell.h"
+#import "NSDate+GetDay.h"
 
 @implementation DiaryCell
 
@@ -20,37 +21,14 @@
     // Configure the view for the selected state
 }
 
-- (NSString *)getDateStringWithDate:(NSDate *)date
-{
-    return [NSDateFormatter localizedStringFromDate:date
-                                          dateStyle:kCFDateFormatterShortStyle
-                                          timeStyle:NSDateFormatterNoStyle];
-}
 
-- (NSString *)getDayStringWithDate:(NSDate *)now
-{
-  //  NSDate *now = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEEE"];
-    
-    return [dateFormatter stringFromDate:now];
-}
-
-
-
+#pragma mark - ConfigureCellOfDiary
 - (void)configureDiaryCellWithDiary:(Diary *)diary
-{
-    // self.titleLabel.text = note.title;
-    NSAttributedString *myAttrString =
-    [NSKeyedUnarchiver unarchiveObjectWithData: diary.noteDescription];
-     
-    //
+{    
+    NSString *dateString = [NSDate getDateStringWithDate:diary.timeStamp];
     
-    NSString *dateString = [self getDateStringWithDate:diary.timeStamp];
-    NSString *dayString = [self getDayStringWithDate:diary.timeStamp];
-    
-    self.dayLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@", dateString, dayString];
-    self.descriptionLabel.text = @"Mega day";
+    self.dayLabel.text = dateString;
+    self.descriptionLabel.text = @"😍";
 }
 
 @end

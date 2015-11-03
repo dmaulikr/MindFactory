@@ -295,9 +295,13 @@
     
     Diary *theDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:0];
 
+    NSMutableData *dataTmp = [NSMutableData data];
+    [dataTmp appendData:theDiary.noteDescription];
+    [dataTmp appendData:noteDescription];
     
-    theDiary.noteDescription = noteDescription;
     
+    
+    theDiary.noteDescription = dataTmp;
     [self saveContext];
 }
 

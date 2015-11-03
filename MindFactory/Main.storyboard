@@ -902,8 +902,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sr4-AT-Qfk">
-                                            <rect key="frame" x="8" y="40" width="584" height="12"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <rect key="frame" x="8" y="37" width="584" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -935,14 +935,7 @@
                             <outlet property="delegate" destination="LlU-JP-d2c" id="3KP-7T-fin"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="qVV-OP-LZZ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TFY-eO-xgF">
-                            <connections>
-                                <action selector="addButtonPressed:" destination="LlU-JP-d2c" id="9lH-lf-nJT"/>
-                                <segue destination="eMN-c0-fFH" kind="show" identifier="addSegue" id="V0D-RQ-pJc"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="qVV-OP-LZZ"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="gsu-Ob-0QP" id="ZKk-JL-hbQ"/>
                         <outlet property="tableView" destination="bNm-Bn-I9m" id="jmD-bt-UBI"/>
@@ -1115,7 +1108,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="OIu-GS-C66"/>
-        <segue reference="UlL-od-2cl"/>
         <segue reference="CBI-Aw-9uH"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -34,12 +34,9 @@
     [super viewDidLoad];
     
     [self.descriptionTextField setScrollEnabled:YES];
+ 
+    self.addDiaryButton.title = @"Save";
     
-    if (self.isNew) {
-        self.addDiaryButton.title = @"Add";
-    }else{
-        self.addDiaryButton.title = @"Save";
-    }
     if (self.diary) {
         
         NSAttributedString *myAttrString =
@@ -58,16 +55,11 @@
 #pragma mark - AddNewDiary
 
 - (IBAction)addOrSaveButtonPressed:(id)sender {
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject: self.descriptionTextField.attributedText];
+    self.diary.noteDescription = data;
+    self.diary.timeStamp = [NSDate date];
+    [APP_DELEGATE saveContext];
     
-    if (self.isNew) {
-        NSData *data = [NSKeyedArchiver archivedDataWithRootObject: self.descriptionTextField.attributedText];
-        [APP_DELEGATE addNewDiaryWithText:data];
-    }else{
-        NSData *data = [NSKeyedArchiver archivedDataWithRootObject: self.descriptionTextField.attributedText];
-        self.diary.noteDescription = data;
-        self.diary.timeStamp = [NSDate date];
-        [APP_DELEGATE saveContext];
-    }
     [[self navigationController] popViewControllerAnimated:YES];
 }
 
@@ -125,18 +117,7 @@
     _color = [color copy];
     
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:self.descriptionTextField.attributedText];
-    
- /*   NSString *fontName = self.descriptionTextField.font.fontName;
-    CGFloat fontSize = self.descriptionTextField.font.pointSize;*/
-    
-   // if (self.endStr != 0) {
-    /*    [string addAttribute:NSForegroundColorAttributeName
-                       value:_color
-                       range:NSMakeRange(self.startStr, self.endStr)];*/
-        
-    
- //   [string addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(self.startStr, self.endStr)];
-    
+       
     
     
     NSLog(@"%ld:%ld", (long)self.startStr, (long)self.endStr);

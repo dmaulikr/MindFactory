@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "DiaryCell.h"
 #import "NSString+Heigh.h"
+#import "NSDate+GetDay.h"
 #import "DiaryDescriptionController.h"
 
 @interface DiaryTableViewController ()<UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
@@ -116,7 +117,7 @@
 }
 
 #pragma mrak - SwipeToDelete
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
@@ -128,7 +129,7 @@
          [APP_DELEGATE removeDiary:diary];
     }
 
-}
+}*/
 
 #pragma mark - NSFetchResultControllerDelegate
 
@@ -168,8 +169,9 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - SearchImppementation
 
+
+#pragma mark - SearchImppementation
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
     NSPredicate *resultPredicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
@@ -178,10 +180,10 @@
         
         Diary* diary = evaluatedObject;
         
-        NSAttributedString *myAttrString =
-        [NSKeyedUnarchiver unarchiveObjectWithData: diary.noteDescription];
+        NSString *dateString = [NSDate getDateStringWithDate:diary.timeStamp];
+    
         
-        if ([myAttrString.string.lowercaseString rangeOfString:searchText.lowercaseString].location != NSNotFound)
+        if (([dateString.lowercaseString rangeOfString:searchText.lowercaseString].location != NSNotFound))
         {
             return YES;
         }
@@ -191,7 +193,6 @@
     }];
     
     searchResults = [[[APP_DELEGATE diaryFetchController]fetchedObjects]filteredArrayUsingPredicate:resultPredicate];
-    
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
@@ -214,8 +215,6 @@
         if ([[segue destinationViewController]isKindOfClass:[DiaryDescriptionController class]])
         {
             DiaryDescriptionController *destination = (DiaryDescriptionController *)[segue destinationViewController];
-            
-            destination.isNew = NO;
             NSIndexPath* index = nil;
             
             if (self.searchDisplayController.active) {
@@ -227,14 +226,7 @@
             }
             
         }
-    }else if ([[segue identifier]isEqualToString:@"addSegue"]){
-        if ([[segue destinationViewController]isKindOfClass:[DiaryDescriptionController class]]) {
-            DiaryDescriptionController *destination = (DiaryDescriptionController *)[segue destinationViewController];
-            destination.isNew = YES;
-        }
     }
-
-    
     
 }
 
