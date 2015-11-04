@@ -33,7 +33,6 @@
     [super viewDidLoad];
     
    [self.descriptionTextField setScrollEnabled:YES];
-    self.navigationItem.title = @"💇🏼🙆🏼👾👾👾👾❤️❤️❤️❤️❤️❤️";
     if (self.isNew) {
         self.addButton.title = @"Add";
     }else{
