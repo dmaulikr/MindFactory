@@ -50,7 +50,6 @@
     if ([self coreDataHasEntriesForEntityName:@"Diary"]) {
         
         NSArray *mass = [[APP_DELEGATE diaryFetchController]fetchedObjects];
-      //  NSInteger count = [[[APP_DELEGATE diaryFetchController]fetchedObjects]count];
         
         Diary* aDiary = [mass objectAtIndex:0];
         

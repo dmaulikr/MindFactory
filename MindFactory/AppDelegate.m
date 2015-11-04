@@ -288,20 +288,32 @@
 
 - (void)moveNoteToDiary:(Note *)note
 {
-    NSData *noteDescription = note.noteDescription;
+    Diary *theDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:0];
+
+    
+    NSMutableAttributedString *diaryString =
+    [NSKeyedUnarchiver unarchiveObjectWithData: theDiary.noteDescription];
+    
+    NSAttributedString *noteString =
+    [NSKeyedUnarchiver unarchiveObjectWithData: note.noteDescription];
     
     [[self managedObjectContext] deleteObject:note];
     
-    
-    Diary *theDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:0];
 
-    NSMutableData *dataTmp = [NSMutableData data];
-    [dataTmp appendData:theDiary.noteDescription];
-    [dataTmp appendData:noteDescription];
+    
+    NSLog(@"%@", diaryString);
+    NSMutableAttributedString *newLine = [[NSMutableAttributedString alloc]initWithString:@"\n"];
+    NSMutableAttributedString *message = [[NSMutableAttributedString alloc] initWithAttributedString:diaryString];
+    [message appendAttributedString:newLine];
+    [message appendAttributedString:noteString];
+    
+    NSLog(@"%@", message);
     
     
     
-    theDiary.noteDescription = dataTmp;
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject: message];
+    theDiary.noteDescription = data;
+   
     [self saveContext];
 }
 
