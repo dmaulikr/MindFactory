@@ -10,6 +10,9 @@
 #import <iOS-Color-Picker/FCColorPickerViewController.h>
 
 @interface DiaryDescriptionController () <FCColorPickerViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate>
+{
+    NSInteger indexSmile;
+}
 
 
 @property (nonatomic, copy) UIColor *color;
@@ -51,6 +54,9 @@
         [NSKeyedUnarchiver unarchiveObjectWithData: self.diary.noteDescription];
         
         self.descriptionTextField.attributedText = myAttrString;
+        
+        //load smileView
+        [self loadSmileView];
     }
     
 }
@@ -66,6 +72,10 @@
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject: self.descriptionTextField.attributedText];
     self.diary.noteDescription = data;
     self.diary.timeStamp = [NSDate date];
+    
+    
+    NSNumber *index = [NSNumber numberWithInteger: indexSmile];
+    self.diary.indexSmile = index;
     [APP_DELEGATE saveContext];
     
     [[self navigationController] popViewControllerAnimated:YES];
@@ -74,19 +84,15 @@
 #pragma mark - Text Delegates
 
 - (void)textViewDidChangeSelection:(UITextView *)textView {
-    
-    
     NSRange r = self.descriptionTextField.selectedRange;
     NSLog(@"Start from : %lu",(unsigned long)r.location); //starting selection in text selection
     NSLog(@"To : %lu",(unsigned long)r.length); // end position in text selection
     NSLog([self.descriptionTextField.text substringWithRange:NSMakeRange(r.location, r.length)]); //tv is my text view
     
-    
     if ( (r.length != 0)) {
         self.startStr = r.location;
         self.endStr = r.length;
     }
-    
     
     
      NSLog(@"%ld:%ld", (long)self.startStr, (long)self.endStr);
@@ -125,17 +131,12 @@
     _color = [color copy];
     
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:self.descriptionTextField.attributedText];
-       
-    
     
     NSLog(@"%ld:%ld", (long)self.startStr, (long)self.endStr);
     
     [string addAttribute:NSForegroundColorAttributeName value:_color range:NSMakeRange(self.startStr, self.endStr)];
-
     
-    
-   // }
-        self.descriptionTextField.attributedText = string;
+    self.descriptionTextField.attributedText = string;
 
     
     self.startStr = 0;
@@ -144,6 +145,31 @@
 }
 
 #pragma mark - UISmileViewAction
+-(void)loadSmileView
+{
+    NSInteger index = [self.diary.indexSmile integerValue];
+    [self clearBackgroundSmileView];
+    
+    switch (index) {
+        case 0:
+            self.madSmileView.backgroundColor = [UIColor blueColor];
+            break;
+        case 1:
+            self.sadSmileView.backgroundColor = [UIColor blueColor];
+            break;
+        case 2:
+            self.smileSmileView.backgroundColor = [UIColor blueColor];
+            break;
+        case 3:
+            self.happySmileView.backgroundColor = [UIColor blueColor];
+            break;
+        case 4:
+            self.loveSmileView.backgroundColor = [UIColor blueColor];
+            break;
+    }
+}
+
+
 -(void)clearBackgroundSmileView
 {
     self.madSmileView.backgroundColor = [UIColor yellowColor];
@@ -159,6 +185,7 @@
     [self clearBackgroundSmileView];
     
     self.happySmileView.backgroundColor = [UIColor blueColor];
+    indexSmile = 3;
 }
 
 - (IBAction)madSmileViewTouch:(id)sender
@@ -166,6 +193,7 @@
     [self clearBackgroundSmileView];
     
     self.madSmileView.backgroundColor = [UIColor blueColor];
+    indexSmile = 0;
 }
 
 - (IBAction)loveSmileViewTouch:(id)sender
@@ -173,6 +201,7 @@
     [self clearBackgroundSmileView];
     
     self.loveSmileView.backgroundColor = [UIColor blueColor];
+    indexSmile = 4;
 }
 
 - (IBAction)sadSmileViewTouch:(id)sender
@@ -180,12 +209,14 @@
     [self clearBackgroundSmileView];
     
     self.sadSmileView.backgroundColor = [UIColor blueColor];
+    indexSmile = 1;
 }
 
 - (IBAction)smileSmileViewTouch:(id)sender {
     [self clearBackgroundSmileView];
     
     self.smileSmileView.backgroundColor = [UIColor blueColor];
+    indexSmile = 2;
 }
 
 

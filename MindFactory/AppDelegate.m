@@ -258,11 +258,16 @@
 }
 
 #pragma mark - DiaryMethods
-- (void)addNewDiaryWithText:(NSData *)text
+- (void)addNewDiaryWithText:(NSData *)text andIndexSmile:(NSInteger *)index;
 {
     Diary* theDiary = [NSEntityDescription insertNewObjectForEntityForName:@"Diary" inManagedObjectContext:[self managedObjectContext]];
     
+    
+    
+    NSNumber *indexNumber = [NSNumber numberWithInteger:index];
+    
     theDiary.noteDescription = text;
+    theDiary.indexSmile = indexNumber;
     theDiary.timeStamp = [NSDate date];
     
     [self saveContext];

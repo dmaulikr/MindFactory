@@ -91,7 +91,7 @@
     } else {
         NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:@"" attributes:nil];
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:str];
-        [APP_DELEGATE addNewDiaryWithText:data];
+        [APP_DELEGATE addNewDiaryWithText:data andIndexSmile:2];
     }
     
 

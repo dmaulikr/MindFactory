@@ -74,13 +74,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Diary* aDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:indexPath.row];
-    
-    NSAttributedString *myAttrString =
-    [NSKeyedUnarchiver unarchiveObjectWithData: aDiary.noteDescription];
-    
-    NSString* description = myAttrString.string;
-    return 46 + [description heightForString];
+    return 62;
 }
 
 
