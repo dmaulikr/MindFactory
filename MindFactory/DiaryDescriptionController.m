@@ -21,11 +21,19 @@
 @property (strong, nonatomic) NSMutableAttributedString *attrString;
 
 
+//smileRaiting view
+@property (weak, nonatomic) IBOutlet UIControl *madSmileView;
+@property (weak, nonatomic) IBOutlet UIControl *sadSmileView;
+@property (weak, nonatomic) IBOutlet UIControl *smileSmileView;
+@property (weak, nonatomic) IBOutlet UIControl *loveSmileView;
+@property (weak, nonatomic) IBOutlet UIControl *happySmileView;
+//end
+
 
 //selected string
 @property NSInteger startStr;
 @property NSInteger endStr;
-
+//end
 @end
 
 @implementation DiaryDescriptionController
@@ -135,6 +143,50 @@
     
 }
 
+#pragma mark - UISmileViewAction
+-(void)clearBackgroundSmileView
+{
+    self.madSmileView.backgroundColor = [UIColor yellowColor];
+    self.happySmileView.backgroundColor = [UIColor yellowColor];
+    self.loveSmileView.backgroundColor = [UIColor yellowColor];
+    self.sadSmileView.backgroundColor = [UIColor yellowColor];
+    self.smileSmileView.backgroundColor = [UIColor yellowColor];
+}
+
+
+- (IBAction)happySmileViewTouch:(id)sender
+{
+    [self clearBackgroundSmileView];
+    
+    self.happySmileView.backgroundColor = [UIColor blueColor];
+}
+
+- (IBAction)madSmileViewTouch:(id)sender
+{
+    [self clearBackgroundSmileView];
+    
+    self.madSmileView.backgroundColor = [UIColor blueColor];
+}
+
+- (IBAction)loveSmileViewTouch:(id)sender
+{
+    [self clearBackgroundSmileView];
+    
+    self.loveSmileView.backgroundColor = [UIColor blueColor];
+}
+
+- (IBAction)sadSmileViewTouch:(id)sender
+{
+    [self clearBackgroundSmileView];
+    
+    self.sadSmileView.backgroundColor = [UIColor blueColor];
+}
+
+- (IBAction)smileSmileViewTouch:(id)sender {
+    [self clearBackgroundSmileView];
+    
+    self.smileSmileView.backgroundColor = [UIColor blueColor];
+}
 
 
 /*
