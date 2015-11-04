@@ -16,6 +16,10 @@
 
 
 @property (nonatomic, copy) UIColor *color;
+//picker for photo
+@property (strong, nonatomic) UIImagePickerController *pickerForPhoto;
+
+
 
 
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
@@ -41,7 +45,20 @@
 
 @implementation DiaryDescriptionController
 
-- (void)viewDidLoad {
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
+    // Pass 1.0 to force exact pixel size.
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     [self.descriptionTextField setScrollEnabled:YES];
@@ -82,21 +99,17 @@
 }
 
 #pragma mark - Text Delegates
-
 - (void)textViewDidChangeSelection:(UITextView *)textView {
     NSRange r = self.descriptionTextField.selectedRange;
     NSLog(@"Start from : %lu",(unsigned long)r.location); //starting selection in text selection
     NSLog(@"To : %lu",(unsigned long)r.length); // end position in text selection
     NSLog([self.descriptionTextField.text substringWithRange:NSMakeRange(r.location, r.length)]); //tv is my text view
     
-    if ( (r.length != 0)) {
-        self.startStr = r.location;
-        self.endStr = r.length;
-    }
+    self.startStr = r.location;
+    self.endStr = r.length;
     
-    
-     NSLog(@"%ld:%ld", (long)self.startStr, (long)self.endStr);
 }
+
 
 #pragma mark - Color Picker
 - (IBAction)pickColorButtonPressed:(id)sender {
@@ -217,6 +230,105 @@
     
     self.smileSmileView.backgroundColor = [UIColor blueColor];
     indexSmile = 2;
+}
+
+#pragma mark - PhotoToTextView
+
+- (IBAction)addPhotoToTextView:(id)sender {
+    [[self view] endEditing:YES];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Select action"
+                                                                   message:@"Select a photo?"
+                                                            preferredStyle:UIAlertControllerStyleActionSheet]; // 1
+    UIAlertAction *firstAction = [UIAlertAction actionWithTitle:@"Camera"
+                                                          style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                              
+                                                                [self photoFromCamera];
+                                                              
+                                                          }]; // 2
+    UIAlertAction *secondAction = [UIAlertAction actionWithTitle:@"Gallery"
+                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                               
+                                                               [self photoFromGallary];
+                                                               
+                                                           }]; // 3
+
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                               
+                                                               [alert dismissViewControllerAnimated:YES completion:nil];
+                                                               
+                                                           }]; // 3
+    
+    
+    
+    [alert addAction:firstAction]; // 4
+    [alert addAction:secondAction]; // 5
+    [alert addAction:cancelAction];
+    
+    
+    [self presentViewController:alert animated:YES completion:nil]; // 6
+}
+
+- (void)photoFromCamera
+{
+    self.pickerForPhoto = [[UIImagePickerController alloc] init];
+    self.pickerForPhoto.delegate = self;
+    self.pickerForPhoto.allowsEditing = YES;
+    self.pickerForPhoto.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:self.pickerForPhoto animated:YES completion:NULL];
+}
+
+- (void)photoFromGallary
+{
+    self.pickerForPhoto = [[UIImagePickerController alloc] init];
+    self.pickerForPhoto.delegate = self;
+    self.pickerForPhoto.allowsEditing = YES;
+    self.pickerForPhoto.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:self.pickerForPhoto animated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+   
+    
+    CGSize newSize;
+    newSize.height = 90;
+    newSize.width = 120;
+    
+    chosenImage = [self imageWithImage:chosenImage scaledToSize:newSize];
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithAttributedString:self.descriptionTextField.attributedText];
+    
+    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+    textAttachment.image = chosenImage;
+    
+    NSAttributedString *attrStringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
+    
+    [attributedString replaceCharactersInRange:NSMakeRange(self.startStr, self.endStr) withAttributedString:attrStringWithImage];
+
+    //fixing to font to 16
+    UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:16.0];
+    NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:font
+                                                                forKey:NSFontAttributeName];
+    
+    [attributedString addAttributes:attrsDictionary range:NSMakeRange(self.endStr, self.endStr)];
+    //endfix
+    
+    self.descriptionTextField.attributedText = attributedString;
+    
+    //end
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
 }
 
 

@@ -1085,6 +1085,16 @@
                                     <action selector="pickColorButtonPressed:" destination="eMN-c0-fFH" eventType="touchUpInside" id="2pu-Ea-F1Q"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cu3-d6-mDN">
+                                <rect key="frame" x="446" y="102" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="DBf-CO-LRa"/>
+                                </constraints>
+                                <state key="normal" title="Photo"/>
+                                <connections>
+                                    <action selector="addPhotoToTextView:" destination="eMN-c0-fFH" eventType="touchUpInside" id="pQB-CC-1Nt"/>
+                                </connections>
+                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nae-Ma-LJ7">
                                 <rect key="frame" x="4" y="140" width="592" height="122"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1103,6 +1113,7 @@
                             <constraint firstItem="sZn-gH-IzE" firstAttribute="centerY" secondItem="NpJ-Tu-BWp" secondAttribute="centerY" id="B81-i3-lEC"/>
                             <constraint firstItem="nae-Ma-LJ7" firstAttribute="top" secondItem="4Al-VB-MGf" secondAttribute="bottom" constant="8" symbolic="YES" id="Bxl-IR-LDb"/>
                             <constraint firstItem="sZn-gH-IzE" firstAttribute="leading" secondItem="NpJ-Tu-BWp" secondAttribute="leadingMargin" constant="32" id="CVr-CY-X2T"/>
+                            <constraint firstItem="4Al-VB-MGf" firstAttribute="leading" secondItem="Cu3-d6-mDN" secondAttribute="trailing" constant="16" id="Djy-sn-NOI"/>
                             <constraint firstAttribute="trailing" secondItem="sZn-gH-IzE" secondAttribute="trailing" constant="52" id="Ehk-w2-0Cf"/>
                             <constraint firstItem="nae-Ma-LJ7" firstAttribute="leading" secondItem="NpJ-Tu-BWp" secondAttribute="leadingMargin" constant="-16" id="F92-Vx-YQZ"/>
                             <constraint firstItem="AL8-2f-QkK" firstAttribute="top" secondItem="nae-Ma-LJ7" secondAttribute="bottom" constant="356" id="IaE-N6-5Od"/>
@@ -1115,6 +1126,7 @@
                             <constraint firstItem="sZn-gH-IzE" firstAttribute="top" secondItem="nae-Ma-LJ7" secondAttribute="bottom" constant="46" id="jsv-kT-utN"/>
                             <constraint firstItem="sZn-gH-IzE" firstAttribute="leading" secondItem="NpJ-Tu-BWp" secondAttribute="leading" constant="52" id="kJZ-9d-oIp"/>
                             <constraint firstItem="AL8-2f-QkK" firstAttribute="top" secondItem="sZn-gH-IzE" secondAttribute="bottom" constant="242" id="x2d-tr-k6x"/>
+                            <constraint firstItem="Cu3-d6-mDN" firstAttribute="baseline" secondItem="4Al-VB-MGf" secondAttribute="baseline" id="ygm-bL-JfM"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-@interface DiaryDescriptionController : UIViewController
+@interface DiaryDescriptionController : UIViewController <UIImagePickerControllerDelegate>
 
 
 @property (strong, nonatomic) Diary* diary;

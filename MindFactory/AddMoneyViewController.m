@@ -531,11 +531,7 @@
                                                            
                                                            [self noteFromGallary];
                                                            
-                                                       }]; // 3
-/*    UIAlertAction *thirdAction = [UIAlertAction actionWithTitle:@"Use already made photo."
-                                                      style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                                                          [self noteWithAlreadyMadePhoto];
-                                                        }];*/
+                                                       }]; 
 
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
                                                        style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -548,23 +544,12 @@
 
     [alert addAction:firstAction]; // 4
     [alert addAction:secondAction]; // 5
-    
-  /*  if (self.imageToRecognize) {
-        [alert addAction:thirdAction];
-    }
-    else {
-        NSLog(@"Not found image.");
-    }*/
-    
-    
     [alert addAction:cancelAction];
 
 
     [self presentViewController:alert animated:YES completion:nil]; // 6
     
 }
-
-
 
 - (void)noteFromCamera
 {
