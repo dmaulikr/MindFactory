@@ -160,10 +160,10 @@
 #pragma mark - UISmileViewAction
 -(void)loadSmileView
 {
-    NSInteger index = [self.diary.indexSmile integerValue];
+    indexSmile = [self.diary.indexSmile integerValue];
     [self clearBackgroundSmileView];
     
-    switch (index) {
+    switch (indexSmile) {
         case 0:
             self.madSmileView.backgroundColor = [UIColor blueColor];
             break;
