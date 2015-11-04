@@ -28,7 +28,7 @@
     NSString *dateString = [NSDate getDateStringWithDate:diary.timeStamp];
     
     self.dayLabel.text = dateString;
-    self.descriptionLabel.text = @"😍";
+    self.descriptionLabel.text = @"😊";
 }
 
 @end
