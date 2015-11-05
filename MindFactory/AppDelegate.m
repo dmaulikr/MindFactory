@@ -258,7 +258,7 @@
 }
 
 #pragma mark - DiaryMethods
-- (void)addNewDiaryWithText:(NSData *)text andIndexSmile:(NSInteger *)index;
+- (void)addNewDiaryWithText:(NSData *)text andIndexSmile:(NSInteger)index;
 {
     Diary* theDiary = [NSEntityDescription insertNewObjectForEntityForName:@"Diary" inManagedObjectContext:[self managedObjectContext]];
     

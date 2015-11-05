@@ -935,7 +935,9 @@
                             <outlet property="delegate" destination="LlU-JP-d2c" id="3KP-7T-fin"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="qVV-OP-LZZ"/>
+                    <navigationItem key="navigationItem" id="qVV-OP-LZZ">
+                        <barButtonItem key="rightBarButtonItem" title="Password" id="I0G-oa-Dgq"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="gsu-Ob-0QP" id="ZKk-JL-hbQ"/>
                         <outlet property="tableView" destination="bNm-Bn-I9m" id="jmD-bt-UBI"/>
@@ -1088,7 +1090,7 @@
                                     <action selector="pickColorButtonPressed:" destination="eMN-c0-fFH" eventType="touchUpInside" id="2pu-Ea-F1Q"/>
                                 </connections>
                             </button>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minimumValue="5" maximumValue="55" translatesAutoresizingMaskIntoConstraints="NO" id="NFA-aB-Al6">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="16" minimumValue="9" maximumValue="55" translatesAutoresizingMaskIntoConstraints="NO" id="NFA-aB-Al6">
                                 <rect key="frame" x="11" y="73" width="94" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="98P-ip-tpa"/>
@@ -1099,7 +1101,7 @@
                                 </connections>
                             </stepper>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nae-Ma-LJ7">
-                                <rect key="frame" x="0.0" y="110" width="600" height="432"/>
+                                <rect key="frame" x="0.0" y="110" width="600" height="440"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="410" id="XQD-BZ-1pC"/>
@@ -1157,7 +1159,7 @@
                             <constraint firstItem="AL8-2f-QkK" firstAttribute="top" secondItem="nae-Ma-LJ7" secondAttribute="bottom" constant="356" id="IaE-N6-5Od"/>
                             <constraint firstItem="sZn-gH-IzE" firstAttribute="centerX" secondItem="NpJ-Tu-BWp" secondAttribute="centerX" id="Ief-2J-n2G"/>
                             <constraint firstItem="Cu3-d6-mDN" firstAttribute="leading" secondItem="7mb-ku-z39" secondAttribute="trailing" constant="-5" id="KGr-aa-Cc6"/>
-                            <constraint firstItem="sZn-gH-IzE" firstAttribute="top" secondItem="nae-Ma-LJ7" secondAttribute="bottom" constant="8" id="KfF-Ko-cxO"/>
+                            <constraint firstItem="sZn-gH-IzE" firstAttribute="top" secondItem="nae-Ma-LJ7" secondAttribute="bottom" id="KfF-Ko-cxO"/>
                             <constraint firstAttribute="trailing" secondItem="4Al-VB-MGf" secondAttribute="trailing" constant="20" id="RId-JM-dSK"/>
                             <constraint firstItem="NFA-aB-Al6" firstAttribute="leading" secondItem="NpJ-Tu-BWp" secondAttribute="leading" constant="11" id="UYn-i1-U14"/>
                             <constraint firstItem="AL8-2f-QkK" firstAttribute="top" secondItem="sZn-gH-IzE" secondAttribute="bottom" constant="242" id="V14-qY-ZGN"/>
@@ -1203,6 +1205,7 @@
                         <outlet property="loveSmileView" destination="RYP-IU-S6W" id="QGk-z4-Igh"/>
                         <outlet property="madSmileView" destination="v3A-SM-ff3" id="ca8-XF-obz"/>
                         <outlet property="sadSmileView" destination="9Eq-kP-ksZ" id="W9E-Qj-SCT"/>
+                        <outlet property="scrollViewBottomSpace" destination="x2d-tr-k6x" id="byU-hr-afl"/>
                         <outlet property="smileSmileView" destination="59c-ju-p68" id="Nu8-MJ-bPh"/>
                         <outlet property="stepperOutlet" destination="NFA-aB-Al6" id="OCw-AU-9fy"/>
                     </connections>

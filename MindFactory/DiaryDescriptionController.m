@@ -8,6 +8,7 @@
 
 #import "DiaryDescriptionController.h"
 #import <iOS-Color-Picker/FCColorPickerViewController.h>
+#import "UIImage+UIImage_Additional.h"
 
 @interface DiaryDescriptionController () <FCColorPickerViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate>
 {
@@ -41,6 +42,9 @@
 @property (weak, nonatomic) IBOutlet UIControl *happySmileView;
 //end
 
+//constant
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewBottomSpace;
+//end
 
 //selected string
 @property NSInteger startStr;
@@ -50,16 +54,7 @@
 
 @implementation DiaryDescriptionController
 
-- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
-    //UIGraphicsBeginImageContext(newSize);
-    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
-    // Pass 1.0 to force exact pixel size.
-    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
-    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
+
 
 
 - (void)viewDidLoad
@@ -82,6 +77,17 @@
     }
     self.startStr = 0;
     self.endStr = 0;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidHide:)
+                                                 name:UIKeyboardDidHideNotification
+                                               object:nil];
+    
 
     
 }
@@ -90,6 +96,38 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - UITextViewUpToShowKeyboard
+- (void)keyboardDidShow: (NSNotification *) notif{
+    // Do something here
+    self.scrollViewBottomSpace.constant = 253;
+    [self.view layoutIfNeeded];
+    
+    
+    //set UITextView scrolling
+    UITextRange *range = self.descriptionTextField.selectedTextRange;
+    UITextPosition *position = range.start;
+    CGRect cursorRect = [self.descriptionTextField caretRectForPosition:position];
+    CGPoint cursorPoint = CGPointMake(0, cursorRect.origin.y);
+    
+    CGFloat contentFix = cursorPoint.y - self.descriptionTextField.frame.size.height + 25;
+    
+    if (contentFix < 0) {
+        contentFix = 0;
+    }
+    
+    [self.descriptionTextField setContentOffset:CGPointMake((cursorPoint.x ) * 1, contentFix * 1) animated:YES];
+    
+    //when keyboard hide uitextView
+    //end
+    //constant
+}
+
+- (void)keyboardDidHide: (NSNotification *) notif{
+    // Do something here
+}
+
+
 
 #pragma mark - AddNewDiary
 
@@ -312,7 +350,7 @@
     newSize.height = 90;
     newSize.width = 120;
     
-    chosenImage = [self imageWithImage:chosenImage scaledToSize:newSize];
+    chosenImage = [UIImage imageWithImage:chosenImage scaledToSize:newSize];
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithAttributedString:self.descriptionTextField.attributedText];
     
@@ -425,14 +463,6 @@
     }
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
