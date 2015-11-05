@@ -157,33 +157,29 @@
 }
 
 #pragma mark - AttributedString
-
-- (IBAction)italicText:(id)sender {
+- (IBAction)italicText:(id)sender
+{
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:self.descriptionTextField.attributedText];
     
- 
-    
-    NSString *fontName = self.descriptionTextField.font.fontName;
-    CGFloat fontSize = self.descriptionTextField.font.pointSize;
-    
     if (self.endStr != 0) {
+        [self.descriptionTextField becomeFirstResponder];
         [string addAttribute:NSFontAttributeName
                        value:[UIFont italicSystemFontOfSize:18]
                        range:NSMakeRange(self.startStr, self.endStr)];
         
         
+        NSInteger start = self.startStr;
         self.descriptionTextField.attributedText = string;
-        
+        [self.descriptionTextField becomeFirstResponder];
+        self.descriptionTextField.selectedRange = NSMakeRange(start, 0);
     }
 }
 
 
-- (IBAction)boldText:(id)sender {
+- (IBAction)boldText:(id)sender
+{
    
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:self.descriptionTextField.attributedText];
-    
-    NSString *fontName = self.descriptionTextField.font.fontName;
-    CGFloat fontSize = self.descriptionTextField.font.pointSize;
     
     if (self.endStr != 0) {
         [string addAttribute:NSFontAttributeName
@@ -191,11 +187,32 @@
                              range:NSMakeRange(self.startStr, self.endStr)];
         
      
-    
-        self.descriptionTextField.attributedText = string;
         
+        NSInteger start = self.startStr;
+        
+        self.descriptionTextField.attributedText = string;
+        [self.descriptionTextField becomeFirstResponder];
+        self.descriptionTextField.selectedRange = NSMakeRange(start, 0);
     }
 }
+
+
+- (IBAction)underlineText:(id)sender
+{
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:self.descriptionTextField.attributedText];
+    
+    if (self.endStr != 0) {
+        [string addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:1] range:NSMakeRange(self.startStr, self.endStr)];
+        
+        NSInteger start = self.startStr;
+       
+        self.descriptionTextField.attributedText = string;
+        [self.descriptionTextField becomeFirstResponder];
+        self.descriptionTextField.selectedRange = NSMakeRange(start, 0);
+        
+   }
+}
+
 
 
 

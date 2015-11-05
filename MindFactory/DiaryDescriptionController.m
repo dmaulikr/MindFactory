@@ -385,6 +385,45 @@
     self.endStr = end;
 }
 
+#pragma mark - BoldAndItallicText
+
+- (IBAction)italicButtonPressed:(id)sender
+{
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:self.descriptionTextField.attributedText];
+    
+    if (self.endStr != 0) {
+        [self.descriptionTextField becomeFirstResponder];
+        [string addAttribute:NSFontAttributeName
+                       value:[UIFont italicSystemFontOfSize:fontSize]
+                       range:NSMakeRange(self.startStr, self.endStr)];
+        
+        
+        NSInteger start = self.startStr;
+        self.descriptionTextField.attributedText = string;
+        [self.descriptionTextField becomeFirstResponder];
+        self.descriptionTextField.selectedRange = NSMakeRange(start, 0);
+    }
+    
+}
+
+- (IBAction)boldButtonPressed:(id)sender
+{
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:self.descriptionTextField.attributedText];
+    
+    if (self.endStr != 0) {
+        [string addAttribute:NSFontAttributeName
+                       value:[UIFont boldSystemFontOfSize:fontSize]
+                       range:NSMakeRange(self.startStr, self.endStr)];
+        
+        
+        
+        NSInteger start = self.startStr;
+        
+        self.descriptionTextField.attributedText = string;
+        [self.descriptionTextField becomeFirstResponder];
+        self.descriptionTextField.selectedRange = NSMakeRange(start, 0);
+    }
+}
 
 /*
 #pragma mark - Navigation
