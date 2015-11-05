@@ -12,12 +12,17 @@
 @interface DiaryDescriptionController () <FCColorPickerViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate>
 {
     NSInteger indexSmile;
+    CGFloat fontSize;
 }
 
 
 @property (nonatomic, copy) UIColor *color;
 //picker for photo
 @property (strong, nonatomic) UIImagePickerController *pickerForPhoto;
+
+
+//stepper font size
+@property (weak, nonatomic) IBOutlet UIStepper *stepperOutlet;
 
 
 
@@ -103,11 +108,18 @@
     NSRange r = self.descriptionTextField.selectedRange;
     NSLog(@"Start from : %lu",(unsigned long)r.location); //starting selection in text selection
     NSLog(@"To : %lu",(unsigned long)r.length); // end position in text selection
-    NSLog([self.descriptionTextField.text substringWithRange:NSMakeRange(r.location, r.length)]); //tv is my text view
+    NSString *tmp = [self.descriptionTextField.text substringWithRange:NSMakeRange(r.location, r.length)];
+    NSLog(@"%@", tmp); //tv is my text view
     
     self.startStr = r.location;
     self.endStr = r.length;
     
+    // NSString *fontName = self.descriptionTextField.font.fontName;
+    fontSize = self.descriptionTextField.font.pointSize;
+    
+    self.stepperOutlet.value = fontSize;
+    
+
 }
 
 
@@ -329,6 +341,42 @@
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
+}
+
+
+#pragma mark - StepperSizeFont
+- (IBAction)stepperClickAction:(id)sender {
+    
+
+    NSString *fontName = self.descriptionTextField.font.fontName;
+    
+    
+    //fixing to font to 16
+    UIFont *font = [UIFont fontWithName:fontName size:self.stepperOutlet.value];
+    NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:font
+                                                                forKey:NSFontAttributeName];
+    
+    
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:self.descriptionTextField.attributedText];
+    
+    [string addAttributes:attrsDictionary range:NSMakeRange(self.startStr, self.endStr)];
+    
+    NSLog(@"%ld : %ld", (long)self.startStr, (long)self.endStr);
+    
+    NSInteger *start = self.startStr;
+    NSInteger *end = self.endStr;
+    
+    
+    self.descriptionTextField.attributedText = string;
+    //endfix
+    
+    NSLog(@"Stepper value: %f", self.stepperOutlet.value);
+    
+    [self.descriptionTextField select:self];
+    self.descriptionTextField.selectedRange = NSMakeRange(start, end);
+   
+    self.startStr = start;
+    self.endStr = end;
 }
 
 

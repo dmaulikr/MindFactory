@@ -1107,6 +1107,12 @@
                                     <outlet property="delegate" destination="eMN-c0-fFH" id="LP4-NG-hBs"/>
                                 </connections>
                             </textView>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minimumValue="5" maximumValue="55" translatesAutoresizingMaskIntoConstraints="NO" id="NFA-aB-Al6">
+                                <rect key="frame" x="20" y="103" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepperClickAction:" destination="eMN-c0-fFH" eventType="valueChanged" id="cPs-NJ-0pi"/>
+                                </connections>
+                            </stepper>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1121,7 +1127,9 @@
                             <constraint firstItem="nae-Ma-LJ7" firstAttribute="centerX" secondItem="sZn-gH-IzE" secondAttribute="centerX" id="Rgj-uz-7D1"/>
                             <constraint firstItem="4Al-VB-MGf" firstAttribute="trailing" secondItem="NpJ-Tu-BWp" secondAttribute="trailingMargin" id="Sfa-qJ-m3J"/>
                             <constraint firstItem="AL8-2f-QkK" firstAttribute="top" secondItem="sZn-gH-IzE" secondAttribute="bottom" constant="242" id="V14-qY-ZGN"/>
+                            <constraint firstItem="nae-Ma-LJ7" firstAttribute="top" secondItem="NFA-aB-Al6" secondAttribute="bottom" constant="8" id="bvW-VM-UmW"/>
                             <constraint firstItem="sZn-gH-IzE" firstAttribute="centerX" secondItem="NpJ-Tu-BWp" secondAttribute="centerX" id="cib-h3-nRi"/>
+                            <constraint firstItem="NFA-aB-Al6" firstAttribute="leading" secondItem="NpJ-Tu-BWp" secondAttribute="leadingMargin" id="dMv-Wd-4n2"/>
                             <constraint firstItem="sZn-gH-IzE" firstAttribute="top" secondItem="nae-Ma-LJ7" secondAttribute="bottom" constant="72" id="eQH-Qq-cdp"/>
                             <constraint firstItem="sZn-gH-IzE" firstAttribute="top" secondItem="nae-Ma-LJ7" secondAttribute="bottom" constant="46" id="jsv-kT-utN"/>
                             <constraint firstItem="sZn-gH-IzE" firstAttribute="leading" secondItem="NpJ-Tu-BWp" secondAttribute="leading" constant="52" id="kJZ-9d-oIp"/>
@@ -1156,6 +1164,7 @@
                         <outlet property="madSmileView" destination="v3A-SM-ff3" id="ca8-XF-obz"/>
                         <outlet property="sadSmileView" destination="9Eq-kP-ksZ" id="W9E-Qj-SCT"/>
                         <outlet property="smileSmileView" destination="59c-ju-p68" id="Nu8-MJ-bPh"/>
+                        <outlet property="stepperOutlet" destination="NFA-aB-Al6" id="OCw-AU-9fy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JRo-5A-Gg5" userLabel="First Responder" sceneMemberID="firstResponder"/>

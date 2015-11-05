@@ -78,7 +78,7 @@
             NSLog(@"nextDate: %@ ...", nextDate);
             //end
             //add to core data next day
-            NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:@"StringTest" attributes:nil];
+            NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:@"" attributes:nil];
             NSData *data = [NSKeyedArchiver archivedDataWithRootObject:str];
             
 

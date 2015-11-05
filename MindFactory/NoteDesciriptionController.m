@@ -161,6 +161,8 @@
 - (IBAction)italicText:(id)sender {
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc]initWithAttributedString:self.descriptionTextField.attributedText];
     
+ 
+    
     NSString *fontName = self.descriptionTextField.font.fontName;
     CGFloat fontSize = self.descriptionTextField.font.pointSize;
     
