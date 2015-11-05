@@ -80,6 +80,9 @@
         //load smileView
         [self loadSmileView];
     }
+    self.startStr = 0;
+    self.endStr = 0;
+
     
 }
 
@@ -92,9 +95,7 @@
 
 - (IBAction)addOrSaveButtonPressed:(id)sender {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject: self.descriptionTextField.attributedText];
-    self.diary.noteDescription = data;
-    self.diary.timeStamp = [NSDate date];
-    
+    self.diary.noteDescription = data;   
     
     NSNumber *index = [NSNumber numberWithInteger: indexSmile];
     self.diary.indexSmile = index;
@@ -347,7 +348,11 @@
 #pragma mark - StepperSizeFont
 - (IBAction)stepperClickAction:(id)sender {
     
-
+    if ( (self.startStr == 0) && (self.endStr == 0) )
+    {
+        return;
+    }
+    
     NSString *fontName = self.descriptionTextField.font.fontName;
     
     
@@ -363,8 +368,8 @@
     
     NSLog(@"%ld : %ld", (long)self.startStr, (long)self.endStr);
     
-    NSInteger *start = self.startStr;
-    NSInteger *end = self.endStr;
+    NSInteger start = self.startStr;
+    NSInteger end = self.endStr;
     
     
     self.descriptionTextField.attributedText = string;
@@ -372,7 +377,8 @@
     
     NSLog(@"Stepper value: %f", self.stepperOutlet.value);
     
-    [self.descriptionTextField select:self];
+   // [self.descriptionTextField select:self];
+    [self.descriptionTextField becomeFirstResponder];
     self.descriptionTextField.selectedRange = NSMakeRange(start, end);
    
     self.startStr = start;
