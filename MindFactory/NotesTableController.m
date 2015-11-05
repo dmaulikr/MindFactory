@@ -80,7 +80,11 @@
             //add to core data next day
             NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:@"StringTest" attributes:nil];
             NSData *data = [NSKeyedArchiver archivedDataWithRootObject:str];
-            [APP_DELEGATE addNewDiaryWithText:data andDate:nextDate];
+            
+
+            NSNumber *numIndex = [NSNumber numberWithInteger:2];
+            
+            [APP_DELEGATE addNewDiaryWithText:data andDate:nextDate andIndexSmile:numIndex];
             //end
             
             //day up

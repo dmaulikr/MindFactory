@@ -273,11 +273,14 @@
     [self saveContext];
 }
 
-- (void)addNewDiaryWithText:(NSData *)text andDate:(NSDate *)date
+- (void)addNewDiaryWithText:(NSData *)text andDate:(NSDate *)date andIndexSmile:(NSNumber *)index;
 {
     Diary* theDiary = [NSEntityDescription insertNewObjectForEntityForName:@"Diary" inManagedObjectContext:[self managedObjectContext]];
     
+    NSNumber *indexNumber = [NSNumber numberWithInteger:index];
+    
     theDiary.noteDescription = text;
+    theDiary.indexSmile = indexNumber;
     theDiary.timeStamp = date;
     
     [self saveContext];
