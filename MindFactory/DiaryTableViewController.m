@@ -12,8 +12,9 @@
 #import "NSString+Heigh.h"
 #import "NSDate+GetDay.h"
 #import "DiaryDescriptionController.h"
+#import "LTHPasscodeViewController.h"
 
-@interface DiaryTableViewController ()<UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
+@interface DiaryTableViewController ()<UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, LTHPasscodeViewControllerDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -199,6 +200,65 @@
     return YES;
 }
 
+#pragma mark - PassCodeTurnOffAndCgange
+
+- (IBAction)passwordButtonPressed:(id)sender
+{
+
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Select action"
+                                                                   message:@"Password"
+                                                            preferredStyle:UIAlertControllerStyleActionSheet]; // 1
+    UIAlertAction *changePassword = [UIAlertAction actionWithTitle:@"Change password"
+                                                          style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                            
+                                                              [[LTHPasscodeViewController sharedUser] showForChangingPasscodeInViewController:self asModal:YES];
+                                                              
+                                                          }]; // 2
+    UIAlertAction *turnOff = [UIAlertAction actionWithTitle:@"Turn Off"
+                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                               
+                                                               [[LTHPasscodeViewController sharedUser] showForDisablingPasscodeInViewController:self
+                                                                                                                                        asModal:YES];
+                                                               [self.navigationController popViewControllerAnimated:YES];
+                                                               
+                                                           }];
+    
+    UIAlertAction *turnOn = [UIAlertAction actionWithTitle:@"Turn On"
+                                                      style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                          
+                                                          
+                                                          [[LTHPasscodeViewController sharedUser] showForEnablingPasscodeInViewController:self
+                                                                                                                                  asModal:YES];
+                                                          
+                                                      }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                               
+                                                               [alert dismissViewControllerAnimated:YES completion:nil];
+                                                               
+                                                           }]; // 3
+    
+    
+    
+    
+    
+    bool a = [LTHPasscodeViewController doesPasscodeExist];
+    if (a) {
+        [alert addAction:changePassword]; // 4
+        [alert addAction:turnOff]; // 5
+    } else {
+        [alert addAction:turnOn];
+    }
+    
+    [alert addAction:cancelAction];
+    
+    
+    [self presentViewController:alert animated:YES completion:nil]; // 6
+    
+
+}
 
 
 #pragma mark - Navigation

@@ -936,7 +936,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="qVV-OP-LZZ">
-                        <barButtonItem key="rightBarButtonItem" title="Password" id="I0G-oa-Dgq"/>
+                        <barButtonItem key="rightBarButtonItem" title="Password" id="I0G-oa-Dgq">
+                            <connections>
+                                <action selector="passwordButtonPressed:" destination="LlU-JP-d2c" id="TrQ-VB-7SK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="gsu-Ob-0QP" id="ZKk-JL-hbQ"/>

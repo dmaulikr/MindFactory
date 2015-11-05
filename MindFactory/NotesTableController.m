@@ -374,7 +374,8 @@
                                                                     withLogout:YES
                                                                 andLogoutTitle:@"Cancel"];
     }else{
-        [[LTHPasscodeViewController sharedUser]showForEnablingPasscodeInViewController:self asModal:YES];
+       // [[LTHPasscodeViewController sharedUser]showForEnablingPasscodeInViewController:self asModal:YES];
+         [self performSegueWithIdentifier:diarySegue sender:self];
     }
     
     
