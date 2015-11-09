@@ -18,22 +18,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //[self createNewItem];
-    // Override point for customization after application launch.
-   // UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-   // MoneyViewController *controller = (MoneyViewController *)navigationController.topViewController;
-  //  controller.managedObjectContext = self.managedObjectContext;
-   
-    //PassCodeViewController
-  /*  [LTHPasscodeViewController useKeychain:NO];
-    if ([LTHPasscodeViewController doesPasscodeExist]) {
-        if ([LTHPasscodeViewController didPasscodeTimerEnd])
-            [[LTHPasscodeViewController sharedUser] showLockScreenWithAnimation:YES
-                                                                     withLogout:NO
-                                                                 andLogoutTitle:nil];
-    }*/
-
-    //end
     
     return YES;
 }
@@ -50,6 +34,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+   
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

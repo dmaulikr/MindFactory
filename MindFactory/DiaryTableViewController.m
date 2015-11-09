@@ -36,7 +36,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myMethod) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
+
+-(void)myMethod
+{
+    NSLog(@"Hi, foreground");
+    if ([LTHPasscodeViewController doesPasscodeExist]) {
+      [[LTHPasscodeViewController sharedUser]showLockScreenWithAnimation:YES
+                                                              withLogout:NO
+                                                           andLogoutTitle:@"Cancel"];
+    }
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -52,16 +65,17 @@
 
 
 -(void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
         [[APP_DELEGATE diaryFetchController] setDelegate: nil];
     }
-    [super viewWillDisappear:animated];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+     [super viewDidAppear:animated];
     NSLog(@"rootViewController: viewDidAppear");
-    [super viewDidAppear:animated];
-    
+   
     // reload table
     [self.searchDisplayController.searchResultsTableView reloadData];
 }
@@ -69,6 +83,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)didMoveToParentViewController:(UIViewController *)parent
+{
+    if (![parent isEqual:self.parentViewController]) {
+        [[LTHPasscodeViewController sharedUser] disablePasscodeWhenApplicationEntersBackground];
+
+        
+        NSLog(@"Back pressed");
+    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -211,26 +235,27 @@
                                                             preferredStyle:UIAlertControllerStyleActionSheet]; // 1
     UIAlertAction *changePassword = [UIAlertAction actionWithTitle:@"Change password"
                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                                                            
-                                                              [[LTHPasscodeViewController sharedUser] showForChangingPasscodeInViewController:self asModal:YES];
+                                                        
+                                                            [[LTHPasscodeViewController sharedUser] showForChangingPasscodeInViewController:self asModal:YES];
+                                                     
                                                               
                                                           }]; // 2
     UIAlertAction *turnOff = [UIAlertAction actionWithTitle:@"Turn Off"
                                                            style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                                                               
+                                                        
                                                                [[LTHPasscodeViewController sharedUser] showForDisablingPasscodeInViewController:self
                                                                                                                                         asModal:YES];
+                                                               
+
                                                                [self.navigationController popViewControllerAnimated:YES];
                                                                
                                                            }];
     
     UIAlertAction *turnOn = [UIAlertAction actionWithTitle:@"Turn On"
                                                       style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                                                          
-                                                          
+                                                        
                                                           [[LTHPasscodeViewController sharedUser] showForEnablingPasscodeInViewController:self
                                                                                                                                   asModal:YES];
-                                                          
                                                       }];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"

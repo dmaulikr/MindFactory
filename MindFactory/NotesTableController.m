@@ -46,12 +46,15 @@
     BOOL a = [self coreDataHasEntriesForEntityName:@"Diary"];
     NSLog(@"CHECK: %d", a);
     
+    int count = [[[APP_DELEGATE diaryFetchController]fetchedObjects]count] - 1;
+    
+    NSLog(@"%d", count);
     
     if ([self coreDataHasEntriesForEntityName:@"Diary"]) {
         
-        NSArray *mass = [[APP_DELEGATE diaryFetchController]fetchedObjects];
+ //       NSArray *mass = [[APP_DELEGATE diaryFetchController]fetchedObjects];
         
-        Diary* aDiary = [mass objectAtIndex:0];
+        Diary* aDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:count];
         
         
         NSLog(@"%@", aDiary.timeStamp);
@@ -104,6 +107,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[LTHPasscodeViewController sharedUser]setDelegate:nil];
     [[APP_DELEGATE notesFetchController] setDelegate: self];
     //research
     self.searchDisplayController.searchBar.text =  self.searchDisplayController.searchBar.text;
@@ -111,8 +115,9 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    NSLog(@"rootViewController: viewDidAppear");
     [super viewDidAppear:animated];
+    NSLog(@"rootViewController: viewDidAppear");
+    
   
     // reload table
     [self.searchDisplayController.searchResultsTableView reloadData];
@@ -367,37 +372,30 @@
     
     [LTHPasscodeViewController useKeychain:YES];
     if ([LTHPasscodeViewController doesPasscodeExist]) {
-        if ([LTHPasscodeViewController didPasscodeTimerEnd])
-            
-            
+       // if ([LTHPasscodeViewController didPasscodeTimerEnd])
+        
             [[LTHPasscodeViewController sharedUser]showLockScreenWithAnimation:YES
                                                                     withLogout:YES
                                                                 andLogoutTitle:@"Cancel"];
+        
     }else{
-       // [[LTHPasscodeViewController sharedUser]showForEnablingPasscodeInViewController:self asModal:YES];
+        //[[LTHPasscodeViewController sharedUser]showForEnablingPasscodeInViewController:self asModal:YES];
          [self performSegueWithIdentifier:diarySegue sender:self];
+        
     }
-    
-    
+ 
 }
 
 
 - (void)passcodeWasEnteredSuccessfully
 {
-    
     [self performSegueWithIdentifier:diarySegue sender:self];
-    
 }
+
 - (void)logoutButtonWasPressed
 {
     [LTHPasscodeViewController close];
 }
-
-- (void)savePasscode:(NSString *)passcode
-{
-    
-}
-
 
 - (void)maxNumberOfFailedAttemptsReached {
     [LTHPasscodeViewController close];
