@@ -34,6 +34,13 @@
 		D9681B5F1BDFBDD200B95559 /* DiaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D9681B5E1BDFBDD200B95559 /* DiaryCell.m */; settings = {ASSET_TAGS = (); }; };
 		D9681B681BDFD92B00B95559 /* DiaryDescriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9681B671BDFD92B00B95559 /* DiaryDescriptionController.m */; settings = {ASSET_TAGS = (); }; };
 		D9753E791BE8E6F7005754B8 /* NSDate+GetDay.m in Sources */ = {isa = PBXBuildFile; fileRef = D9753E781BE8E6F7005754B8 /* NSDate+GetDay.m */; settings = {ASSET_TAGS = (); }; };
+		D980F9241BF0FE0400128FAB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D980F9231BF0FE0400128FAB /* Accelerate.framework */; };
+		D980F9261BF0FE1C00128FAB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D980F9251BF0FE1C00128FAB /* QuartzCore.framework */; };
+		D980F9281BF0FE2800128FAB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D980F9271BF0FE2800128FAB /* UIKit.framework */; };
+		D980F92A1BF0FE3100128FAB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D980F9291BF0FE3100128FAB /* Foundation.framework */; };
+		D980F92C1BF0FE3A00128FAB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D980F92B1BF0FE3A00128FAB /* CoreGraphics.framework */; };
+		D980F92F1BF0FEB900128FAB /* ImageCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = D980F92E1BF0FEB900128FAB /* ImageCropView.m */; settings = {ASSET_TAGS = (); }; };
+		D980F9321BF0FEE000128FAB /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = D980F9311BF0FEE000128FAB /* FXBlurView.m */; settings = {ASSET_TAGS = (); }; };
 		D9BCCC401BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BCCC3F1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -105,6 +112,15 @@
 		D9681B671BDFD92B00B95559 /* DiaryDescriptionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryDescriptionController.m; sourceTree = "<group>"; };
 		D9753E771BE8E6F7005754B8 /* NSDate+GetDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+GetDay.h"; sourceTree = "<group>"; };
 		D9753E781BE8E6F7005754B8 /* NSDate+GetDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+GetDay.m"; sourceTree = "<group>"; };
+		D980F9231BF0FE0400128FAB /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		D980F9251BF0FE1C00128FAB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D980F9271BF0FE2800128FAB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D980F9291BF0FE3100128FAB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D980F92B1BF0FE3A00128FAB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D980F92D1BF0FEB900128FAB /* ImageCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropView.h; sourceTree = "<group>"; };
+		D980F92E1BF0FEB900128FAB /* ImageCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropView.m; sourceTree = "<group>"; };
+		D980F9301BF0FEE000128FAB /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		D980F9311BF0FEE000128FAB /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		D9BCCC3E1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIImage_Additional.h"; sourceTree = "<group>"; };
 		D9BCCC3F1BCEAAA3004DF9A9 /* UIImage+UIImage_Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIImage_Additional.m"; sourceTree = "<group>"; };
 		DECB007A20CC65005D76A1C3 /* Pods-MindFactory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MindFactory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MindFactory/Pods-MindFactory.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +132,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D980F92C1BF0FE3A00128FAB /* CoreGraphics.framework in Frameworks */,
+				D980F92A1BF0FE3100128FAB /* Foundation.framework in Frameworks */,
+				D980F9281BF0FE2800128FAB /* UIKit.framework in Frameworks */,
+				D980F9261BF0FE1C00128FAB /* QuartzCore.framework in Frameworks */,
+				D980F9241BF0FE0400128FAB /* Accelerate.framework in Frameworks */,
 				B1E985DC27294C33B1C4281C /* libPods-MindFactory.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +161,11 @@
 		5969354F976A61ADA994C0BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D980F92B1BF0FE3A00128FAB /* CoreGraphics.framework */,
+				D980F9291BF0FE3100128FAB /* Foundation.framework */,
+				D980F9271BF0FE2800128FAB /* UIKit.framework */,
+				D980F9251BF0FE1C00128FAB /* QuartzCore.framework */,
+				D980F9231BF0FE0400128FAB /* Accelerate.framework */,
 				44AA581E7322CCD497D74D1A /* libPods-MindFactory.a */,
 			);
 			name = Frameworks;
@@ -182,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				D9655F2D1BCEA369006CB414 /* tessdata */,
+				D980F9201BF0FD2E00128FAB /* ImageCropView */,
 				D9655F3F1BCEA7F5006CB414 /* ManagedObjects */,
 				D9655F431BCEA894006CB414 /* Cell */,
 				D9BCCC411BCEAAA7004DF9A9 /* Category */,
@@ -277,6 +304,25 @@
 				D9678FF11BCFAB0D00F4E713 /* NoteDesciriptionController.m */,
 			);
 			name = Note;
+			sourceTree = "<group>";
+		};
+		D980F9201BF0FD2E00128FAB /* ImageCropView */ = {
+			isa = PBXGroup;
+			children = (
+				D980F9331BF0FF8800128FAB /* FXBlurView */,
+				D980F92D1BF0FEB900128FAB /* ImageCropView.h */,
+				D980F92E1BF0FEB900128FAB /* ImageCropView.m */,
+			);
+			name = ImageCropView;
+			sourceTree = "<group>";
+		};
+		D980F9331BF0FF8800128FAB /* FXBlurView */ = {
+			isa = PBXGroup;
+			children = (
+				D980F9301BF0FEE000128FAB /* FXBlurView.h */,
+				D980F9311BF0FEE000128FAB /* FXBlurView.m */,
+			);
+			name = FXBlurView;
 			sourceTree = "<group>";
 		};
 		D9BCCC411BCEAAA7004DF9A9 /* Category */ = {
@@ -471,10 +517,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D980F92F1BF0FEB900128FAB /* ImageCropView.m in Sources */,
 				D9678FF81BCFAB7500F4E713 /* Note.m in Sources */,
 				D9655F3E1BCEA7EB006CB414 /* Item.m in Sources */,
 				D9655F3D1BCEA7EB006CB414 /* Item+CoreDataProperties.m in Sources */,
 				D9655F421BCEA890006CB414 /* TodoCell.m in Sources */,
+				D980F9321BF0FEE000128FAB /* FXBlurView.m in Sources */,
 				D90BF3451BDE77720091D3D0 /* DiaryTableViewController.m in Sources */,
 				D9655F2A1BCEA32F006CB414 /* MindFactory.xcdatamodeld in Sources */,
 				D9681B681BDFD92B00B95559 /* DiaryDescriptionController.m in Sources */,

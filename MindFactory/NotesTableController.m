@@ -107,7 +107,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [[LTHPasscodeViewController sharedUser]setDelegate:nil];
+   // [[LTHPasscodeViewController sharedUser]setDelegate:nil];
     [[APP_DELEGATE notesFetchController] setDelegate: self];
     //research
     self.searchDisplayController.searchBar.text =  self.searchDisplayController.searchBar.text;
@@ -118,7 +118,6 @@
     [super viewDidAppear:animated];
     NSLog(@"rootViewController: viewDidAppear");
     
-  
     // reload table
     [self.searchDisplayController.searchResultsTableView reloadData];
 }
