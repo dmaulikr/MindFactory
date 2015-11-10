@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/AppDelegate.m"
-            timestampString = "468940678.043561"
+            timestampString = "472052262.757459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "316"
-            endingLineNumber = "316"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
             landmarkName = "-addNewNoteWithText:"
             landmarkType = "5">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "5">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "5">
          </BreakpointContent>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "@implementation NotesTableController"
             landmarkType = "3">
          </BreakpointContent>
@@ -266,7 +266,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "-tableView:editActionsForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "-tableView:editActionsForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
             landmarkName = "-tableView:editActionsForRowAtIndexPath:"
             landmarkType = "5">
             <Locations>
@@ -393,11 +393,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "390"
-            endingLineNumber = "390"
+            startingLineNumber = "355"
+            endingLineNumber = "355"
             landmarkName = "-passcodeWasEnteredSuccessfully"
             landmarkType = "5">
          </BreakpointContent>
@@ -473,11 +473,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/AppDelegate.m"
-            timestampString = "468940678.043561"
+            timestampString = "472052262.757459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "419"
-            endingLineNumber = "419"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
             landmarkName = "-moveNoteToDiary:"
             landmarkType = "5">
          </BreakpointContent>
@@ -489,11 +489,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "-tableView:editActionsForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -505,11 +505,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "-controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -597,11 +597,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/AppDelegate.m"
-            timestampString = "468940678.043561"
+            timestampString = "472052262.757459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "417"
-            endingLineNumber = "417"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
             landmarkName = "-moveNoteToDiary:"
             landmarkType = "5">
          </BreakpointContent>
@@ -613,11 +613,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/AppDelegate.m"
-            timestampString = "468940678.043561"
+            timestampString = "472052262.757459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "415"
-            endingLineNumber = "415"
+            startingLineNumber = "384"
+            endingLineNumber = "384"
             landmarkName = "-moveNoteToDiary:"
             landmarkType = "5">
          </BreakpointContent>
@@ -780,6 +780,53 @@
             endingLineNumber = "248"
             landmarkName = "-passwordButtonPressed:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__50-[DiaryTableViewController passwordButtonPressed:]_block_invoke139"
+                  moduleName = "MindFactory"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sasha/Desktop/projects/MindFactory/MindFactory/DiaryTableViewController.m"
+                  timestampString = "468881535.296915"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "250"
+                  endingLineNumber = "250"
+                  offsetFromSymbolStart = "137">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_142"
+                  moduleName = "MindFactory"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sasha/Desktop/projects/MindFactory/MindFactory/DiaryTableViewController.m"
+                  timestampString = "468881535.297177"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_143"
+                  moduleName = "MindFactory"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sasha/Desktop/projects/MindFactory/MindFactory/DiaryTableViewController.m"
+                  timestampString = "468881535.297427"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -804,28 +851,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MindFactory/AppDelegate.m"
-            timestampString = "469199330.258587"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "-dayOnlyDateFromDate:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
+            startingLineNumber = "336"
+            endingLineNumber = "336"
             landmarkName = "-diaryPassCodeButtonPressed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -837,11 +868,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "370"
-            endingLineNumber = "370"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
             landmarkName = "-diaryPassCodeButtonPressed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -853,11 +884,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "367"
-            endingLineNumber = "367"
+            startingLineNumber = "332"
+            endingLineNumber = "332"
             landmarkName = "-diaryPassCodeButtonPressed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -869,11 +900,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "368"
-            endingLineNumber = "368"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
             landmarkName = "-diaryPassCodeButtonPressed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -885,11 +916,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468854373.39899"
+            timestampString = "472139310.991891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
             landmarkName = "-diaryPassCodeButtonPressed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -901,11 +932,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/AppDelegate.m"
-            timestampString = "468940678.043561"
+            timestampString = "472052262.757459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "-applicationWillEnterForeground:"
             landmarkType = "5">
          </BreakpointContent>
@@ -917,11 +948,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/AppDelegate.m"
-            timestampString = "468940678.043561"
+            timestampString = "472052262.757459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "-applicationDidBecomeActive:"
             landmarkType = "5">
          </BreakpointContent>
@@ -996,76 +1027,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MindFactory/AddMoneyViewController.m"
-            timestampString = "468853276.860118"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "632"
-            endingLineNumber = "632"
-            landmarkName = "@implementation AddMoneyViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MindFactory/AddMoneyViewController.m"
-            timestampString = "468853276.860118"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "638"
-            endingLineNumber = "638"
-            landmarkName = "@implementation AddMoneyViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MindFactory/AddMoneyViewController.m"
-            timestampString = "468853276.860118"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "631"
-            endingLineNumber = "631"
-            landmarkName = "@implementation AddMoneyViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MindFactory/AddMoneyViewController.m"
-            timestampString = "468853276.860118"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "637"
-            endingLineNumber = "637"
-            landmarkName = "@implementation AddMoneyViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MindFactory/NotesTableController.m"
-            timestampString = "468853356.607915"
+            timestampString = "472052262.757459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -1077,12 +1044,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/AppDelegate.m"
-            timestampString = "468940409.147909"
+            timestampString = "472052262.757459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "-applicationWillEnterForeground:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MindFactory/AddMoneyViewController.m"
+            timestampString = "472140000.079851"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "630"
+            endingLineNumber = "630"
+            landmarkName = "-reset"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MindFactory/AddMoneyViewController.m"
+            timestampString = "472140024.55985"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
+            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MindFactory/AddMoneyViewController.m"
+            timestampString = "468881535.181926"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "637"
+            endingLineNumber = "637"
+            landmarkName = "-cropViewController:didCropToImage:withRect:angle:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

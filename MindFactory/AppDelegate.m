@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MoneyViewController.h"
+#import "NSDate+GetDay.h"
 
 @interface AppDelegate () 
 
@@ -32,37 +33,7 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
-#pragma mark - DateCompare
--(NSString *)getStringFromDate:(NSDate *)date{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.locale = [NSLocale currentLocale];
-    [dateFormatter setDateFormat:@"d MMM yyyy, HH:mm"];
-    NSString *stringFromDate = [dateFormatter stringFromDate:date];
-    return stringFromDate;
-}
 
-- (NSDate*)dayOnlyDateFromDate:(NSDate*)date
-{
-    unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    
-    NSDateComponents* components = [calendar components:flags fromDate:date];
-    
-    return [calendar dateFromComponents:components];
-}
-
--(BOOL)checkDateToSelected:(NSDate*)date checkDateToSelected:(NSDate*)date2
-{
-    NSString *dateString = [self getStringFromDate:[self dayOnlyDateFromDate:date]];
-    NSString *dateSelectedString = [self  getStringFromDate:[self dayOnlyDateFromDate:date2]];
-    
-    if ([dateString  isEqualToString:dateSelectedString]){
-        
-        return true;
-    }
-    else
-        return false;
-}
 
 #pragma mark - CoreDataCheck
 
@@ -91,8 +62,6 @@
     NSLog(@"CHECK: %d", a);
     
     
-
-    
     if ([self coreDataHasEntriesForEntityName:@"Diary"]) {
         
         //       NSArray *mass = [[APP_DELEGATE diaryFetchController]fetchedObjects];
@@ -108,7 +77,7 @@
         
         while (true) {
             //check
-            if ([self checkDateToSelected:current checkDateToSelected:now]) {
+            if ([NSDate checkDateToSelected:current checkDateToSelected:now]) {
                 NSLog(@"Equals");
                 break;
             }

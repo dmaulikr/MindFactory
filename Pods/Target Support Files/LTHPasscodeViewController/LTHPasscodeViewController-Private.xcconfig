@@ -1,6 +1,6 @@
 #include "LTHPasscodeViewController.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/LTHPasscodeViewController" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/LTHPasscodeViewController" "${PODS_ROOT}/Headers/Public/M13ProgressSuite" "${PODS_ROOT}/Headers/Public/TesseractOCRiOS" "${PODS_ROOT}/Headers/Public/TesseractOCRiOS/TesseractOCR" "${PODS_ROOT}/Headers/Public/iOS-Color-Picker"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/LTHPasscodeViewController" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/LTHPasscodeViewController" "${PODS_ROOT}/Headers/Public/M13ProgressSuite" "${PODS_ROOT}/Headers/Public/TOCropViewController" "${PODS_ROOT}/Headers/Public/TesseractOCRiOS" "${PODS_ROOT}/Headers/Public/TesseractOCRiOS/TesseractOCR" "${PODS_ROOT}/Headers/Public/iOS-Color-Picker"
 OTHER_LDFLAGS = ${LTHPASSCODEVIEWCONTROLLER_OTHER_LDFLAGS}
 PODS_ROOT = ${SRCROOT}
 SKIP_INSTALL = YES

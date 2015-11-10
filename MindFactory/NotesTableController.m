@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "LTHPasscodeViewController.h"
 #import "DiaryTableViewController.h"
+#import "NSDate+GetDay.h"
 
 #define cellSegue @"cellSegue"
 #define addSegue @"addSegue"
@@ -53,7 +54,6 @@
         
         Diary* aDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:0];
         
-        
         NSLog(@"%@", aDiary.timeStamp);
         
         NSDate *current = aDiary.timeStamp;
@@ -62,7 +62,7 @@
         
         while (true) {
             //check
-            if ([self checkDateToSelected:current checkDateToSelected:now]) {
+            if ([NSDate checkDateToSelected:current checkDateToSelected:now]) {
                 NSLog(@"Equals");
                 break;
             }
@@ -143,41 +143,6 @@
     }
     return YES;
 }
-
-
-#pragma mark - DateCompare
--(NSString *)getStringFromDate:(NSDate *)date{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.locale = [NSLocale currentLocale];
-    [dateFormatter setDateFormat:@"d MMM yyyy, HH:mm"];
-    NSString *stringFromDate = [dateFormatter stringFromDate:date];
-    return stringFromDate;
-}
-
-- (NSDate*)dayOnlyDateFromDate:(NSDate*)date
-{
-    unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    
-    NSDateComponents* components = [calendar components:flags fromDate:date];
-    
-    return [calendar dateFromComponents:components];
-}
-
--(BOOL)checkDateToSelected:(NSDate*)date checkDateToSelected:(NSDate*)date2
-{
-    NSString *dateString = [self getStringFromDate:[self dayOnlyDateFromDate:date]];
-    NSString *dateSelectedString = [self  getStringFromDate:[self dayOnlyDateFromDate:date2]];
-    
-    if ([dateString  isEqualToString:dateSelectedString]){
-        
-        return true;
-    }
-    else
-        return false;
-}
-
-
 
 
 #pragma mark - UITableViewDataSource

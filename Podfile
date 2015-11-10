@@ -7,6 +7,7 @@ pod 'TesseractOCRiOS', '4.0.0'
 pod 'M13ProgressSuite', '1.2.7'
 pod 'LTHPasscodeViewController'
 pod 'iOS-Color-Picker'
+pod 'TOCropViewController'
 
 end
 

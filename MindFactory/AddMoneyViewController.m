@@ -11,9 +11,10 @@
 #import "UIImage+UIImage_Additional.h"
 #import "M13ProgressHUD.h"
 #import "M13ProgressViewRing.h"
+#import "TOCropViewController.h"
 
 
-@interface AddMoneyViewController ()
+@interface AddMoneyViewController () <TOCropViewControllerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIButton *AddOrSaveButton;
@@ -395,15 +396,23 @@
         self.imageToRecognize = chosenImage;
         chosenImage = [UIImage compressForUpload:chosenImage scale:0.2];
         self.imageView.image = chosenImage;
+        
+        [picker dismissViewControllerAnimated:YES completion:NULL];
+        
     
     } else if ([picker isEqual:self.pickerForRecognizeImage]) {
-    
-        self.imageToRecognize = chosenImage;
-        [self recognizeImageWithTesseract:self.imageToRecognize];
 
+        self.imageToRecognize = chosenImage;
+        
+        [picker dismissViewControllerAnimated:YES completion:^{
+            TOCropViewController *cropController = [[TOCropViewController alloc] initWithImage:self.imageToRecognize];
+            cropController.delegate = self;
+            [self presentViewController:cropController animated:YES completion:nil];
+        }];
+        
+    
     }
     
-    [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -620,24 +629,25 @@
     [self.progresViewHUD hide:YES];
     [self.progresViewHUD performAction:M13ProgressViewActionNone animated:NO];
 }
-/*
-#pragma mark - ImageCropView
-- (void)cropImage:(UIImage *)image{
-    ImageCropViewController *controller = [[ImageCropViewController alloc] initWithImage:image];
-    controller.delegate = self;
-    [[self navigationController] pushViewController:controller animated:YES];
-}*/
-/*
-- (void)ImageCropViewController:(ImageCropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage{
-   /* image = croppedImage;
-    imageView.image = croppedImage;
-    [[self navigationController] popViewControllerAnimated:YES];
+
+#pragma mark - Cropper Delegate -
+- (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle
+{
+  //  self.imageView.image = image;
+    
+    self.imageToRecognize = image;
+    [self recognizeImageWithTesseract:self.imageToRecognize];
+    
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+    
+    CGRect viewFrame = [self.view convertRect:self.imageView.frame toView:self.navigationController.view];
+    self.imageView.hidden = YES;
+    [cropViewController dismissAnimatedFromParentViewController:self withCroppedImage:image toFrame:viewFrame completion:^{
+        self.imageView.hidden = NO;
+    }];
 }
 
-- (void)ImageCropViewControllerDidCancel:(ImageCropViewController *)controller{
-    imageView.image = image;
-    [[self navigationController] popViewControllerAnimated:YES];
-}*/
+
 
 /*
 #pragma mark - Navigation

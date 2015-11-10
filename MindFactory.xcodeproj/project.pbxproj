@@ -11,7 +11,6 @@
 		D90BF3451BDE77720091D3D0 /* DiaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D90BF3441BDE77720091D3D0 /* DiaryTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		D95917A61BEA410D009CB62C /* Diary+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D95917A31BEA410D009CB62C /* Diary+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		D95917A71BEA410D009CB62C /* Diary.m in Sources */ = {isa = PBXBuildFile; fileRef = D95917A51BEA410D009CB62C /* Diary.m */; settings = {ASSET_TAGS = (); }; };
-		D95917A91BEA5286009CB62C /* sample_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D95917A81BEA5286009CB62C /* sample_image.jpg */; settings = {ASSET_TAGS = (); }; };
 		D9655EEE1BCEA200006CB414 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655EED1BCEA200006CB414 /* main.m */; };
 		D9655EFF1BCEA200006CB414 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9655EFD1BCEA200006CB414 /* LaunchScreen.storyboard */; };
 		D9655F0A1BCEA200006CB414 /* MindFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D9655F091BCEA200006CB414 /* MindFactoryTests.m */; };
@@ -62,7 +61,6 @@
 		D95917A31BEA410D009CB62C /* Diary+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Diary+CoreDataProperties.m"; sourceTree = "<group>"; };
 		D95917A41BEA410D009CB62C /* Diary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Diary.h; sourceTree = "<group>"; };
 		D95917A51BEA410D009CB62C /* Diary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Diary.m; sourceTree = "<group>"; };
-		D95917A81BEA5286009CB62C /* sample_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample_image.jpg; sourceTree = "<group>"; };
 		D9655EE91BCEA200006CB414 /* MindFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MindFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9655EED1BCEA200006CB414 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D9655EFE1BCEA200006CB414 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 				D9655EFD1BCEA200006CB414 /* LaunchScreen.storyboard */,
 				D9655F281BCEA32F006CB414 /* MindFactory.xcdatamodeld */,
 				D9655F2B1BCEA35E006CB414 /* Main.storyboard */,
-				D95917A81BEA5286009CB62C /* sample_image.jpg */,
 				D9655F001BCEA200006CB414 /* Info.plist */,
 				D9655EEC1BCEA200006CB414 /* Supporting Files */,
 			);
@@ -430,7 +427,6 @@
 				D9655F2C1BCEA35E006CB414 /* Main.storyboard in Resources */,
 				D9655F2E1BCEA369006CB414 /* tessdata in Resources */,
 				D9655F451BCEA906006CB414 /* Assets.xcassets in Resources */,
-				D95917A91BEA5286009CB62C /* sample_image.jpg in Resources */,
 				D9655EFF1BCEA200006CB414 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

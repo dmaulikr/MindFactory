@@ -13,5 +13,8 @@
 
 + (NSString *)getDateStringWithDate:(NSDate *)date;
 + (NSString *)getDayStringWithDate:(NSDate *)now;
++ (NSString *)getStringFromDate:(NSDate *)date;
++ (NSDate*)dayOnlyDateFromDate:(NSDate*)date;
++ (BOOL)checkDateToSelected:(NSDate*)date checkDateToSelected:(NSDate*)date2;
 
 @end
