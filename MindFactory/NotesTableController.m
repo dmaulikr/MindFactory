@@ -50,8 +50,6 @@
     
     if ([self coreDataHasEntriesForEntityName:@"Diary"]) {
         
- //       NSArray *mass = [[APP_DELEGATE diaryFetchController]fetchedObjects];
-        
         Diary* aDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:0];
         
         NSLog(@"%@", aDiary.timeStamp);
@@ -67,6 +65,19 @@
                 break;
             }
             //end check
+            
+            //check day in past
+            NSDate *today = [NSDate date];
+            NSDate *compareDate = current;
+            
+            NSComparisonResult compareResult = [today compare : compareDate];
+            
+            if (compareResult == NSOrderedAscending)
+            {
+                NSLog(@"CompareDate is in the future");
+                break;
+            }
+            //end
             
             //add one day
             NSDateComponents *dayComponent = [[NSDateComponents alloc] init];

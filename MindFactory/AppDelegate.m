@@ -83,6 +83,20 @@
             }
             //end check
             
+            //chek to future
+            NSDate *today = [NSDate date];
+            NSDate *compareDate = current;
+            
+            NSComparisonResult compareResult = [today compare : compareDate];
+            
+            if (compareResult == NSOrderedAscending)
+            {
+                NSLog(@"CompareDate is in the future");
+                break;
+            }
+            
+            //endcheck
+            
             //add one day
             NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
             dayComponent.day = 1;
