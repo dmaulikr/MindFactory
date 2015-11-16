@@ -645,11 +645,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/DiaryDescriptionController.m"
-            timestampString = "469376477.82238"
+            timestampString = "469380353.523681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
             landmarkName = "-imagePickerControllerDidCancel:"
             landmarkType = "5">
          </BreakpointContent>
@@ -661,11 +661,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/DiaryDescriptionController.m"
-            timestampString = "469376477.82238"
+            timestampString = "469380353.523681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "402"
-            endingLineNumber = "402"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
             landmarkName = "-stepperClickAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -677,11 +677,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/DiaryDescriptionController.m"
-            timestampString = "469376477.82238"
+            timestampString = "469380353.523681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "414"
-            endingLineNumber = "414"
+            startingLineNumber = "420"
+            endingLineNumber = "420"
             landmarkName = "-stepperClickAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -693,23 +693,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/DiaryDescriptionController.m"
-            timestampString = "469376477.82238"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "413"
-            endingLineNumber = "413"
-            landmarkName = "-stepperClickAction:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MindFactory/DiaryDescriptionController.m"
-            timestampString = "469376477.82238"
+            timestampString = "469380353.523681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "419"
@@ -725,11 +709,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/DiaryDescriptionController.m"
-            timestampString = "469376477.82238"
+            timestampString = "469380353.523681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
+            startingLineNumber = "425"
+            endingLineNumber = "425"
             landmarkName = "-stepperClickAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -741,11 +725,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MindFactory/DiaryDescriptionController.m"
-            timestampString = "469376477.82238"
+            timestampString = "469380353.523681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "421"
-            endingLineNumber = "421"
+            startingLineNumber = "402"
+            endingLineNumber = "402"
+            landmarkName = "-stepperClickAction:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MindFactory/DiaryDescriptionController.m"
+            timestampString = "469380353.523681"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "427"
+            endingLineNumber = "427"
             landmarkName = "-stepperClickAction:"
             landmarkType = "5">
          </BreakpointContent>

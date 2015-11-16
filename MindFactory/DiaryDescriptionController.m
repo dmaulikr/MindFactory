@@ -191,6 +191,12 @@
 {
     self.color = color;
     [self dismissViewControllerAnimated:YES completion:nil];
+    if ([self.descriptionTextField isFirstResponder]) {
+        [self.descriptionTextField resignFirstResponder];
+        
+    }
+    self.scrollViewBottomSpace.constant = 0;
+    [self.view layoutSubviews];
 }
 
 - (void)colorPickerViewControllerDidCancel:(FCColorPickerViewController *)colorPicker
