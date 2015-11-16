@@ -441,10 +441,15 @@
 }
 
 
-#pragma mark Tesseract
+
+
+#pragma mark - Tesseract
 
 -(void)recognizeImageWithTesseract:(UIImage *)image
 {
+  /* if (image.size.width < 900)  {
+        image = [image resizeImageToFitWidth:300];
+    }*/
     
     UIImage *bwImage = [image g8_blackAndWhite];
     
@@ -463,6 +468,8 @@
     
     operation.tesseract.image = bwImage;
     
+    NSDate* startRequest = [NSDate date];
+    
     operation.recognitionCompleteBlock = ^(G8Tesseract *tesseract) {
         // Fetch the recognized text
         NSString *recognizedText = tesseract.recognizedText;
@@ -473,6 +480,7 @@
         [self setOne];
         
         self.noteTextView.text = recognizedText;
+        NSLog(@"time elapsed: %f", [[NSDate date]timeIntervalSinceDate:startRequest]);
     };
     
     // Finally, add the recognition operation to the queue

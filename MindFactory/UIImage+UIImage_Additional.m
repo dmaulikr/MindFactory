@@ -36,4 +36,31 @@
     return newImage;
 }
 
+#pragma mark - ResizeImageWithBitmap
+- (UIImage *)resizeImageToFitWidth:(CGFloat)resizedWidth;
+{
+    
+    CGFloat height = self.size.height;
+    CGFloat width = self.size.width;
+    NSLog(@"Height: %f, Width: %f", height, width);
+    
+    CGFloat coef = height / width;
+    CGFloat resizedHeight = coef * resizedWidth;
+    
+    CGImageRef imageRef = [self CGImage];
+
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef bitmap = CGBitmapContextCreate(NULL, resizedWidth, resizedHeight, 8, 4 * resizedWidth, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    CGContextDrawImage(bitmap, CGRectMake(0, 0, resizedWidth, resizedHeight), imageRef);
+    CGImageRef ref = CGBitmapContextCreateImage(bitmap);
+    UIImage *result = [UIImage imageWithCGImage:ref];
+    
+    CGContextRelease(bitmap);
+    CGImageRelease(ref);
+    
+    return result;
+}
+
+
 @end

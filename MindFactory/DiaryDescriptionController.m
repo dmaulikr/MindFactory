@@ -127,6 +127,14 @@
     // Do something here
 }
 
+- (IBAction)backgroundTap:(id)sender {
+    if ([self.descriptionTextField isFirstResponder]) {
+        [self.descriptionTextField resignFirstResponder];
+        
+    }
+    self.scrollViewBottomSpace.constant = 0;
+    [self.view layoutSubviews];
+}
 
 
 #pragma mark - AddNewDiary

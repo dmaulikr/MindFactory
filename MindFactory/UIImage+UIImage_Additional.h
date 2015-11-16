@@ -12,5 +12,7 @@
 
 + (UIImage *)compressForUpload:(UIImage *)original scale:(CGFloat)scale;
 + (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
+- (UIImage *)resizeImageToFitWidth:(CGFloat)resizedWidth;
+
 
 @end

@@ -968,7 +968,7 @@
                         <viewControllerLayoutGuide type="top" id="R0T-iw-O78"/>
                         <viewControllerLayoutGuide type="bottom" id="AL8-2f-QkK"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NpJ-Tu-BWp">
+                    <view key="view" contentMode="scaleToFill" id="NpJ-Tu-BWp" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1194,6 +1194,9 @@
                                 <exclude reference="V14-qY-ZGN"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <action selector="backgroundTap:" destination="eMN-c0-fFH" eventType="touchUpInside" id="fCg-oR-13H"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="klu-oI-vag">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="3qN-Ur-wdT">
