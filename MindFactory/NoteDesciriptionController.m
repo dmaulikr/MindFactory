@@ -59,11 +59,18 @@
 
 }
 
+
+
 #pragma mark - UITextViewUpToShowKeyboard
 - (void)keyboardDidShow: (NSNotification *) notif{
     // Do something here
-    self.scrollViewBottomSpace.constant = 253;
     [self.view layoutIfNeeded];
+    
+    CGRect keyboardRect = [notif.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil]; //this is it!
+    NSLog(@"%f",keyboardRect.size.height);
+    
+    self.scrollViewBottomSpace.constant = keyboardRect.size.height;
     
     
     //set UITextView scrolling

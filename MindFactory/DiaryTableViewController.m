@@ -37,10 +37,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myMethod) name:UIApplicationWillEnterForegroundNotification object:nil];
+   // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myMethod) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
--(void)myMethod
+/*-(void)myMethod
 {
     NSLog(@"Hi, foreground");
     if ([LTHPasscodeViewController doesPasscodeExist]) {
@@ -48,7 +48,7 @@
                                                               withLogout:NO
                                                            andLogoutTitle:@"Cancel"];
     }
-}
+}*/
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -75,7 +75,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
      [super viewDidAppear:animated];
-    NSLog(@"rootViewController: viewDidAppear");
    
     // reload table
     [self.searchDisplayController.searchResultsTableView reloadData];
@@ -89,6 +88,7 @@
 - (void)didMoveToParentViewController:(UIViewController *)parent
 {
     if (![parent isEqual:self.parentViewController]) {
+       
         [[LTHPasscodeViewController sharedUser] disablePasscodeWhenApplicationEntersBackground];
 
         

@@ -1406,7 +1406,7 @@ options:NSNumericSearch] != NSOrderedAscending)
 
 
 - (void)_applicationWillEnterForeground {
-	if ([self _doesPasscodeExist] &&
+	/*if ([self _doesPasscodeExist] &&
 		[self _didPasscodeTimerEnd]) {
         _useFallbackPasscode = NO;
         // This is here instead of didEnterBackground because when self is pushed
@@ -1425,15 +1425,15 @@ options:NSNumericSearch] != NSOrderedAscending)
                                    withLogout:NO
                                andLogoutTitle:nil];
         }
-	}
+	}*/
 }
 
 
 - (void)_applicationWillResignActive {
-	if ([self _doesPasscodeExist] && !([self isCurrentlyOnScreen] && [self displayedAsLockScreen])) {
+/*	if ([self _doesPasscodeExist] && !([self isCurrentlyOnScreen] && [self displayedAsLockScreen])) {
         _useFallbackPasscode = NO;
 		[self _saveTimerStartTime];
-	}
+	}*/
 }
 
 

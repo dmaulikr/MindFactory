@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Qoe-VK-UJX">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -629,42 +630,6 @@
                                     <constraint firstItem="Usd-lY-Myx" firstAttribute="leading" secondItem="VbY-cF-Flg" secondAttribute="trailing" id="sMc-C9-X3w"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OaR-MV-FX2">
-                                <rect key="frame" x="539" y="20" width="46" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaI-od-5pt">
-                                        <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="ocJ-h2-LhN"/>
-                                            <constraint firstAttribute="width" constant="46" id="yPw-5y-rSu"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="addOrSaveItem:" destination="QSd-8w-WN0" eventType="touchUpInside" id="cTu-dm-lQ6"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="FaI-od-5pt" firstAttribute="trailing" secondItem="OaR-MV-FX2" secondAttribute="trailingMargin" id="8CS-3k-mLR"/>
-                                    <constraint firstAttribute="bottom" secondItem="FaI-od-5pt" secondAttribute="bottom" id="9Ds-YT-jv3"/>
-                                    <constraint firstAttribute="trailing" secondItem="FaI-od-5pt" secondAttribute="trailing" id="D4r-cc-FQV"/>
-                                    <constraint firstItem="FaI-od-5pt" firstAttribute="top" secondItem="OaR-MV-FX2" secondAttribute="top" id="F0Y-Kh-IrJ"/>
-                                    <constraint firstItem="FaI-od-5pt" firstAttribute="leading" secondItem="OaR-MV-FX2" secondAttribute="leading" id="Rdy-1p-y01"/>
-                                    <constraint firstItem="FaI-od-5pt" firstAttribute="leading" secondItem="OaR-MV-FX2" secondAttribute="leading" id="SUx-9i-Iw9"/>
-                                    <constraint firstItem="FaI-od-5pt" firstAttribute="top" secondItem="OaR-MV-FX2" secondAttribute="topMargin" id="SbJ-43-cBz"/>
-                                    <constraint firstItem="FaI-od-5pt" firstAttribute="leading" secondItem="OaR-MV-FX2" secondAttribute="leadingMargin" id="arH-Iv-LqM"/>
-                                    <constraint firstItem="FaI-od-5pt" firstAttribute="leading" secondItem="OaR-MV-FX2" secondAttribute="leading" id="dog-d6-7Se"/>
-                                    <constraint firstItem="FaI-od-5pt" firstAttribute="bottom" secondItem="OaR-MV-FX2" secondAttribute="bottomMargin" id="dyd-m5-sEx"/>
-                                    <constraint firstAttribute="trailing" secondItem="FaI-od-5pt" secondAttribute="trailing" id="f3m-5v-gFq"/>
-                                    <constraint firstItem="FaI-od-5pt" firstAttribute="top" secondItem="OaR-MV-FX2" secondAttribute="top" id="m3D-UX-Ti1"/>
-                                    <constraint firstItem="FaI-od-5pt" firstAttribute="top" secondItem="OaR-MV-FX2" secondAttribute="top" id="p1H-HO-Whc"/>
-                                    <constraint firstItem="FaI-od-5pt" firstAttribute="centerX" secondItem="OaR-MV-FX2" secondAttribute="centerX" id="poa-et-8bb"/>
-                                    <constraint firstItem="FaI-od-5pt" firstAttribute="leading" secondItem="OaR-MV-FX2" secondAttribute="leading" id="s1c-VE-Miv"/>
-                                    <constraint firstItem="FaI-od-5pt" firstAttribute="top" secondItem="OaR-MV-FX2" secondAttribute="top" id="tdH-oc-BcS"/>
-                                    <constraint firstAttribute="bottom" secondItem="FaI-od-5pt" secondAttribute="bottom" id="uAE-Ua-hAh"/>
-                                    <constraint firstItem="FaI-od-5pt" firstAttribute="centerY" secondItem="OaR-MV-FX2" secondAttribute="centerY" id="yrE-k5-cwa"/>
-                                </constraints>
-                            </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageViewCamera" translatesAutoresizingMaskIntoConstraints="NO" id="HbV-Eg-mNi">
                                 <rect key="frame" x="20" y="52" width="150" height="85"/>
                                 <constraints>
@@ -672,26 +637,36 @@
                                     <constraint firstAttribute="width" constant="150" id="mGa-WL-CGl"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaI-od-5pt">
+                                <rect key="frame" x="534" y="20" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cWH-ES-r5k"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="addOrSaveItem:" destination="QSd-8w-WN0" eventType="touchUpInside" id="cTu-dm-lQ6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pxG-lN-uge" firstAttribute="trailing" secondItem="WXL-QI-OKp" secondAttribute="trailingMargin" constant="5" id="3VP-Cr-BuA"/>
                             <constraint firstItem="R95-3c-i3w" firstAttribute="leading" secondItem="WXL-QI-OKp" secondAttribute="leadingMargin" id="4r0-dO-mni"/>
                             <constraint firstItem="3DB-os-h75" firstAttribute="centerX" secondItem="WXL-QI-OKp" secondAttribute="centerX" id="50M-RX-mp3"/>
+                            <constraint firstItem="FaI-od-5pt" firstAttribute="top" secondItem="R95-3c-i3w" secondAttribute="top" id="57C-XF-SUD"/>
                             <constraint firstItem="HbV-Eg-mNi" firstAttribute="centerY" secondItem="pxG-lN-uge" secondAttribute="centerY" id="6Yc-82-KUu"/>
                             <constraint firstItem="R95-3c-i3w" firstAttribute="leading" secondItem="WXL-QI-OKp" secondAttribute="leadingMargin" id="79T-ax-pdP"/>
-                            <constraint firstItem="pxG-lN-uge" firstAttribute="top" secondItem="OaR-MV-FX2" secondAttribute="bottom" constant="25" id="BAL-Dn-tOf"/>
                             <constraint firstItem="KHa-pu-bcN" firstAttribute="top" secondItem="HbV-Eg-mNi" secondAttribute="bottom" constant="36" id="CFF-to-PdB"/>
                             <constraint firstItem="R95-3c-i3w" firstAttribute="leading" secondItem="3DB-os-h75" secondAttribute="leading" id="DEX-nK-zv1"/>
                             <constraint firstItem="3DB-os-h75" firstAttribute="trailing" secondItem="WXL-QI-OKp" secondAttribute="trailingMargin" id="Dli-YO-uGc"/>
                             <constraint firstItem="KHa-pu-bcN" firstAttribute="trailing" secondItem="3DB-os-h75" secondAttribute="trailing" id="Fe7-wR-pMu"/>
                             <constraint firstItem="R95-3c-i3w" firstAttribute="top" secondItem="ghd-qK-Nb0" secondAttribute="bottom" id="HyB-Hh-e0q"/>
+                            <constraint firstItem="FaI-od-5pt" firstAttribute="trailing" secondItem="KHa-pu-bcN" secondAttribute="trailing" id="IEH-ag-5gz"/>
                             <constraint firstItem="3DB-os-h75" firstAttribute="centerY" secondItem="WXL-QI-OKp" secondAttribute="centerY" id="IZI-iL-qYj"/>
-                            <constraint firstItem="OaR-MV-FX2" firstAttribute="trailing" secondItem="pxG-lN-uge" secondAttribute="trailing" id="JbP-vO-gfc"/>
                             <constraint firstItem="3DB-os-h75" firstAttribute="bottom" secondItem="wUy-Dn-fUe" secondAttribute="top" constant="-45" id="Jze-uY-AKD"/>
                             <constraint firstItem="wUy-Dn-fUe" firstAttribute="top" secondItem="3DB-os-h75" secondAttribute="bottom" constant="8" id="LEX-9D-L34"/>
+                            <constraint firstItem="pxG-lN-uge" firstAttribute="top" secondItem="FaI-od-5pt" secondAttribute="bottom" constant="25" id="QbX-Sb-rx8"/>
                             <constraint firstItem="3DB-os-h75" firstAttribute="leading" secondItem="WXL-QI-OKp" secondAttribute="leadingMargin" id="Qx6-fc-UsM"/>
-                            <constraint firstItem="OaR-MV-FX2" firstAttribute="top" secondItem="R95-3c-i3w" secondAttribute="top" id="TPi-vL-h9G"/>
                             <constraint firstItem="3DB-os-h75" firstAttribute="bottom" secondItem="wUy-Dn-fUe" secondAttribute="top" id="UJa-SG-4Nx"/>
                             <constraint firstItem="3DB-os-h75" firstAttribute="top" secondItem="WXL-QI-OKp" secondAttribute="top" constant="349" id="Uc0-Ox-lh7"/>
                             <constraint firstItem="3DB-os-h75" firstAttribute="centerX" secondItem="WXL-QI-OKp" secondAttribute="centerX" id="W7F-xo-MhD"/>

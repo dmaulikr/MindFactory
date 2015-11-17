@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MoneyViewController.h"
 #import "NSDate+GetDay.h"
+#import "LTHPasscodeViewController.h"
 
 @interface AppDelegate () 
 
@@ -126,10 +127,7 @@
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:str];
         [self addNewDiaryWithText:data andIndexSmile:2];
     }
-    
-
-    
-   
+       
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

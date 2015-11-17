@@ -100,8 +100,14 @@
 #pragma mark - UITextViewUpToShowKeyboard
 - (void)keyboardDidShow: (NSNotification *) notif{
     // Do something here
-    self.scrollViewBottomSpace.constant = 253;
-    [self.view layoutIfNeeded];
+        [self.view layoutIfNeeded];
+    
+    CGRect keyboardRect = [notif.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil]; //this is it!
+    NSLog(@"%f",keyboardRect.size.height);
+    
+    self.scrollViewBottomSpace.constant = keyboardRect.size.height;
+    
     
     
     //set UITextView scrolling
@@ -301,6 +307,14 @@
 
 - (IBAction)addPhotoToTextView:(id)sender {
     [[self view] endEditing:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([self.descriptionTextField isFirstResponder]) {
+        [self.descriptionTextField resignFirstResponder];
+        
+    }
+    self.scrollViewBottomSpace.constant = 0;
+    [self.view layoutSubviews];
+    
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Select action"
                                                                    message:@"Select a photo?"
