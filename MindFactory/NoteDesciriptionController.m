@@ -60,7 +60,6 @@
 }
 
 
-
 #pragma mark - UITextViewUpToShowKeyboard
 - (void)keyboardDidShow: (NSNotification *) notif{
     // Do something here

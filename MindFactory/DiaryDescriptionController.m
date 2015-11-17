@@ -462,7 +462,7 @@
         [string addAttribute:NSFontAttributeName
                        value:[UIFont italicSystemFontOfSize:fontSize]
                        range:NSMakeRange(self.startStr, self.endStr)];
-        
+      
         
         NSInteger start = self.startStr;
         self.descriptionTextField.attributedText = string;
