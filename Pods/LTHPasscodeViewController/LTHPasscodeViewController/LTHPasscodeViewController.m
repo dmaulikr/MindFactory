@@ -1370,7 +1370,7 @@ options:NSNumericSearch] != NSOrderedAscending)
 
 #pragma mark - Notification Observers
 - (void)_applicationDidEnterBackground {
-	if ([self _doesPasscodeExist]) {
+/*	if ([self _doesPasscodeExist]) {
         if ([_passcodeTextField isFirstResponder]) {
             _useFallbackPasscode = NO;
 			[_passcodeTextField resignFirstResponder];
@@ -1392,7 +1392,7 @@ options:NSNumericSearch] != NSOrderedAscending)
 			if (![[UIApplication sharedApplication].keyWindow viewWithTag: _coverViewTag])
 				[[UIApplication sharedApplication].keyWindow addSubview: _coverView];
 		}
-	}
+	}*/
 }
 
 
@@ -1568,7 +1568,7 @@ options:NSNumericSearch] != NSOrderedAscending)
 
 
 - (void)_addObservers {
-    [[NSNotificationCenter defaultCenter]
+  /*  [[NSNotificationCenter defaultCenter]
      addObserver: self
      selector: @selector(_applicationDidEnterBackground)
      name: UIApplicationDidEnterBackgroundNotification
@@ -1597,7 +1597,7 @@ options:NSNumericSearch] != NSOrderedAscending)
      addObserver:self
      selector:@selector(statusBarFrameOrOrientationChanged:)
      name:UIApplicationDidChangeStatusBarFrameNotification
-     object:nil];
+     object:nil];*/
 }
 
 

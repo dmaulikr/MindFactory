@@ -37,17 +37,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myMethod) name:UIApplicationWillEnterForegroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myMethod) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
-/*-(void)myMethod
+-(void)myMethod
 {
-    NSLog(@"Hi, foreground");
+   
+    
     if ([LTHPasscodeViewController doesPasscodeExist]) {
       [[LTHPasscodeViewController sharedUser]showLockScreenWithAnimation:YES
                                                               withLogout:NO
                                                            andLogoutTitle:@"Cancel"];
     }
+}
+/*
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }*/
 
 
@@ -90,7 +95,7 @@
     if (![parent isEqual:self.parentViewController]) {
        
         [[LTHPasscodeViewController sharedUser] disablePasscodeWhenApplicationEntersBackground];
-
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
         
         NSLog(@"Back pressed");
     }

@@ -109,8 +109,9 @@
         [APP_DELEGATE addNewDiaryWithText:data andIndexSmile:2];
     }
     
-
 }
+
+
 
 - (void)viewWillAppear:(BOOL)animated
 {

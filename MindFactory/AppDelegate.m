@@ -127,7 +127,7 @@
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:str];
         [self addNewDiaryWithText:data andIndexSmile:2];
     }
-       
+
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
