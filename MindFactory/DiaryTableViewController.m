@@ -55,10 +55,10 @@
 {
     [super viewWillAppear:animated];
     
-// [[APP_DELEGATE diaryFetchController] performFetch:nil];
-    
     [[APP_DELEGATE diaryFetchController] setDelegate: self];
     
+    [[LTHPasscodeViewController sharedUser]setDelegate:nil];
+  
     //research
     self.searchDisplayController.searchBar.text =  self.searchDisplayController.searchBar.text;
 }
@@ -69,6 +69,7 @@
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
         [[APP_DELEGATE diaryFetchController] setDelegate: nil];
     }
+    
     
 }
 
@@ -245,9 +246,6 @@
                                                         
                                                                [[LTHPasscodeViewController sharedUser] showForDisablingPasscodeInViewController:self
                                                                                                                                         asModal:YES];
-                                                               
-
-                                                               [self.navigationController popViewControllerAnimated:YES];
                                                                
                                                            }];
     

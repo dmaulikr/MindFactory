@@ -46,22 +46,19 @@
     BOOL a = [self coreDataHasEntriesForEntityName:@"Diary"];
     NSLog(@"CHECK: %d", a);
     
-    int count = [[[APP_DELEGATE diaryFetchController]fetchedObjects]count] - 1;
-    
-    NSLog(@"%d", count);
     
     if ([self coreDataHasEntriesForEntityName:@"Diary"]) {
         
  //       NSArray *mass = [[APP_DELEGATE diaryFetchController]fetchedObjects];
         
-        Diary* aDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:count];
+        Diary* aDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:0];
         
         
         NSLog(@"%@", aDiary.timeStamp);
         
         NSDate *current = aDiary.timeStamp;
         NSDate *now = [NSDate date];
-        
+        NSLog(@"%@", now);
         
         while (true) {
             //check
@@ -110,6 +107,7 @@
    // [[LTHPasscodeViewController sharedUser]setDelegate:nil];
     [[APP_DELEGATE notesFetchController] setDelegate: self];
     //research
+    [[LTHPasscodeViewController sharedUser]setDelegate:self];
     self.searchDisplayController.searchBar.text =  self.searchDisplayController.searchBar.text;
     
 }

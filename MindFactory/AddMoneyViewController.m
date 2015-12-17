@@ -12,6 +12,7 @@
 #import "M13ProgressHUD.h"
 #import "M13ProgressViewRing.h"
 
+
 @interface AddMoneyViewController ()
 
 
@@ -619,6 +620,24 @@
     [self.progresViewHUD hide:YES];
     [self.progresViewHUD performAction:M13ProgressViewActionNone animated:NO];
 }
+/*
+#pragma mark - ImageCropView
+- (void)cropImage:(UIImage *)image{
+    ImageCropViewController *controller = [[ImageCropViewController alloc] initWithImage:image];
+    controller.delegate = self;
+    [[self navigationController] pushViewController:controller animated:YES];
+}*/
+/*
+- (void)ImageCropViewController:(ImageCropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage{
+   /* image = croppedImage;
+    imageView.image = croppedImage;
+    [[self navigationController] popViewControllerAnimated:YES];
+}
+
+- (void)ImageCropViewControllerDidCancel:(ImageCropViewController *)controller{
+    imageView.image = image;
+    [[self navigationController] popViewControllerAnimated:YES];
+}*/
 
 /*
 #pragma mark - Navigation

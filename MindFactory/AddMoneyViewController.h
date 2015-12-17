@@ -11,6 +11,8 @@
 #import <TesseractOCR/TesseractOCR.h>
 
 
+
+
 @interface AddMoneyViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, G8TesseractDelegate>
 //it's new Object?
 @property(nonatomic) BOOL isNew;

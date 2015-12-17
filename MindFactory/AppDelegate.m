@@ -32,8 +32,120 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
+#pragma mark - DateCompare
+-(NSString *)getStringFromDate:(NSDate *)date{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.locale = [NSLocale currentLocale];
+    [dateFormatter setDateFormat:@"d MMM yyyy, HH:mm"];
+    NSString *stringFromDate = [dateFormatter stringFromDate:date];
+    return stringFromDate;
+}
+
+- (NSDate*)dayOnlyDateFromDate:(NSDate*)date
+{
+    unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents* components = [calendar components:flags fromDate:date];
+    
+    return [calendar dateFromComponents:components];
+}
+
+-(BOOL)checkDateToSelected:(NSDate*)date checkDateToSelected:(NSDate*)date2
+{
+    NSString *dateString = [self getStringFromDate:[self dayOnlyDateFromDate:date]];
+    NSString *dateSelectedString = [self  getStringFromDate:[self dayOnlyDateFromDate:date2]];
+    
+    if ([dateString  isEqualToString:dateSelectedString]){
+        
+        return true;
+    }
+    else
+        return false;
+}
+
+#pragma mark - CoreDataCheck
+
+- (BOOL)coreDataHasEntriesForEntityName:(NSString *)entityName {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:[APP_DELEGATE  managedObjectContext]];
+    [request setEntity:entity];
+    [request setFetchLimit:1];
+    NSError *error = nil;
+    NSArray *results = [[APP_DELEGATE managedObjectContext] executeFetchRequest:request error:&error];
+    if (!results) {
+        NSLog(@"Fetch error: %@", error);
+        abort();
+    }
+    if ([results count] == 0) {
+        return NO;
+    }
+    return YES;
+}
+
+
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    BOOL a = [self coreDataHasEntriesForEntityName:@"Diary"];
+    NSLog(@"CHECK: %d", a);
+    
+    
+
+    
+    if ([self coreDataHasEntriesForEntityName:@"Diary"]) {
+        
+        //       NSArray *mass = [[APP_DELEGATE diaryFetchController]fetchedObjects];
+        
+        Diary* aDiary = [[[APP_DELEGATE diaryFetchController]fetchedObjects]objectAtIndex:0];
+        
+        
+        NSLog(@"%@", aDiary.timeStamp);
+        
+        NSDate *current = aDiary.timeStamp;
+        NSDate *now = [NSDate date];
+        
+        
+        while (true) {
+            //check
+            if ([self checkDateToSelected:current checkDateToSelected:now]) {
+                NSLog(@"Equals");
+                break;
+            }
+            //end check
+            
+            //add one day
+            NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
+            dayComponent.day = 1;
+            
+            NSCalendar *theCalendar = [NSCalendar currentCalendar];
+            NSDate *nextDate = [theCalendar dateByAddingComponents:dayComponent toDate:current options:0];
+            
+            NSLog(@"nextDate: %@ ...", nextDate);
+            //end
+            //add to core data next day
+            NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:@"" attributes:nil];
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:str];
+            
+            
+            NSNumber *numIndex = [NSNumber numberWithInteger:2];
+            
+            [self addNewDiaryWithText:data andDate:nextDate andIndexSmile:numIndex];
+            //end
+            
+            //day up
+            current = nextDate;
+            //end
+        }
+        
+    } else {
+        NSMutableAttributedString *str = [[NSMutableAttributedString alloc]initWithString:@"" attributes:nil];
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:str];
+        [self addNewDiaryWithText:data andIndexSmile:2];
+    }
+    
+
+    
    
 }
 
@@ -262,10 +374,9 @@
 {
     Diary* theDiary = [NSEntityDescription insertNewObjectForEntityForName:@"Diary" inManagedObjectContext:[self managedObjectContext]];
     
-    NSNumber *indexNumber = [NSNumber numberWithInteger:index];
     
     theDiary.noteDescription = text;
-    theDiary.indexSmile = indexNumber;
+    theDiary.indexSmile = index;
     theDiary.timeStamp = date;
     
     [self saveContext];
